@@ -31,7 +31,7 @@ export default {
 .button::before {
   content: "";
   position: absolute;
-  right: -37px;
+  right: -36px;
   top: 0px;
   border: 19px solid transparent;
   border-left: 19px solid #ff723e;

@@ -1,34 +1,35 @@
 <template>
   <div class="main">
     <div class="container">
-      <div class="block-1">
-        <div class="block-1__body">
-          <div class="block-1__body_title">
-            <h3>Послуги <span>графічного</span> дизайну</h3>
-          </div>
-          <div class="block-1__body_text">
-            <p>
-              Будьте творчими та виділяйтесь в конкурентному бізнес-середовищі
-              за допомогою ефективних рішень з графічного дизайну від Wild Web!
-            </p>
-          </div>
-          <main-button>поговоримо?</main-button>
-        </div>
-        <div class="block-1__image">
-          <img
-            src="../../static/image/design-banner.png"
-            alt="image-duck-banner"
-          />
-        </div>
-      </div>
+      <Block1></Block1>
+      <Tickers></Tickers>
+		<Block2 :services="services"></Block2>
     </div>
   </div>
 </template>
 <script>
-import MainButton from "../button/Main-Button.vue";
+import Block1 from "./Block-1.vue";
+import Block2 from "./Block-2.vue";
+import Tickers from "./Tickers.vue";
 export default {
-  components: { MainButton },
+  components: { Block1, Tickers, Block2 },
   name: "Main",
+  data(){
+	return{
+		services:[
+			{ title:'Інтернет магазин',subtitle:'Розробляємо на Laravel, Opencart, WordPress, OkayCMS.',price:'2500',id:'1'},
+			{ title:'Корпоративні сайти',subtitle:'Корпоративні проекти різної складності на Laravel, WordPress, OkayCMS.',price:'2500',id:'2'},
+			{ title:'Landing page',subtitle:'Лендинги що продають на WordPress, Webflow, WIX.',price:'2500',id:'3'},
+			{ title:'Бізнес сайт',subtitle:'Сайти послуг та продуктів на WordPress, Webflow, WIX.',price:'2500',id:'4'},
+			{ title:'Дизайн сайту',subtitle:`Використовуємо прості і сміливі рішення, які запам'ятаються відвідувачам і виділять вас серед конкурентів.`,price:'2500',id:'5'},
+			{ title:'Сайт візитка',subtitle:'Прості сайти на WordPress, OkayCMS, Webflow, WIX.',price:'2500',id:'6'},
+			{ title:'Доопрацювання сайту',subtitle:`Впроваджуємо нові "хотілки", розвиваємо функціонал, оптимізуємо роботу модулів 
+							і плагінів.`,price:'2500',id:'7'},
+			{ title:'Редизайн сайту',subtitle:'Допомагаємо клієнтам бути попереду конкурентів. Оновлюємо дизайн, додаємо нові "фішки".',price:'2500',id:'8'},
+			{ title:'Технічна підтримка',subtitle:'Підтримуємо та розвиваємо створені та існуючі проекти.',price:'2500',id:'9'},
+		]
+	}
+  }
 };
 </script>
 <style scoped>
@@ -38,43 +39,5 @@ export default {
 .container {
   max-width: 1280px;
   margin: 0 auto;
-}
-.block-1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-.block-1__body {
-  display: flex;
-  flex-direction: column;
-  max-width: 535px;
-  margin-top: 105px;
-}
-.block-1__body_title {
-  font-size: 42px;
-  font-weight: 700;
-  margin-bottom: 30px;
-}
-.block-1__body_text {
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 24px;
-  margin-bottom: 30px;
-}
-.block-1__image {
-  /* background: linear-gradient(87.08deg, #203f6a 0%, #ea5a25 100%); */
-}
-.block-1__image img {
-  width: 634px;
-}
-.block-1__image img::before {
-  content: "";
-  position: absolute;
-  width: 222px;
-  height: 220.5px;
-  top: 0;
-  left: 0;
-  background: url(../../static/image/bloc-1-image8.png);
-  z-index: 5;
 }
 </style>
