@@ -24,13 +24,13 @@
             </li>
           </ul>
         </nav>
-        <main-button> залишити заявку </main-button>
+        <main-button class="btn-menu"> залишити заявку </main-button>
         <div class="header__lang">
           <span>En</span>
-        </div>
-        <div class="header__burger">
-          <span></span>
-          <span></span>
+          <div class="header__burger">
+            <span></span>
+            <span></span>
+          </div>
         </div>
       </div>
     </div>
@@ -53,11 +53,13 @@ export default {
 }
 .header__body {
   display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 .header__logo {
 }
 .header__lang {
+  display: flex;
   margin-left: 96px;
 }
 .header__menu {
@@ -95,6 +97,7 @@ export default {
   position: relative;
   z-index: 2;
   overflow: hidden;
+  margin-left: 15px;
 }
 .header__burger span {
   width: 30px;
@@ -112,4 +115,55 @@ export default {
 .header__burger span:nth-of-type(3) {
   top: calc(50% + 10px);
 }
+@media (max-width: 1200px) {
+	.header {
+  margin-bottom: 20px;
+}
+  .header__menu {
+    margin-left: 20px;
+  }
+  .header__list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .header__link {
+    display: inline-block;
+    margin-right: 15px;
+  }
+  .header__lang {
+    margin-left: 36px;
+  }
+}
+@media (max-width: 970px) {
+  .header__body {
+    justify-content: space-around;
+  }
+  .header__list {
+    align-items: center;
+    justify-content: center;
+    a {
+      margin-top: 20px;
+    }
+  }
+}
+@media (max-width: 767px) {
+  .header__body {
+    margin-top: 40px;
+    justify-content: space-between;
+  }
+  .header__logo {
+    height: 40px;
+    width: 142px;
+  }
+  .header__menu,.btn-menu {
+    display: none;
+  }
+  .header__burger {
+    display: block;
+  }
+
+}
+/* @media (max-width: 479px){
+
+} */
 </style>

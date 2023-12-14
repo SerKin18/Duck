@@ -46,6 +46,24 @@ export default {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  flex: 0 1 33.33%;
+}
+@media (max-width: 1200px) {
+	.services{
+	margin-top: 70px;
+	}
+	.services__title {
+	margin-bottom: 40px;
+	font-size:60px ;
+}
+}
+@media (max-width: 970px) {
+	.services__title {
+	font-size: 40px;
+}
+}
+@media (max-width: 767px) {
+	.services__title {
+	font-size: 22px;
+}
 }
 </style>
