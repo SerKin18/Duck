@@ -1,19 +1,24 @@
 <template>
-  <div class="block-1">
-    <div class="block-1__body">
-      <div class="block-1__body_title">
-        <h3>Послуги <span>графічного</span> дизайну</h3>
+  <div class="container">
+    <div class="block-1">
+      <div class="block-1__body">
+        <div class="block-1__body_title">
+          <h3>Послуги <span>графічного</span> дизайну</h3>
+        </div>
+        <div class="block-1__body_text">
+          <p>
+            Будьте творчими та виділяйтесь в конкурентному бізнес-середовищі за
+            допомогою ефективних рішень з графічного дизайну від Wild Web!
+          </p>
+        </div>
+        <main-button class="btn-block-1">поговоримо?</main-button>
       </div>
-      <div class="block-1__body_text">
-        <p>
-          Будьте творчими та виділяйтесь в конкурентному бізнес-середовищі за
-          допомогою ефективних рішень з графічного дизайну від Wild Web!
-        </p>
+      <div class="block-1__image">
+        <img
+          src="../../static/image/design-banner.png"
+          alt="image-duck-banner"
+        />
       </div>
-      <main-button class="btn-block-1">поговоримо?</main-button>
-    </div>
-    <div class="block-1__image">
-      <img src="../../static/image/design-banner.png" alt="image-duck-banner" />
     </div>
   </div>
 </template>
@@ -26,6 +31,10 @@ export default {
 };
 </script>
 <style csope>
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
 .block-1 {
   display: flex;
   flex-direction: row;
@@ -102,7 +111,6 @@ export default {
 }
 @media (max-width: 970px) {
   .block-1__body {
-
     margin-top: 0px;
   }
   .btn-block-1 {
@@ -124,18 +132,18 @@ export default {
   }
   .block-1__body_title {
     font-size: 22px;
-	}
-	block-1__body_title span:after {
+  }
+  block-1__body_title span:after {
     scale: 0.5;
     top: -22px;
     right: 47%;
   }
-  .block-1__body{
-	margin-bottom: 32px;
+  .block-1__body {
+    margin-bottom: 32px;
   }
   .block-1__image img {
     width: 100%;
-	 scale: 1.3;
+    scale: 1.3;
   }
   .btn-block-1 {
     display: none;
