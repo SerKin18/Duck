@@ -26,18 +26,18 @@ export default {
   padding: 14px;
 }
 @media (max-width: 1200px) {
-h2{
-	font-size:60px ;
-}
+  h2 {
+    font-size: 60px;
+  }
 }
 @media (max-width: 970px) {
-	h2{
-	font-size: 40px;
-}
+  h2 {
+    font-size: 40px;
+  }
 }
 @media (max-width: 767px) {
-	h2{
-	font-size: 22px;
-}
+  h2 {
+    font-size: 22px;
+  }
 }
 </style>

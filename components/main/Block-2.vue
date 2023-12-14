@@ -1,16 +1,18 @@
 <template>
-  <div class="services">
-    <div class="services__title">
-      <h2>Послуги</h2>
+  <div class="container">
+    <div class="services">
+      <div class="services__title">
+        <h2>Послуги</h2>
+      </div>
+      <div class="services__body">
+        <Service
+          v-for="service in services"
+          :service="service"
+          :key="service.id"
+        ></Service>
+      </div>
+      <main-button>відправити запит</main-button>
     </div>
-    <div class="services__body">
-      <Service
-        v-for="service in services"
-        :service="service"
-        :key="service.id"
-      ></Service>
-    </div>
-    <main-button>відправити запит</main-button>
   </div>
 </template>
 <script>
@@ -28,6 +30,11 @@ export default {
 };
 </script>
 <style scope>
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0px 20px;
+}
 .services {
   display: flex;
   flex-direction: column;
@@ -48,22 +55,22 @@ export default {
   flex-wrap: wrap;
 }
 @media (max-width: 1200px) {
-	.services{
-	margin-top: 70px;
-	}
-	.services__title {
-	margin-bottom: 40px;
-	font-size:60px ;
-}
+  .services {
+    margin-top: 70px;
+  }
+  .services__title {
+    margin-bottom: 40px;
+    font-size: 60px;
+  }
 }
 @media (max-width: 970px) {
-	.services__title {
-	font-size: 40px;
-}
+  .services__title {
+    font-size: 40px;
+  }
 }
 @media (max-width: 767px) {
-	.services__title {
-	font-size: 22px;
-}
+  .services__title {
+    font-size: 22px;
+  }
 }
 </style>

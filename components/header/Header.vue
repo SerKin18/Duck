@@ -1,6 +1,5 @@
 <template>
-  <header class="header">
-    <div class="container">
+    <header class="header">
       <div class="header__body">
         <a href="#" class="header__logo">
           <img src="../../static/image/logo-full.png" alt="Logo" />
@@ -33,8 +32,8 @@
           </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
+
 </template>
 <script>
 import MainButton from "../button/Main-Button.vue";
@@ -116,9 +115,9 @@ export default {
   top: calc(50% + 10px);
 }
 @media (max-width: 1200px) {
-	.header {
-  margin-bottom: 20px;
-}
+  .header {
+    margin-bottom: 20px;
+  }
   .header__menu {
     margin-left: 20px;
   }
@@ -155,13 +154,13 @@ export default {
     height: 40px;
     width: 142px;
   }
-  .header__menu,.btn-menu {
+  .header__menu,
+  .btn-menu {
     display: none;
   }
   .header__burger {
     display: block;
   }
-
 }
 /* @media (max-width: 479px){
 
