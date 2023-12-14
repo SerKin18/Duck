@@ -35,9 +35,22 @@ export default {
 .service-item {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   max-width: 435px;
+  height: 214px;
   padding: 14px 23px;
   margin-bottom: 70px;
+  flex: 1 0 33.333%;
+}
+.service-item:hover {
+  background-color: rgba(234, 90, 37, 1);
+  a {
+    color: rgb(7, 7, 7);
+  }
+  span::before,
+  span::after {
+    background-color: rgb(7, 7, 7);
+  }
 }
 .service-item__header {
   margin-bottom: 50px;
@@ -52,9 +65,8 @@ export default {
 }
 .service-item-header__title span {
   position: relative;
-  
 }
-.service-item-header__title span::before,
+.service-item-header__title span::before,  
 span::after {
   content: "";
   position: absolute;
@@ -80,6 +92,7 @@ span::after {
   font-weight: 400;
   font-size: 16px;
   line-height: 25px;
+  text-align: left;
 }
 .service-item__footer {
   display: flex;
@@ -123,5 +136,38 @@ span::after {
   font-weight: 700;
   font-size: 16px;
   color: white;
+}
+
+@media (max-width: 767px) {
+  .service-item {
+    max-width: 100%;
+	 height: 165px;
+    flex: 0 0 100%;
+	 border-bottom: 1px solid  rgba(217, 217, 217, 1);
+	 margin-bottom: 0px;
+	 padding: 20px 11px 20px 11px;
+  }
+  .service-item__header {
+  margin-bottom: 0px;
+}
+  .service-item-header__title {
+    font-size: 16px;
+    margin-bottom: 5px;
+    padding: 0px 0px 0px 26px;
+  }
+
+  .service-item-header__title span::before,
+span::after {
+  top: 2px;
+  left: -20px;
+  width: 11px;
+  height: 3px;
+
+}
+.service-item-header__title span::before{
+	top:4px;
+  left: -18px;
+}
+
 }
 </style>

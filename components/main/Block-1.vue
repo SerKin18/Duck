@@ -10,7 +10,7 @@
           допомогою ефективних рішень з графічного дизайну від Wild Web!
         </p>
       </div>
-      <main-button>поговоримо?</main-button>
+      <main-button class="btn-block-1">поговоримо?</main-button>
     </div>
     <div class="block-1__image">
       <img src="../../static/image/design-banner.png" alt="image-duck-banner" />
@@ -41,7 +41,6 @@ export default {
 
 .block-1__body_title {
   text-transform: uppercase;
-
   font-size: 42px;
   font-weight: 700;
   margin-bottom: 30px;
@@ -69,7 +68,7 @@ export default {
   right: 52%;
   width: 34.29px;
   height: 34.29px;
-  background: url(../../static/image/block-1-snow-i.png) center;
+  background: url(../../static/image/block-1-snow-i.svg) center;
 }
 
 .block-1__body_text {
@@ -79,22 +78,77 @@ export default {
   margin-bottom: 30px;
 }
 
-.block-1__image {
-  /* background: linear-gradient(87.08deg, #203f6a 0%, #ea5a25 100%); */
-}
-
 .block-1__image img {
-  width: 634px;
+  max-width: 100%;
 }
 
 .block-1__image img::before {
   content: "";
   position: absolute;
-  width: 222px;
-  height: 220.5px;
   top: 0;
   left: 0;
   background: url(../../static/image/bloc-1-image8.png);
   z-index: 5;
 }
+@media (max-width: 1200px) {
+  .block-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .block-1__body {
+    margin-top: 50px;
+  }
+}
+@media (max-width: 970px) {
+  .block-1__body {
+
+    margin-top: 0px;
+  }
+  .btn-block-1 {
+    align-self: center;
+  }
+  .block-1__body_title {
+    /* font-size: 22px; */
+    margin-bottom: 15px;
+  }
+  /* .block-1__body_title span:after {
+    scale: 0.5;
+    top: -22px;
+    right: 47%;
+  } */
+}
+@media (max-width: 767px) {
+  .block-1 {
+    flex-direction: column;
+  }
+  .block-1__body_title {
+    font-size: 22px;
+	}
+	block-1__body_title span:after {
+    scale: 0.5;
+    top: -22px;
+    right: 47%;
+  }
+  .block-1__body{
+	margin-bottom: 32px;
+  }
+  .block-1__image img {
+    width: 100%;
+	 scale: 1.3;
+  }
+  .btn-block-1 {
+    display: none;
+  }
+}
+
+/* @media (max-width: 1200px) {
+
+}
+@media (max-width: 970px) {
+
+}
+@media (max-width: 767px) {
+
+} */
 </style>
