@@ -1,24 +1,19 @@
 <template>
-  <div class="container">
-    <div class="block-1">
-      <div class="block-1__body">
-        <div class="block-1__body_title">
-          <h3>Послуги <span>графічного</span> дизайну</h3>
-        </div>
-        <div class="block-1__body_text">
-          <p>
-            Будьте творчими та виділяйтесь в конкурентному бізнес-середовищі за
-            допомогою ефективних рішень з графічного дизайну від Wild Web!
-          </p>
-        </div>
-        <main-button class="btn-block-1">поговоримо?</main-button>
+  <div class="block-1">
+    <div class="block-1__body">
+      <div class="block-1__body_title">
+        <h3>Послуги <span>графічного</span> дизайну</h3>
       </div>
-      <div class="block-1__image">
-        <img
-          src="../../static/image/design-banner.png"
-          alt="image-duck-banner"
-        />
+      <div class="block-1__body_text">
+        <p>
+          Будьте творчими та виділяйтесь в конкурентному бізнес-середовищі за
+          допомогою ефективних рішень з графічного дизайну від Wild Web!
+        </p>
       </div>
+      <main-button class="btn-block-1">поговоримо?</main-button>
+    </div>
+    <div class="block-1__image">
+      <img src="../../static/image/design-banner.png" alt="image-duck-banner" />
     </div>
   </div>
 </template>
@@ -30,7 +25,7 @@ export default {
   name: "block-1",
 };
 </script>
-<style csope>
+<style scope>
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -40,7 +35,9 @@ export default {
   flex-direction: row;
   justify-content: space-between;
 }
-
+.btn-block-1 button {
+  width: 180px;
+}
 .block-1__body {
   display: flex;
   flex-direction: column;
@@ -51,8 +48,9 @@ export default {
 .block-1__body_title {
   text-transform: uppercase;
   font-size: 42px;
-  font-weight: 700;
+  line-height: 58px;
   margin-bottom: 30px;
+  font-family: var(--title-font);
 }
 
 .block-1__body_title span {
@@ -73,15 +71,16 @@ export default {
 .block-1__body_title span:after {
   content: "";
   position: absolute;
-  top: -25px;
-  right: 52%;
+  top: -23px;
+  right: 50.5%;
   width: 34.29px;
   height: 34.29px;
   background: url(../../static/image/block-1-snow-i.svg) center;
 }
 
 .block-1__body_text {
-  font-weight: 400;
+  padding: 0px 24px 0px 0px;
+  font-family: var(--subTitle-font);
   font-size: 12px;
   line-height: 24px;
   margin-bottom: 30px;

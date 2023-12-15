@@ -40,10 +40,11 @@ export default {
   flex-direction: column;
   align-items: center;
   margin-top: 97px;
+  margin-bottom: 100px;
 }
 .services__title {
   text-transform: uppercase;
-  font-weight: 400;
+  font-family: var(--title-font);
   font-size: 80px;
   align-self: start;
   margin-bottom: 90px;

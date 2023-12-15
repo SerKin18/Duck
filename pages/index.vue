@@ -1,15 +1,41 @@
 <template>
-  <App/>
+  <App />
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
-}
+  name: "IndexPage",
+};
 </script>
 <style>
+@font-face {
+  font-family: "GothamPro";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("~static/fonts/gothampro.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NeutralFace";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("~static/fonts/NeutralFace-Bold.otf") format("truetype");
+}
+@font-face {
+  font-family: "Radiotechnika";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("~static/fonts/Radiotechnika.otf") format("truetype");
+}
+
+:root {
+  --title-font: "NeutralFace", sans-serif;
+  --subTitle-font: "Radiotechnika", sans-serif;
+}
 * {
-	color:white;
+  color: rgb(255, 255, 255);
   padding: 0;
   margin: 0;
   border: 0;
@@ -42,8 +68,8 @@ aside {
 
 html,
 body {
-	background-color: rgb(0, 0, 0);
-	color:white;
+  background-color: rgb(0, 0, 0);
+  color: white;
   height: 100%;
   width: 100%;
   font-size: 100%;
@@ -52,6 +78,7 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  font-family: "GothamPro",sans-serif;
 }
 
 input,
@@ -75,6 +102,7 @@ button::-moz-focus-inner {
 
 a,
 a:visited {
+	font-family: "GothamPro",sans-serif;
   text-decoration: none;
 }
 
@@ -83,7 +111,6 @@ a:hover {
 }
 
 ul li {
-
   list-style: none;
 }
 
@@ -97,9 +124,7 @@ h3,
 h4,
 h5,
 h6 {
-
   font-size: inherit;
   font-weight: inherit;
 }
-
 </style>

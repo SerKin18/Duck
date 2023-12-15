@@ -1,4 +1,5 @@
 <template>
+  <div class="container">
     <header class="header">
       <div class="header__body">
         <a href="#" class="header__logo">
@@ -7,19 +8,19 @@
         <nav class="header__menu">
           <ul @click.prevent="" class="header__list">
             <li>
-              <a href="" class="header__link">Услуги</a>
+              <a href="" class="header__link">Услуги<span></span></a>
             </li>
             <li>
-              <a href="" class="header__link">Портфолио</a>
+              <a href="" class="header__link">Портфолио<span></span></a>
             </li>
             <li>
-              <a href="" class="header__link">Преимущества</a>
+              <a href="" class="header__link">Преимущества<span></span></a>
             </li>
             <li>
-              <a href="" class="header__link">Калькулятор</a>
+              <a href="" class="header__link">Калькулятор<span></span></a>
             </li>
             <li>
-              <a href="" class="header__link">Крядио</a>
+              <a href="" class="header__link">Крядио<span></span></a>
             </li>
           </ul>
         </nav>
@@ -33,7 +34,7 @@
         </div>
       </div>
     </header>
-
+  </div>
 </template>
 <script>
 import MainButton from "../button/Main-Button.vue";
@@ -67,26 +68,48 @@ export default {
 .header__list {
   display: flex;
 }
+
 .header__link {
-  font-weight: 400;
-  font-size: 16px;
+  position: relative;
+  font-weight: 600;
   line-height: 20px;
   margin-right: 40px;
+  font-family: "GothamPro", sans-serif;
 }
 .header__link li:last-child {
   margin-right: 0px;
 }
-.header__link li::before {
+.header__link span,
+.header__link span:before,
+.header__link span:after {
   content: "";
+  opacity: 0;
   position: absolute;
-  /* background: url(../../static/image/Star-hover-text-menu.png) no-repeat; */
+  bottom: -5px;
+  right: 51%;
+  width: 9px;
+  height: 9px;
+  background: url(../../static/image/header-link-star.svg) center no-repeat;
+}
+.header__link span:after {
+  top: -16px;
+  right: -35px;
+  scale: 0.9;
+}
+.header__link span::before {
+  top: -22px;
+  left: -28px;
+  scale: 0.7;
 }
 .header__link:hover {
   background: linear-gradient(90deg, #ed5d28 0%, #ffbb0d 100%);
-  font-weight: 600;
-
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  span,
+  span::before,
+  span::after {
+    opacity: 1;
+  }
 }
 
 .header__burger {
