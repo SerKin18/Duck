@@ -1,11 +1,12 @@
 <template>
   <div class="main">
-	<div class="container">
-    <Block1></Block1>
-	</div>
-    <Tickers></Tickers>
+    <div class="container">
+      <Block1></Block1>
+    </div>
+    <Tickers />
     <Block2 :services="services"></Block2>
     <Block4 :whyUsItems="whyUsItems"></Block4>
+	 <Block7 :FQSItems="FQSItems"></Block7>
   </div>
 </template>
 <script>
@@ -13,11 +14,18 @@ import Block1 from "./Block-1.vue";
 import Block2 from "./Block-2.vue";
 import Tickers from "./Tickers.vue";
 import Block4 from "./Block-4.vue";
+import Block7 from "./Block-7.vue";
 export default {
-  components: { Block1, Tickers, Block2, Block4 },
+  components: { Block1, Tickers, Block2, Block4,Block7},
   name: "Main",
   data() {
     return {
+		FQSItems:[{text:'Скільки часу потрібно для дизайну та розробки веб-сайту?',id:'1'},
+		{text:'Який процес редизайну існуючого веб-сайту?',id:'2'},
+		{text:'Що означає адаптивний дизайн веб-сайту?',id:'3'},
+		{text:'Що означає SEO-дружній веб-дизайн',id:'4'},
+		{text:'Яка рекомендована частота оновлення мого веб-сайту?',id:'5'}
+		],
       whyUsItems: [
         {
           title: "Прозорі умови роботи.",

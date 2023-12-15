@@ -31,10 +31,9 @@ export default {
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0px 20px;
 }
 .why-us {
-  padding: 100px 0px;
+  margin: 100px 0px;
   width: 100%;
   background: url(../../static/image/why-us-image.jpg) center;
   display: flex;
@@ -45,7 +44,7 @@ export default {
   text-transform: uppercase;
   align-self: start;
   font-size: 80px;
-  font-weight: 400;
+  font-family: var(--title-font);
   margin-bottom: 90px;
 }
 .why-us__title h2 {
@@ -67,20 +66,21 @@ export default {
 }
 @media (max-width: 1200px) {
   .why-us {
-    padding: 150;
+    margin: 50px 0px;
   }
   .why-us__title {
     margin-bottom: 40px;
+    margin-top: 50px;
     font-size: 60px;
   }
 }
 @media (max-width: 970px) {
-	.why-us__title {
+  .why-us__title {
     font-size: 40px;
   }
 }
 @media (max-width: 767px) {
-	.why-us__title {
+  .why-us__title {
     font-size: 22px;
   }
 }

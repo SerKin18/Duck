@@ -2,9 +2,8 @@
   <div class="service-item">
     <div class="service-item__header">
       <div class="service-item-header__title">
-        <span
-          ><h4>{{ service.title }}</h4></span
-        >
+        <span></span>
+        <h4>{{ service.title }}</h4>
       </div>
       <div class="service-item-header__subtitle">
         <p>{{ service.subtitle }}</p>
@@ -12,7 +11,7 @@
     </div>
     <div class="service-item__footer">
       <div class="service-item-footer__link">
-        <span><a href="#">Дізнатися більше</a></span>
+        <a href="#">Дізнатися більше</a><span></span>
       </div>
       <div class="service-item-footer__price">
         <span>від ${{ service.price }}</span>
@@ -56,8 +55,8 @@ export default {
   margin-bottom: 50px;
 }
 .service-item-header__title {
+  font-family: var(--title-font);
   text-transform: uppercase;
-  font-weight: 700;
   font-size: 24px;
   color: white;
   margin-bottom: 20px;
@@ -89,8 +88,6 @@ span::after {
   transform-origin: left bottom;
 }
 .service-item-header__subtitle {
-  font-weight: 400;
-  font-size: 16px;
   line-height: 25px;
   text-align: left;
 }
@@ -114,7 +111,7 @@ span::after {
   content: "";
   position: absolute;
   top: 5px;
-  right: 0;
+  right: 0px;
   width: 15px;
   height: 2px;
   background-color: rgba(234, 90, 37, 1);
@@ -128,7 +125,7 @@ span::after {
 .service-item-footer__link span::after {
   width: 12px;
   top: 11px;
-  right: 0;
+  left: -138px;
   transform: translateX(140px) rotate(180deg);
   transform-origin: right;
 }
@@ -154,6 +151,9 @@ span::after {
     font-size: 16px;
     margin-bottom: 5px;
     padding: 0px 0px 0px 26px;
+  }
+  .service-item-header__title span {
+    font-family: var(--title-font);
   }
 
   .service-item-header__title span::before,

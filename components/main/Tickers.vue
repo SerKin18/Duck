@@ -11,8 +11,8 @@
           <span>Сайт візитка</span>
           <span>Доопрацювання сайту</span>
           <span>Редизайн сайту</span>
-          <span>Технічна підтримка</span></marquee
-        >
+          <span>Технічна підтримка</span>
+			 </marquee>
       </div>
     </div>
     <div class="ticker__string-2">
@@ -46,6 +46,7 @@ export default {
 }
 .tickers span {
   text-transform: uppercase;
+  font-family: var(--title-font);
   font-weight: 700;
   font-size: 74px;
   margin-right: 120px;

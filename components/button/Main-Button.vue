@@ -15,16 +15,15 @@ export default {
   margin-left: 40px;
 }
 .button {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+font-family: 'GothamPro',sans-serif;
   text-transform: uppercase;
   position: relative;
   width: 150px;
   height: 37px;
   font-size: 12px;
-  font-weight: 400;
   color: black;
-  padding: 12px 20px;
   background: #ff723e;
+  box-shadow: 0px 12px 50px 0px #ff723e;
 
   /* background: linear-gradient(88.83deg, #ea5a25 2.34%, #ff723e 99.43%); */
 }
