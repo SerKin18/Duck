@@ -65,6 +65,7 @@ export default {
   font-size: 16px;
   text-align: start;
 }
+
 @media (max-width: 767px) {
   .why-us-item {
     max-width: 100%;

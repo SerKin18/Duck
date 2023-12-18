@@ -78,7 +78,7 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font-family: "GothamPro",sans-serif;
+  font-family: "GothamPro", sans-serif;
 }
 
 input,
@@ -102,7 +102,7 @@ button::-moz-focus-inner {
 
 a,
 a:visited {
-	font-family: "GothamPro",sans-serif;
+  font-family: "GothamPro", sans-serif;
   text-decoration: none;
 }
 

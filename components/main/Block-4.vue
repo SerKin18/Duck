@@ -31,9 +31,10 @@ export default {
 .container {
   max-width: 1280px;
   margin: 0 auto;
+  padding: 0 20px;
 }
 .why-us {
-  margin: 100px 0px;
+  padding: 100px 0px;
   width: 100%;
   background: url(../../static/image/why-us-image.jpg) center;
   display: flex;
@@ -66,7 +67,7 @@ export default {
 }
 @media (max-width: 1200px) {
   .why-us {
-    margin: 50px 0px;
+    padding: 50px 0px;
   }
   .why-us__title {
     margin-bottom: 40px;
