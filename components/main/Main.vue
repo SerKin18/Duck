@@ -4,9 +4,10 @@
       <Block1></Block1>
     </div>
     <Tickers />
-    <Block2 :services="services"></Block2>
+    <!-- <Block2 :services="services"></Block2>
     <Block4 :whyUsItems="whyUsItems"></Block4>
-	 <Block7 :FQSItems="FQSItems"></Block7>
+	 <Block7 :FQSItems="FQSItems"></Block7> -->
+	 <Block8></Block8>
   </div>
 </template>
 <script>
@@ -15,8 +16,9 @@ import Block2 from "./Block-2.vue";
 import Tickers from "./Tickers.vue";
 import Block4 from "./Block-4.vue";
 import Block7 from "./Block-7.vue";
+import Block8 from "./Block-8.vue";
 export default {
-  components: { Block1, Tickers, Block2, Block4,Block7},
+  components: { Block1, Tickers, Block2, Block4,Block7,Block8},
   name: "Main",
   data() {
     return {
@@ -129,6 +131,9 @@ export default {
           id: "9",
         },
       ],
+		info:[
+			
+		]
     };
   },
 };

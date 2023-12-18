@@ -135,6 +135,19 @@ span::after {
   color: white;
 }
 
+@media (max-width: 970px) {
+  .service-item {
+    padding: 20px 11px 20px 11px;
+    flex: 1 0 50%;
+  }
+  .service-item__footer {
+    flex-direction: column-reverse;
+  }
+  .service-item-footer__price {
+    margin-bottom: 15px;
+  }
+}
+
 @media (max-width: 767px) {
   .service-item {
     max-width: 100%;
@@ -143,6 +156,12 @@ span::after {
     border-bottom: 1px solid rgba(217, 217, 217, 1);
     margin-bottom: 0px;
     padding: 20px 11px 20px 11px;
+  }
+  .service-item__footer {
+    flex-direction: row;
+  }
+  .service-item-footer__price {
+    margin-bottom: 0px;
   }
   .service-item__header {
     margin-bottom: 0px;
