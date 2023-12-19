@@ -12,6 +12,15 @@
           <span>Доопрацювання сайту</span>
           <span>Редизайн сайту</span>
           <span>Технічна підтримка</span>
+			 <span>Інтернет магазин</span>
+          <span>Корпоративні сайти</span>
+          <span>Landing page</span>
+          <span>Бізнес сайт</span>
+          <span>Дизайн сайту</span>
+          <span>Сайт візитка</span>
+          <span>Доопрацювання сайту</span>
+          <span>Редизайн сайту</span>
+          <span>Технічна підтримка</span>
 			 </marquee>
       </div>
     </div>
@@ -19,6 +28,15 @@
       <div class="ticker__string-2_show">
         <marquee direction="right"
           ><span>Бізнес сайт</span>
+          <span>Дизайн сайту</span>
+          <span>Сайт візитка</span>
+          <span>Доопрацювання сайту</span>
+          <span>Редизайн сайту</span>
+          <span>Технічна підтримка</span>
+          <span>Інтернет магазин</span>
+          <span>Корпоративні сайти</span>
+          <span>Landing page</span>
+			 <span>Бізнес сайт</span>
           <span>Дизайн сайту</span>
           <span>Сайт візитка</span>
           <span>Доопрацювання сайту</span>
@@ -37,7 +55,7 @@ export default {
   name: "main-tickers",
 };
 </script>
-<style scope>
+<style scoped>
 .tickers {
   width: 100%;
   z-index: 9;
@@ -63,7 +81,7 @@ export default {
 .ticker__string-1_show span::before {
   content: "";
   position: absolute;
-  top: 8px;
+  top: 18px;
   left: -90px;
   width: 67px;
   height: 67px;
@@ -82,7 +100,7 @@ export default {
 .ticker__string-2_show span::before {
   content: "";
   position: absolute;
-  top: 8px;
+  top: 16px;
   right: -100px;
   width: 76px;
   height: 67px;

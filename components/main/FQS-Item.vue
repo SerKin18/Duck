@@ -19,7 +19,7 @@ export default {
   },
 };
 </script>
-<style scope>
+<style scoped>
 .FQS-item {
   display: flex;
   align-items: center;

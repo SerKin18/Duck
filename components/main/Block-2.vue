@@ -1,22 +1,20 @@
 <template>
-  <div class="container">
-    <div class="services">
-      <div class="services__title">
-        <h2>Послуги</h2>
-      </div>
-      <div class="services__body">
-        <Service
-          v-for="service in services"
-          :service="service"
-          :key="service.id"
-        ></Service>
-      </div>
-      <main-button>відправити запит</main-button>
+  <div class="services">
+    <div class="services__title">
+      <h2>Послуги</h2>
     </div>
+    <div class="services__body">
+      <Service
+        v-for="service in services"
+        :service="service"
+        :key="service.id"
+      ></Service>
+    </div>
+    <main-button>відправити запит</main-button>
   </div>
 </template>
 <script>
-import MainButton from "../button/main-button.vue";
+import MainButton from "../button/Main-Button.vue";
 import Service from "./Service.vue";
 export default {
   components: { MainButton, Service },
@@ -30,10 +28,6 @@ export default {
 };
 </script>
 <style scope>
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-}
 .services {
   display: flex;
   flex-direction: column;

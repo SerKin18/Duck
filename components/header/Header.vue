@@ -1,40 +1,43 @@
 <template>
-  <div class="container">
-    <header class="header">
-      <div class="header__body">
-        <a href="#" class="header__logo">
-          <img src="../../static/image/logo-full.png" alt="Logo" />
-        </a>
-        <nav class="header__menu">
-          <ul @click.prevent="" class="header__list">
-            <li>
-              <a href="" class="header__link">Услуги<span></span></a>
-            </li>
-            <li>
-              <a href="" class="header__link">Портфолио<span></span></a>
-            </li>
-            <li>
-              <a href="" class="header__link">Преимущества<span></span></a>
-            </li>
-            <li>
-              <a href="" class="header__link">Калькулятор<span></span></a>
-            </li>
-            <li>
-              <a href="" class="header__link">Крядио<span></span></a>
-            </li>
-          </ul>
-        </nav>
-        <main-button class="btn-menu"> залишити заявку </main-button>
-        <div class="header__lang">
-          <span>En</span>
-          <div class="header__burger">
-            <span></span>
-            <span></span>
+  <header>
+    <div class="container">
+      <div class="header">
+        <div class="header__body">
+          <a href="#" class="header__logo">
+            <img src="../../static/image/logo-full.png" alt="Logo" />
+          </a>
+          <nav class="header__menu">
+            <ul @click.prevent="" class="header__list">
+              <li>
+                <a href="" class="header__link">Услуги<span></span></a>
+              </li>
+              <li>
+                <a href="" class="header__link">Портфолио<span></span></a>
+              </li>
+              <li>
+                <a href="" class="header__link">Преимущества<span></span></a>
+              </li>
+              <li>
+                <a href="" class="header__link">Калькулятор<span></span></a>
+              </li>
+              <li>
+                <a href="" class="header__link">Крядио<span></span></a>
+              </li>
+            </ul>
+          </nav>
+
+          <main-button class="btn-menu"> залишити заявку </main-button>
+          <div class="header__lang">
+            <span>En</span>
+            <div class="header__burger">
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </div>
       </div>
-    </header>
-  </div>
+    </div>
+  </header>
 </template>
 <script>
 import MainButton from "../button/Main-Button.vue";
@@ -46,6 +49,7 @@ export default {
 <style>
 .header {
   margin-bottom: 90px;
+  justify-content: space-between;
 }
 .container {
   max-width: 1280px;
@@ -53,9 +57,11 @@ export default {
 }
 .header__body {
   display: flex;
+
   justify-content: space-between;
   align-items: center;
 }
+
 .header__logo {
 }
 .header__lang {
@@ -68,7 +74,9 @@ export default {
 .header__list {
   display: flex;
 }
-
+.header__list a {
+  display: inline-block;
+}
 .header__link {
   position: relative;
   font-weight: 600;
@@ -149,7 +157,6 @@ export default {
     flex-wrap: wrap;
   }
   .header__link {
-    display: inline-block;
     margin-right: 15px;
   }
   .header__lang {
@@ -177,7 +184,7 @@ export default {
     height: 40px;
     width: 142px;
   }
-  .header__menu,
+  .header__list,
   .btn-menu {
     display: none;
   }

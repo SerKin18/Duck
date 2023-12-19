@@ -1,17 +1,17 @@
 <template>
   <div class="why-us">
-    <div class="container">
-      <div class="why-us__title">
-        <h2>Чому<span> ми </span>?</h2>
-      </div>
-      <div class="why-us__body">
-        <WhyUs
-          v-for="whyUsItem in whyUsItems"
-          :whyUsItem="whyUsItem"
-          :key="whyUsItem.id"
-        ></WhyUs>
-      </div>
+	<div class="container">
+    <div class="why-us__title">
+      <h2>Чому<span> ми </span>?</h2>
     </div>
+    <div class="why-us__body">
+      <WhyUs
+        v-for="whyUsItem in whyUsItems"
+        :whyUsItem="whyUsItem"
+        :key="whyUsItem.id"
+      ></WhyUs>
+    </div>
+	</div>
   </div>
 </template>
 <script>
@@ -27,14 +27,13 @@ export default {
   },
 };
 </script>
-<style scope>
+<style scoped>
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
 }
 .why-us {
-  padding: 100px 0px;
+  padding: 100px 17px;
   width: 100%;
   background: url(../../static/image/why-us-image.jpg) center;
   display: flex;
@@ -67,7 +66,7 @@ export default {
 }
 @media (max-width: 1200px) {
   .why-us {
-    padding: 50px 0px;
+    padding: 50px 20px;
   }
   .why-us__title {
     margin-bottom: 40px;
@@ -76,6 +75,10 @@ export default {
   }
 }
 @media (max-width: 970px) {
+	.why-us__body{
+		align-items:center;
+		justify-content:center ;
+	}
   .why-us__title {
     font-size: 40px;
   }

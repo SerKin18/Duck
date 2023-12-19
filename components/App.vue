@@ -16,7 +16,7 @@ export default {
   name: "App",
 };
 </script>
-<style scoped>
+<style >
 .wrapper {
   width: 100%;
   min-height: 100%;
