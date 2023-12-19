@@ -4,9 +4,11 @@
       <Block1></Block1>
     </div>
     <Tickers />
-    <!-- <Block2 :services="services"></Block2>
+	 <div class="container">
+    <Block2 :services="services"></Block2>
+	</div>
     <Block4 :whyUsItems="whyUsItems"></Block4>
-	 <Block7 :FQSItems="FQSItems"></Block7> -->
+	 <Block7 :FQSItems="FQSItems"></Block7>
 	 <Block8></Block8>
   </div>
 </template>

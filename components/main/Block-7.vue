@@ -27,7 +27,7 @@ export default {
   },
 };
 </script>
-<style scope>
+<style scoped>
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -79,7 +79,7 @@ export default {
 
 @media (max-width: 1200px) {
   .fqs {
-    padding: 50px 0px;
+    padding: 50px 17px;
   }
 
   .fqs__title {

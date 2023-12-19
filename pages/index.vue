@@ -7,13 +7,20 @@ export default {
   name: "IndexPage",
 };
 </script>
-<style>
+<style scope>
 @font-face {
   font-family: "GothamPro";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: url("~static/fonts/gothampro.ttf") format("truetype");
+}
+@font-face {
+  font-family: "GothamPro_Bold";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("~static/fonts/gothampro_bold.ttf") format("truetype");
 }
 @font-face {
   font-family: "NeutralFace";
@@ -31,6 +38,7 @@ export default {
 }
 
 :root {
+	--title:"GothamPro_Bold", sans-serif;
   --title-font: "NeutralFace", sans-serif;
   --subTitle-font: "Radiotechnika", sans-serif;
 }

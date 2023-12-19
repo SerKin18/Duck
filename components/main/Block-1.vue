@@ -18,14 +18,14 @@
   </div>
 </template>
 <script>
-import MainButton from "../button/main-button.vue";
+import MainButton from "../button/Main-Button.vue";
 
 export default {
   components: { MainButton },
   name: "block-1",
 };
 </script>
-<style scope>
+<style >
 .container {
   max-width: 1280px;
   margin: 0 auto;

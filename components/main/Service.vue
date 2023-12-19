@@ -155,7 +155,7 @@ span::after {
     flex: 0 0 100%;
     border-bottom: 1px solid rgba(217, 217, 217, 1);
     margin-bottom: 0px;
-    padding: 20px 11px 20px 11px;
+    padding: 20px 0px;
   }
   .service-item__footer {
     flex-direction: row;

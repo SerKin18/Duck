@@ -10,7 +10,7 @@ export default {
   name: "main-button",
 };
 </script>
-<style scope>
+<style >
 .main__button {
   margin-left: 40px;
 }

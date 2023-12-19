@@ -24,7 +24,7 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
 .why-us-item {
   display: flex;
   flex-direction: row;
@@ -65,7 +65,19 @@ export default {
   font-size: 16px;
   text-align: start;
 }
+@media (max-width: 1200px) {
+  .why-us-item {
+	height: 100%;
+    margin-bottom: 70px;
+  }
+}
 
+@media (max-width: 970px) {
+  .why-us-item {
+
+    margin-bottom: 30px;
+  }
+}
 @media (max-width: 767px) {
   .why-us-item {
     max-width: 100%;

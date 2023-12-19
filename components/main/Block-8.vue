@@ -1,6 +1,7 @@
 <template>
-  <div class="container">
-    <div class="contacts">
+    <div class="contacts__block">
+		<div class="container">
+		<div class="contacts">
       <div class="contacts__title"><h2>Контакти</h2></div>
       <div class="contacts__body">
         <div class="contacts__body_form">
@@ -92,6 +93,8 @@
         </div>
       </div>
     </div>
+	 </div>
+	</div>	
   </div>
 </template>
 <script>
@@ -101,7 +104,11 @@ export default {
   name: "block-8",
 };
 </script>
-<style scope>
+<style >
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
 .contacts {
   position: relative;
   padding: 100px 0px;
@@ -133,10 +140,7 @@ export default {
   height: 160px;
   background: url(../../static/image/block-7-star.svg) center no-repeat;
 }
-.container {
-  max-width: 1280px;
-  margin: 0 auto;
-}
+
 .contacts__title {
   font-family: var(--title-font);
   line-height: 76px;
@@ -147,12 +151,13 @@ export default {
 .contacts__body {
   display: flex;
   flex-wrap: wrap;
-  align-items: start;
+  align-items: flex-start;
   flex-direction: row;
   justify-content: space-between;
   z-index: 6;
 }
 .contacts__body_form {
+	
   flex: 0 0 50%;
   max-width: 629px;
   display: flex;
@@ -160,6 +165,7 @@ export default {
 }
 .contacts__body_form input {
   padding: 3px 0px 22px 20px;
+  font-size: 16px;
   width: 100%;
   background-color: transparent;
   border-bottom: 1px solid rgba(248, 248, 248, 1);
@@ -184,7 +190,8 @@ export default {
   margin-top: 50px;
 }
 .info__text {
-  align-items: start;
+  align-items: flex-start;
+  font-size: 16px;
   margin-bottom: 39.5px;
   flex: 0 0 50%;
 }
@@ -243,8 +250,8 @@ export default {
   }
   .contacts__body_info {
     align-items: flex-end;
-    justify-content: end;
-    max-width: 300px;
+    justify-content: flex-end;
+    max-width: 400px;
   }
 }
 @media (max-width: 767px) {
