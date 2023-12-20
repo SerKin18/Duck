@@ -1,10 +1,20 @@
 <template>
   <div class="FQS-item">
-    <div class="FQS-item__text">
-      <p>{{ FQSItem.text }}</p>
+    <div class="FQS-item__body">
+      <div class="FQS-item__title">
+        <p>{{ FQSItem.text }}</p>
+      </div>
+      <div class="FQS-item__btn">
+        <button><span></span></button>
+      </div>
     </div>
-    <div class="FQS-item__btn">
-      <button><span></span></button>
+    <div class="FQS-item__text">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo voluptatum
+        iusto pariatur! Eveniet, accusantium! Exercitationem repellat dolorem
+        itaque magnam. Quidem molestias tempore accusamus placeat pariatur
+        dignissimos cupiditate, fugiat maxime id!
+      </p>
     </div>
   </div>
 </template>
@@ -22,6 +32,7 @@ export default {
 <style scoped>
 .FQS-item {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -29,11 +40,20 @@ export default {
   padding: 21px 30px 21px 25px;
   margin-bottom: 19.6px;
 }
-.FQS-item__text p {
+.FQS-item__body {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.FQS-item__title p {
   font-size: 16px;
   line-height: 25px;
   color: white;
   text-align: center;
+}
+.FQS-item__text p {
+  font-style: 16px;
+  line-height: 25px;
 }
 .FQS-item__btn {
   width: 30px;
@@ -64,5 +84,8 @@ export default {
   .FQS-item__btn span::after {
     background-color: rgba(234, 90, 37, 1);
   }
+}
+.FQS-item__text {
+  display: none;
 }
 </style>

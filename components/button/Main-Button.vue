@@ -10,12 +10,12 @@ export default {
   name: "main-button",
 };
 </script>
-<style >
+<style>
 .main__button {
   margin-left: 40px;
 }
 .button {
-font-family: 'GothamPro',sans-serif;
+  font-family: var(--title);
   text-transform: uppercase;
   position: relative;
   width: 150px;
@@ -31,7 +31,7 @@ font-family: 'GothamPro',sans-serif;
   content: "";
   position: absolute;
   right: -36px;
- 
+
   top: 0px;
   border: 19px solid transparent;
   border-left: 19px solid #ff723e;

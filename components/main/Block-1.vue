@@ -15,6 +15,8 @@
     <div class="block-1__image">
       <img src="../../static/image/design-banner.png" alt="image-duck-banner" />
     </div>
+
+    <main-button class="btn-block-2">поговоримо?</main-button>
   </div>
 </template>
 <script>
@@ -25,7 +27,7 @@ export default {
   name: "block-1",
 };
 </script>
-<style >
+<style>
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -34,7 +36,13 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  z-index: 9;
+  margin-bottom: 100px;
 }
+.btn-block-2 {
+  display: none;
+}
+
 .btn-block-1 button {
   width: 180px;
 }
@@ -86,23 +94,57 @@ export default {
   margin-bottom: 30px;
 }
 
-.block-1__image img {
-  max-width: 100%;
+.block-1__image {
+  max-width: 50%;
+  z-index: 99;
+  position: relative;
 }
-
-.block-1__image img::before {
+.block-1__image::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  background: url(../../static/image/bloc-1-image8.png);
-  z-index: 5;
+  bottom: -50px;
+  right: 130px;
+  height: 400px;
+  width: 862px;
+  transform: rotate(-47.3deg);
+  opacity: 30%;
+  background: linear-gradient(87.08deg, #203f6a 0%, #ea5a25 100%);
+  box-shadow: inset 0px 0px 100px 70px rgb(5, 5, 5);
+  z-index: 1;
 }
+.block-1__image::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  width: 230px;
+  height: 230px;
+  background: url(../../static/image/bloc-1-image8.png) center no-repeat;
+  z-index: 2;
+}
+.block-1__image img {
+  position: absolute;
+  top: -100px;
+  right: -130px;
+  scale: 0.7;
+  z-index: 96;
+}
+
 @media (max-width: 1200px) {
   .block-1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+  .block-1__body {
+    max-width: 50%;
+  }
+  .block-1::after {
+    scale: 0.6;
+  }
+
+  .block-1__image img {
+    scale: 0.6;
   }
   .block-1__body {
     margin-top: 50px;
@@ -116,8 +158,13 @@ export default {
     align-self: center;
   }
   .block-1__body_title {
-    /* font-size: 22px; */
+    font-size: 32px;
     margin-bottom: 15px;
+  }
+  .block-1__image img {
+    top: -150px;
+    right: -300px;
+    scale: 0.5;
   }
   /* .block-1__body_title span:after {
     scale: 0.5;
@@ -128,11 +175,35 @@ export default {
 @media (max-width: 767px) {
   .block-1 {
     flex-direction: column;
+    align-items: center;
   }
+  .block-1__body {
+    max-width: 100%;
+  }
+  .block-1__image {
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 100%;
+  }
+  .block-1__image::after {
+    display: none;
+  }
+  .block-1__image img {
+    position: static;
+    scale: 0.4;
+    z-index: 96;
+  }
+  .block-1__image::before {
+    bottom: -60px;
+    right: -130px;
+    height: 400px;
+    width: 862px;
+  }
+
   .block-1__body_title {
     font-size: 22px;
   }
-  block-1__body_title span:after {
+  .block-1__body_title span:after {
     scale: 0.5;
     top: -22px;
     right: 47%;
@@ -146,6 +217,11 @@ export default {
   }
   .btn-block-1 {
     display: none;
+  }
+  .btn-block-2 {
+    margin: 30px 0px 0px 0px;
+    display: block;
+    z-index: 94;
   }
 }
 

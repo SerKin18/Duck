@@ -12,7 +12,7 @@
           <span>Доопрацювання сайту</span>
           <span>Редизайн сайту</span>
           <span>Технічна підтримка</span>
-			 <span>Інтернет магазин</span>
+          <span>Інтернет магазин</span>
           <span>Корпоративні сайти</span>
           <span>Landing page</span>
           <span>Бізнес сайт</span>
@@ -21,7 +21,7 @@
           <span>Доопрацювання сайту</span>
           <span>Редизайн сайту</span>
           <span>Технічна підтримка</span>
-			 </marquee>
+        </marquee>
       </div>
     </div>
     <div class="ticker__string-2">
@@ -36,7 +36,7 @@
           <span>Інтернет магазин</span>
           <span>Корпоративні сайти</span>
           <span>Landing page</span>
-			 <span>Бізнес сайт</span>
+          <span>Бізнес сайт</span>
           <span>Дизайн сайту</span>
           <span>Сайт візитка</span>
           <span>Доопрацювання сайту</span>
@@ -58,7 +58,7 @@ export default {
 <style scoped>
 .tickers {
   width: 100%;
-  z-index: 9;
+  z-index: 96;
   margin: 0 auto;
   transform: rotate(1deg);
 }
