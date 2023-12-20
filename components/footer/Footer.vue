@@ -1,13 +1,31 @@
 <template>
-  <footer>
-    <div class="footer">
+  <div class="footer">
+    <div class="footer__header">
       <div class="container">
         <div class="footer__head">
-          <!-- <ClassicButton  style="transform: rotate(-10.87deg)" ></ClassicButton> -->
-          <!-- <ClassicButton  style="transform: rotate(19.8deg)" >Чому ми</ClassicButton>
-          <ClassicButton  style="transform: rotate(-9.21deg);background-color: rgba(32, 63, 106, 1);">Що я хочу</ClassicButton>
-          <ClassicButton  style="transform: rotate(13.53deg)">підписатися</ClassicButton>
-          <ClassicButton  style="transform: rotate(-22.39deg);background-color: rgba(32, 63, 106, 1);">дізнатись ціни</ClassicButton> -->
+          <ClassicButton style="transform: rotate(10.87deg)"
+            >написати</ClassicButton
+          >
+          <ClassicButton style="transform: rotate(-19.8deg)"
+            >Чому ми</ClassicButton
+          >
+          <ClassicButton
+            style="
+              transform: rotate(9.21deg);
+              background-color: rgba(32, 63, 106, 1);
+            "
+            >Що я хочу</ClassicButton
+          >
+          <ClassicButton style="transform: rotate(-13.53deg)"
+            >підписатися</ClassicButton
+          >
+          <ClassicButton
+            style="
+              transform: rotate(22.39deg);
+              background-color: rgba(32, 63, 106, 1);
+            "
+            >дізнатись ціни</ClassicButton
+          >
         </div>
         <div class="footer__body">
           <div class="footer__address">
@@ -124,7 +142,7 @@
     <div class="footer__bottom">
       <p>© 2023 kravatka.agency - All right reserved</p>
     </div>
-  </footer>
+  </div>
 </template>
 <script>
 import ClassicButton from "../button/Classic-Button.vue";
@@ -134,16 +152,21 @@ export default {
 };
 </script>
 <style scoped>
-.footer {
+.footer__header {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 10px 0px 10px 0px;
   border-bottom: 1px solid white;
   margin-bottom: 20px;
 }
 .footer__head {
   display: flex;
-  margin-bottom: 70px;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 213px;
+  margin: 0px -30px 70px -30px;
 }
 .footer__item__btn {
   display: none;
@@ -153,6 +176,37 @@ export default {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+}
+.info__text {
+  align-items: flex-start;
+  font-size: 16px;
+  margin-bottom: 39.5px;
+  flex: 0 0 50%;
+}
+.info__text_title {
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.info__text_subtitle {
+  line-height: 25px;
+  opacity: 50%;
+}
+.info__messengers {
+  display: flex;
+  flex-direction: row;
+  margin-top: -20px;
+  margin-bottom: 30px;
+}
+.info__messengers-tlgrm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 11.5px;
+}
+.info__messengers-wtsup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .footer__address {
   padding: 0px 20px;
@@ -181,6 +235,7 @@ export default {
   text-align: justify;
 }
 .footer__servises_title {
+  font-family: var(--title);
   font-size: 28px;
   line-height: 40px;
   margin-bottom: 25.8px;
@@ -226,6 +281,11 @@ export default {
   .footer__body {
     flex-wrap: wrap;
   }
+  .footer__head {
+    max-height: 277px;
+    margin: 0px 0px 40px 0px;
+    flex-wrap: wrap;
+  }
 }
 @media (max-width: 970px) {
 }
@@ -234,10 +294,16 @@ export default {
     flex-direction: column;
     align-items: flex-start;
   }
-  .footer__servises {
+  .footer__head {
+    justify-content: space-around;
+  }
+  .footer__servises,
+  .footer__address {
+    flex: 1 0 100%;
     width: 100%;
   }
   .footer__servises_title {
+    display: block;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -253,15 +319,23 @@ export default {
   .footer__item__btn {
     display: block;
   }
-  .footer__list_items {
-    display: none;
-  }
   .footer__address {
     padding: 0px;
     .info__messengers,
     .info__text {
       display: none;
     }
+  }
+  .footer__list_items li {
+    margin-bottom: 0px;
+  }
+  .footer__list_items a {
+    font-style: 16px;
+    color: rgba(248, 248, 248, 1);
+    line-height: 25px;
+  }
+  .footer__list_items {
+    display: none;
   }
 }
 </style>

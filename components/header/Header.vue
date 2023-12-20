@@ -50,6 +50,7 @@ export default {
 .header {
   margin-bottom: 90px;
   justify-content: space-between;
+  z-index: 97;
 }
 .container {
   max-width: 1280px;
@@ -83,6 +84,7 @@ export default {
   line-height: 20px;
   margin-right: 40px;
   font-family: "GothamPro", sans-serif;
+  font-size: 16px;
 }
 .header__link li:last-child {
   margin-right: 0px;

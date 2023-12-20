@@ -44,7 +44,7 @@ export default {
   text-transform: uppercase;
   align-self: start;
   font-size: 80px;
-  font-family: var(--title-font);
+  font-family: var(--title);
   margin-bottom: 90px;
 }
 .why-us__title h2 {

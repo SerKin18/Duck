@@ -37,7 +37,7 @@ export default {
 }
 .services__title {
   text-transform: uppercase;
-  font-family: var(--title-font);
+  font-family: var(--title);
   font-size: 80px;
   align-self: start;
   margin-bottom: 90px;

@@ -43,11 +43,10 @@ export default {
 .fqs__title {
   text-align: center;
   white-space: nowrap;
-  font-family: var(--title-font);
-  margin-left: -25px;
+  font-family: var(--title);
+  letter-spacing: -2px;
   line-height: 76px;
   text-transform: uppercase;
-
   font-size: 80px;
   margin-bottom: 90px;
 }
