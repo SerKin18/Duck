@@ -1,35 +1,95 @@
 <template>
   <div class="main">
     <div class="container">
-      <Block1></Block1>
+      <Banner />
     </div>
     <Tickers />
-	 <div class="container">
-    <Block2 :services="services"></Block2>
-	</div>
-    <Block4 :whyUsItems="whyUsItems"></Block4>
-	 <Block7 :FQSItems="FQSItems"></Block7>
-	 <Block8></Block8>
+    <div class="container">
+      <Service :services="services"></Service>
+    </div>
+    <WhyUs :whyUsItems="whyUsItems"></WhyUs>
+    <Reviews :reviews="reviews" />
+    <FQS :FQSItems="FQSItems"></FQS>
+    <Contacts />
   </div>
 </template>
 <script>
-import Block1 from "./Block-1.vue";
-import Block2 from "./Block-2.vue";
+import Banner from "./Banner.vue";
+import Service from "./Service.vue";
 import Tickers from "./Tickers.vue";
-import Block4 from "./Block-4.vue";
-import Block7 from "./Block-7.vue";
-import Block8 from "./Block-8.vue";
+import WhyUs from "./WhyUs.vue";
+import FQS from "./FQS.vue";
+import Contacts from "./Contacts.vue";
+import Reviews from "./Reviews.vue";
+
 export default {
-  components: { Block1, Tickers, Block2, Block4,Block7,Block8},
+  components: { Banner, Tickers, Service, WhyUs, FQS, Contacts, Reviews },
   name: "Main",
   data() {
     return {
-		FQSItems:[{text:'Скільки часу потрібно для дизайну та розробки веб-сайту?',id:'1'},
-		{text:'Який процес редизайну існуючого веб-сайту?',id:'2'},
-		{text:'Що означає адаптивний дизайн веб-сайту?',id:'3'},
-		{text:'Що означає SEO-дружній веб-дизайн',id:'4'},
-		{text:'Яка рекомендована частота оновлення мого веб-сайту?',id:'5'}
-		],
+      reviews: [
+        {
+          name: "Lindsey lohan",
+          job: "Owner Clickable Agency",
+          text: "Вже й не порахую скільки я тут зробила замовлень. Ну дуже багато. Ціни супер, відношення до клієнта на висоті. Оператори завжди приємні та відповідальні. Дякую,що ви є. Щиро дякую!",
+          logo: "../../static/image/reviews-logo1.png",
+          rating: 4,
+          id: "1",
+        },
+        {
+          name: "james Dangerous",
+          job: "Owner Apple",
+          text: "Добрий день! Замовляла щоденники 2023. Щиро дякую за посилочку, все упаковано гарно, якість щоденників порадувала. Особисто вдячна менеджерам за їх привітність, роз’яснення за знижку як оптовому покупцю! Постійних і надійних клієнтів! Гарний магазин, рекомендую!",
+          logo: ("~static/image/reviews-logo2.png"),
+          rating: 5,
+          id: "2",
+        },
+        {
+          name: "james kudriaviy",
+          job: "Owner Clickable Agency",
+          text: "Дуже дякую. Заказ прийшов за добу. Все добре, швидко. В теперішній час дуже приємно",
+          logo: ("/_nuxt/static/image/reviews-logo3.png"),
+          rating: 4,
+          id: "3",
+        },
+        {
+          name: "james Dangerous",
+          job: "Owner Apple",
+          text: "Добрий день! Замовляла щоденники 2023. Щиро дякую за посилочку, все упаковано гарно, якість щоденників порадувала. Особисто вдячна менеджерам за їх привітність, роз’яснення за знижку як оптовому покупцю! Постійних і надійних клієнтів! Гарний магазин, рекомендую!",
+          logo: '_nuxt/public/img/reviews-logo2.png',
+          rating: 4,
+          id: "4",
+        },
+        {
+          name: "Lindsey lohan",
+          job: "Owner Clickable Agency",
+          text: "Вже й не порахую скільки я тут зробила замовлень. Ну дуже багато. Ціни супер, відношення до клієнта на висоті. Оператори завжди приємні та відповідальні. Дякую,що ви є. Щиро дякую!",
+          logo: "../../static/image/reviews-logo1.png",
+          rating: 4,
+          id: "5",
+        },
+        {
+          name: "james kudriaviy",
+          job: "Owner Clickable Agency",
+          text: "Дуже дякую. Заказ прийшов за добу. Все добре, швидко. В теперішній час дуже приємно",
+          logo: "../../static/image/reviews-logo3.png",
+          rating: 5,
+          id: "6",
+        },
+      ],
+      FQSItems: [
+        {
+          text: "Скільки часу потрібно для дизайну та розробки веб-сайту?",
+          id: "1",
+        },
+        { text: "Який процес редизайну існуючого веб-сайту?", id: "2" },
+        { text: "Що означає адаптивний дизайн веб-сайту?", id: "3" },
+        { text: "Що означає SEO-дружній веб-дизайн", id: "4" },
+        {
+          text: "Яка рекомендована частота оновлення мого веб-сайту?",
+          id: "5",
+        },
+      ],
       whyUsItems: [
         {
           title: "Прозорі умови роботи.",
@@ -73,7 +133,6 @@ export default {
           id: "8",
         },
       ],
-
       services: [
         {
           title: "Інтернет магазин",
@@ -133,9 +192,7 @@ export default {
           id: "9",
         },
       ],
-		info:[
-			
-		]
+      info: [],
     };
   },
 };

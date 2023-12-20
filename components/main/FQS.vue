@@ -18,7 +18,7 @@
 import FQSItem from "./FQS-Item.vue";
 export default {
   components: { FQSItem },
-  name: "block-7",
+  name: "FQS",
   props: {
     FQSItems: {
       type: Array,

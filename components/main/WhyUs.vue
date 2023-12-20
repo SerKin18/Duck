@@ -1,24 +1,24 @@
 <template>
   <div class="why-us">
-	<div class="container">
-    <div class="why-us__title">
-      <h2>Чому<span> ми </span>?</h2>
+    <div class="container">
+      <div class="why-us__title">
+        <h2>Чому<span> ми </span>?</h2>
+      </div>
+      <div class="why-us__body">
+        <WhyUsItem
+          v-for="whyUsItem in whyUsItems"
+          :whyUsItem="whyUsItem"
+          :key="whyUsItem.id"
+        ></WhyUsItem>
+      </div>
     </div>
-    <div class="why-us__body">
-      <WhyUs
-        v-for="whyUsItem in whyUsItems"
-        :whyUsItem="whyUsItem"
-        :key="whyUsItem.id"
-      ></WhyUs>
-    </div>
-	</div>
   </div>
 </template>
 <script>
-import WhyUs from "./Why-Us.vue";
+import WhyUsItem from "./WhyUs-Item.vue";
 export default {
-  components: { WhyUs },
-  name: "block-4",
+  components: { WhyUsItem },
+  name: "Why-Us",
   props: {
     whyUsItems: {
       type: Array,
@@ -75,10 +75,10 @@ export default {
   }
 }
 @media (max-width: 970px) {
-	.why-us__body{
-		align-items:center;
-		justify-content:center ;
-	}
+  .why-us__body {
+    align-items: center;
+    justify-content: center;
+  }
   .why-us__title {
     font-size: 40px;
   }
