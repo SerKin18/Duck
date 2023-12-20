@@ -101,7 +101,7 @@
 import MainButton from "../button/Main-Button.vue";
 export default {
   components: { MainButton },
-  name: "block-8",
+  name: "Contacts",
 };
 </script>
 <style scoped>
