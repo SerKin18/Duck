@@ -145,7 +145,7 @@
   </div>
 </template>
 <script>
-import ClassicButton from "../button/Classic-Button.vue";
+import ClassicButton from "../button/ClassicButton.vue";
 export default {
   components: { ClassicButton },
   name: "Footer",

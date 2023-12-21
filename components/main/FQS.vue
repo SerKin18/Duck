@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import FQSItem from "./FQS-Item.vue";
+import FQSItem from "./FQSItem.vue";
 export default {
   components: { FQSItem },
   name: "FQS",

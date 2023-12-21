@@ -40,7 +40,7 @@
   </header>
 </template>
 <script>
-import MainButton from "../button/Main-Button.vue";
+import MainButton from "../button/MainButton.vue";
 export default {
   components: { MainButton },
   name: "Header",
@@ -85,6 +85,7 @@ export default {
   margin-right: 40px;
   font-family: "GothamPro", sans-serif;
   font-size: 16px;
+  z-index: 96
 }
 .header__link li:last-child {
   margin-right: 0px;

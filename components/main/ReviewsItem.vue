@@ -3,7 +3,8 @@
     <div class="review-item" id="ratting">
       <div class="review-item__header">
         <div class="review-item__logo">
-          <img :src="review.logo" alt="logo-review" />
+			<img src="@/assets/reviews-logo3.png" alt="logo-review" />
+          <!-- <img :src="review.logo" alt="logo-review" /> -->
         </div>
         <div class="review-item__name">
           <div class="review-item__title">{{ review.name }}</div>
@@ -42,6 +43,7 @@ export default {
 }
 .review-item {
   max-width: 396px;
+  min-width: 370px;
   max-height: 100%;
   padding: 20px 20px;
   margin: 2px 2px 70px 2px;
@@ -110,5 +112,10 @@ export default {
   width: 150px;
   height: 28px;
   padding-bottom: 3px;
+}
+@media (max-width: 767px){
+	.review-item{
+		margin: 0px 0px 20px 0px;
+	}
 }
 </style>

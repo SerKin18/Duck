@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-import WhyUsItem from "./WhyUs-Item.vue";
+import WhyUsItem from "./WhyUsItem.vue";
 export default {
   components: { WhyUsItem },
   name: "Why-Us",

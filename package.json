@@ -14,6 +14,7 @@
     "vue": "^2.7.10",
     "vue-dynamic-star-rating": "^1.0.8",
     "vue-server-renderer": "^2.7.10",
-    "vue-template-compiler": "^2.7.10"
+    "vue-template-compiler": "^2.7.10",
+    "vuejs-paginate-next": "^1.0.2"
   }
 }

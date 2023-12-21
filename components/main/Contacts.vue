@@ -98,7 +98,7 @@
   </div>
 </template>
 <script>
-import MainButton from "../button/Main-Button.vue";
+import MainButton from "../button/MainButton.vue";
 export default {
   components: { MainButton },
   name: "Contacts",
