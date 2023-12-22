@@ -70,72 +70,11 @@
               </div>
             </div>
           </div>
-          <div class="footer__servises">
-            <div class="footer__servises_title">
-              <div><h4>Послуги</h4></div>
-              <div class="FQS-item__btn footer__item__btn">
-                <button><span></span></button>
-              </div>
-            </div>
-            <div class="footer__list_items">
-              <nav>
-                <ul @click.prevent="" class="footer__list_item">
-                  <li><a href="#">Landing page</a></li>
-                  <li><a href="#">Корпоративні сайти</a></li>
-                  <li><a href="#">Інтернет магазин</a></li>
-                  <li><a href="#">Бізнес сайт</a></li>
-                  <li><a href="#">Сайт візитка</a></li>
-                  <li><a href="#">Дизайн сайту</a></li>
-                  <li><a href="#">Розробка сайту</a></li>
-                  <li><a href="#">Редизайн сайту</a></li>
-                  <li><a href="#">Ecommerce проекти</a></li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-          <div class="footer__servises servises_long-item">
-            <div class="footer__servises_title">
-              <h4>Інформація</h4>
-              <div class="footer__item__btn">
-                <button><span></span></button>
-              </div>
-            </div>
-            <div class="footer__list_items">
-              <nav>
-                <ul @click.prevent="" class="footer__list_item">
-                  <li><a href="#">Про нас</a></li>
-                  <li><a href="#">Портфоліо</a></li>
-                  <li><a href="#">Блог</a></li>
-                  <li><a href="#">Створення сайту на WordPress</a></li>
-                  <li><a href="#">Створення сайту на Opencar</a></li>
-                  <li><a href="#">Створення сайтів у Львові</a></li>
-                  <li><a href="#">Створення сайтів у Харкові</a></li>
-                  <li><a href="#">Створення сайту у Дніпрі</a></li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-          <div class="footer__servises">
-            <div class="footer__servises_title">
-              <h4>Соц. мережі</h4>
-              <div class="footer__item__btn">
-                <button><span></span></button>
-              </div>
-            </div>
-            <div class="footer__list_items">
-              <nav>
-                <ul @click.prevent="" class="footer__list_item">
-                  <li><a href="#">Facebook</a></li>
-                  <li><a href="#">Instagram</a></li>
-                  <li><a href="#">Блог</a></li>
-                  <li><a href="#">Linkedin</a></li>
-                  <li><a href="#">Behance</a></li>
-                  <li><a href="#">Vimeo</a></li>
-                  <li><a href="#">Pinterest</a></li>
-                </ul>
-              </nav>
-            </div>
-          </div>
+          <FooterItem :itemList="itemListServices">Послуги</FooterItem>
+          <FooterItem :itemList="itemListInfo" class="servises_long-item"
+            >Інформація</FooterItem
+          >
+          <FooterItem :itemList="itemListSocial">Соц. мережі</FooterItem>
         </div>
       </div>
     </div>
@@ -145,13 +84,48 @@
   </div>
 </template>
 <script>
-import ClassicButton from "../button/Classic-Button.vue";
+import ClassicButton from "../button/ClassicButton.vue";
+import FooterItem from "./FooterItem.vue";
 export default {
-  components: { ClassicButton },
+  components: { ClassicButton, FooterItem },
   name: "Footer",
+  data() {
+    return {
+      itemListServices: [
+        "Landing page",
+        "Корпоративні сайти",
+        "Інтернет магазин",
+        "Бізнес сайт",
+        "Сайт візитка",
+        "Дизайн сайту",
+        "Розробка сайту",
+        "Редизайн сайту",
+        "Ecommerce проекти",
+      ],
+      itemListInfo: [
+        "Про нас",
+        "Послуги",
+        "Портфоліо",
+        "Блог",
+        "Створення сайту на WordPress",
+        "Створення сайту на Opencart",
+        "Створення сайтів у Львові",
+        "Створення сайтів у Харкові",
+        "Створення сайту у Дніпрі",
+      ],
+      itemListSocial: [
+        "Facebook",
+        "Instagram",
+        "Linkedin",
+        "Behance",
+        "Vimeo",
+        "Pinterest",
+      ],
+    };
+  },
 };
 </script>
-<style scoped>
+<style>
 .footer__header {
   display: flex;
   flex-direction: column;
@@ -164,7 +138,6 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   height: 213px;
   margin: 0px -30px 70px -30px;
 }
@@ -224,58 +197,12 @@ export default {
   margin-bottom: 39px;
 }
 
-.footer__servises {
-  max-width: 280px;
-  white-space: nowrap;
-  flex: 0 1 25%;
-  padding: 0px 20px;
-}
 .servises_long-item {
   display: block;
   text-align: justify;
 }
-.footer__servises_title {
-  font-family: var(--title);
-  font-size: 28px;
-  line-height: 40px;
-  margin-bottom: 25.8px;
-}
-.footer__list_items li {
-  display: block;
-  margin-bottom: 15px;
-}
-.servises_long-item li {
-  margin-bottom: 19px;
-}
-.footer__list_item ul li {
-  display: inline-block;
-}
-.footer__bottom {
+.footer__bottom p {
   text-align: center;
-  font-size: 14px;
-}
-.footer__list_item li a:hover {
-  color: rgba(234, 90, 37, 1);
-}
-.footer__item__btn {
-  width: 30px;
-  height: 30px;
-}
-.footer__item__btn {
-  position: relative;
-}
-.footer__item__btn span::before,
-.footer__item__btn span::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 0;
-  width: 15px;
-  height: 2px;
-  background-color: rgb(255, 255, 255);
-}
-.footer__item__btn span::after {
-  transform: rotate(90deg);
 }
 @media (max-width: 1200px) {
   .footer__body {
@@ -292,50 +219,24 @@ export default {
 @media (max-width: 767px) {
   .footer__body {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
   }
   .footer__head {
     justify-content: space-around;
   }
-  .footer__servises,
+
   .footer__address {
     flex: 1 0 100%;
     width: 100%;
   }
-  .footer__servises_title {
-    display: block;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-  }
-  .footer__servises_title {
-    padding: 0px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .footer__item__btn {
-    display: block;
-  }
+
   .footer__address {
     padding: 0px;
     .info__messengers,
     .info__text {
       display: none;
     }
-  }
-  .footer__list_items li {
-    margin-bottom: 0px;
-  }
-  .footer__list_items a {
-    font-style: 16px;
-    color: rgba(248, 248, 248, 1);
-    line-height: 25px;
-  }
-  .footer__list_items {
-    display: none;
   }
 }
 </style>

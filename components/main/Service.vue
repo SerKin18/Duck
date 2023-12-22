@@ -14,8 +14,8 @@
   </div>
 </template>
 <script>
-import MainButton from "../button/Main-Button.vue";
-import ServiceItem from "./Service-Item.vue";
+import MainButton from "../button/MainButton.vue";
+import ServiceItem from "./ServiceItem.vue";
 export default {
   components: { MainButton, ServiceItem },
   name: "Service",
