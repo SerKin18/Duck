@@ -8,20 +8,35 @@
           </div>
         </div>
         <div class="reviews__body">
-          <ReviewsItem v-for="review in collection" :review="review" :key="review.id">
+          <ReviewsItem
+            v-for="review in collection"
+            :review="review"
+            :key="review.id"
+          >
           </ReviewsItem>
         </div>
         <div class="reviews__footer_toolbar">
           <div class="toolbar__btn_group">
-            <button class="btn__last"></button>
+            <button
+              class="btn__prev"
+              @click.prevent="prevPage"
+              v-bind:disabled="pagination.currentPage === 1"
+            ></button>
             <button
               class="btn__rewiews"
+              :class="page === pagination.currentPage ? 'active' : ''"
               v-for="page in pagination.pages"
+              :page="page"
               @click.prevent="setPage(page)"
+              :key="page"
             >
               {{ page }}
             </button>
-            <button class="btn__next"></button>
+            <button
+              class="btn__next"
+              @click.prevent="nextPage"
+              :disabled="pagination.currentPage >= data.length / perPage"
+            ></button>
           </div>
         </div>
       </div>
@@ -56,6 +71,21 @@ export default {
     setPage(page) {
       this.pagination = this.paginator(this.data.length, page);
     },
+    prevPage() {
+      if (this.pagination.currentPage === 1) {
+        return;
+      }
+      this.pagination.currentPage--;
+      this.setPage(this.pagination.currentPage);
+    },
+    nextPage() {
+      if (this.pagination.currentPage >= this.data.length / this.perPage) {
+        return;
+      } else {
+        this.pagination.currentPage++;
+        this.setPage(this.pagination.currentPage);
+      }
+    },
     paginate(data) {
       return data.slice(
         this.pagination.startIndex,
@@ -79,9 +109,14 @@ export default {
         },
       };
     },
-    paginator(totalItems, currentPage) {
-      const startIndex = currentPage * this.perPage,
-        endIndex = Math.min(startIndex + this.perPage - 1, totalItems - 1);
+    paginator(totalItems, currentPage = 1) {
+      let startIndex;
+      if (currentPage === 1) {
+        startIndex = 0;
+      } else {
+        startIndex = (currentPage - 1) * this.perPage;
+      }
+      let endIndex = Math.min(startIndex + this.perPage - 1, totalItems - 1);
       return {
         currentPage: currentPage,
         startIndex: startIndex,
@@ -123,15 +158,15 @@ export default {
   height: 44px;
   background-color: transparent;
 }
-.btn__last,
+.btn__prev,
 .btn__next {
   position: relative;
   width: 44px;
   height: 44px;
   background: rgba(234, 90, 37, 1);
 }
-.btn__last::before,
-.btn__last::after {
+.btn__prev::before,
+.btn__prev::after {
   content: "";
   position: absolute;
   top: 7px;
@@ -140,13 +175,13 @@ export default {
   height: 2px;
   background-color: rgb(255, 255, 255);
 }
-.btn__last::before {
+.btn__prev::before {
   top: 25px;
   left: 15px;
   transform: translateX(10px) rotate(-135deg);
   transform-origin: left bottom;
 }
-.btn__last::after {
+.btn__prev::after {
   top: 12px;
   right: 20px;
   transform: translateX(10px) rotate(135deg);
@@ -174,11 +209,15 @@ export default {
   transform: translateX(10px) rotate(135deg);
   transform-origin: left bottom;
 }
-.btn__rewiews:hover {
+.btn__rewiews:active {
   background: rgba(248, 248, 248, 0.1);
 }
-.btn__next:hover, .btn__last:hover{
-	background: rgba(248, 248, 248, 0.1);
+.btn__next:hover,
+.btn__prev:hover {
+  background: rgba(234, 90, 37, 1);
+}
+.active {
+  background: rgba(248, 248, 248, 0.1);
 }
 .container {
   max-width: 1280px;

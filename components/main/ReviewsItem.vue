@@ -3,7 +3,7 @@
     <div class="review-item" id="ratting">
       <div class="review-item__header">
         <div class="review-item__logo">
-			<img src="@/assets/reviews-logo3.png" alt="logo-review" />
+          <img src="@/assets/reviews-logo3.png" alt="logo-review" />
           <!-- <img :src="review.logo" alt="logo-review" /> -->
         </div>
         <div class="review-item__name">
@@ -43,7 +43,7 @@ export default {
 }
 .review-item {
   max-width: 396px;
-  min-width: 370px;
+
   max-height: 100%;
   padding: 20px 20px;
   margin: 2px 2px 70px 2px;
@@ -87,7 +87,7 @@ export default {
   text-align: left;
 }
 .review-item__body {
-	max-width: 371px;
+  max-width: 371px;
   margin-bottom: 30px;
 }
 .review-item__footer {
@@ -113,9 +113,42 @@ export default {
   height: 28px;
   padding-bottom: 3px;
 }
-@media (max-width: 767px){
-	.review-item{
-		margin: 0px 0px 20px 0px;
-	}
+@media (max-width: 970px) {
+  .review-item {
+    margin: 2px 2px 50px 2px;
+  }
+}
+@media (max-width: 828px) {
+  .review-items {
+    width: 100%;
+  }
+  .review-item {
+    max-width: 100%;
+
+    margin: 0px 0px 20px 0px;
+  }
+  .review-item__body {
+    max-width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .review-items {
+    width: 100%;
+  }
+  .review-item {
+    max-width: 100%;
+    margin: 0px 0px 20px 0px;
+  }
+  .review-item__body {
+    max-width: 100%;
+  }
+}
+@media (max-width: 540px) {
+  .review-items {
+    justify-content: center;
+  }
+  .review-item {
+    max-width: 370px;
+  }
 }
 </style>

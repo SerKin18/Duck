@@ -100,6 +100,7 @@ export default {
 @media (max-width: 767px) {
   .fqs__title {
     font-size: 22px;
+    line-height: 21px;
     margin-bottom: 30px;
   }
 }
