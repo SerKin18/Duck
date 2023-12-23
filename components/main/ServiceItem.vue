@@ -1,12 +1,39 @@
 <template>
   <div class="service-item">
-    <div class="service-item__header">
+    <div class="service-item__header" @click.prevent="showCard">
       <div class="service-item-header__title">
         <span></span>
         <h4>{{ service.title }}</h4>
       </div>
       <div class="service-item-header__subtitle">
         <p>{{ service.subtitle }}</p>
+      </div>
+      <div class="service-item-body" v-show="showServiceCard">
+        <div class="service-item-image">
+          <img
+            src="../../static/image/Service-portfolio-card1.jpg"
+            alt="service-card-img"
+          />
+        </div>
+        <div class="service-item-text">
+          <p>
+            Впроваджуємо нові "хотілки", розвиваємо функціонал, оптимізуємо
+            роботу модулів і плагінів.Впроваджуємо нові "хотілки", розвиваємо
+            функціонал, оптимізуємо роботу модулів і плагінівА
+          </p>
+        </div>
+		  <div class="service-item-main-bottom">
+			<main-button-black >відправити запит</main-button-black>
+		  </div>
+ 
+        <div class="service-item-body_footer">
+          <div class="service-item-body_footer__exit">
+            <button @click.prevent>Скрыть</button><span></span>
+          </div>
+          <div class="service-item-body_footer__calc">
+            <button @click.prevent>Калькулятор</button>
+          </div>
+        </div>
       </div>
     </div>
     <div class="service-item__footer">
@@ -20,7 +47,9 @@
   </div>
 </template>
 <script>
+import MainButtonBlack from "../button/MainButtonBlack.vue";
 export default {
+  components: { MainButtonBlack },
   name: "service-item",
   props: {
     service: {
@@ -28,18 +57,47 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      showServiceCard: false,
+		removeBottomItemDisplay:true
+    };
+  },
+//   computed:{
+// 	// removeBottomItem(){
+// 	// 	return this.removeBottomItemDisplay=!this.removeBottomItemDisplay
+// 	// },
+// 	// addColorCard(){
+// 	// 	return "background-color:rgba(234, 90, 37, 1);"
+// 	// }
+//   },
+  methods: {
+    showCard() {
+      this.showServiceCard = !this.showServiceCard;
+    },
+  },
 };
 </script>
 <style scoped>
+.active{
+	background-color:rgba(234, 90, 37, 1);
+	.service-item__footer{
+		display: none;
+	}
+}
 .service-item {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   max-width: 435px;
-  height: 214px;
+  height: 100%;
   padding: 14px 23px;
   margin-bottom: 70px;
   flex: 1 0 33.333%;
+}
+.service-item-main-bottom{
+	max-width: 100%;
+	margin-left: -40px;
 }
 .service-item:hover {
   background-color: rgba(234, 90, 37, 1);
@@ -90,6 +148,77 @@ span::after {
 .service-item-header__subtitle {
   line-height: 25px;
   text-align: left;
+}
+
+.service-item-body {
+	display: flex;
+	flex-direction: column;
+	align-items:center;
+}
+.service-item-image {
+  margin: 19px 0px 21px 0px;
+}
+.service-item-image img {
+  max-width: 100%;
+}
+.service-item-text {
+  font-style: 16px;
+  line-height: 25px;
+  margin-bottom: 140px;
+}
+.service-item-body_footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+.service-item-body_footer__exit {
+}
+.service-item-body_footer__exit span {
+  position: relative;
+}
+.service-item-body_footer__exit span::before,
+.service-item-body_footer__exit span::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  right: -10px;
+  width: 15px;
+  height: 2px;
+  background-color: rgba(234, 90, 37, 1);
+}
+.service-item-body_footer__exit span::before {
+  top: 9px;
+  right: -5px;
+  transform: translateX(0px) rotate(135deg);
+  transform-origin: right bottom;
+}
+.service-item-body_footer__exit span::after {
+  width: 12px;
+  top: 11px;
+  left: -138px;
+  transform: translateX(130px) rotate(180deg);
+  transform-origin: right;
+}
+.service-item-body_footer__exit button{
+
+background-color:transparent;
+color:black;
+font-size: 16px;
+line-height: 25px;
+
+}
+.service-item-body_footer__calc {
+
+}
+.service-item-body_footer__calc  button{
+	display: inline-block;
+	font-family: var(--title);
+	background-color:transparent;
+color:white;
+font-size: 16px;
+line-height: 25px;
 }
 .service-item__footer {
   display: flex;

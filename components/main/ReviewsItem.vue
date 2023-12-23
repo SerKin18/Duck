@@ -19,16 +19,17 @@
           <button class="review-item__button_item">Інтернет магазин</button>
         </div>
         <div class="review-item__stars">
-          <StarRating :rating="review.rating"></StarRating>
+          <StarsRating :rating="review.rating" />
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import StarRating from "./StarRating.vue";
+import StarsRating from "../button/StarsRating.vue";
+
 export default {
-  components: { StarRating },
+  components: { StarsRating },
   name: "Reviews-Item",
   props: {
     review: {
@@ -109,8 +110,8 @@ export default {
 .review-item__stars {
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 28px;
+  max-width: 100%;
+
   padding-bottom: 3px;
 }
 @media (max-width: 970px) {
