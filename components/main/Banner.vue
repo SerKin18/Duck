@@ -10,13 +10,18 @@
           допомогою ефективних рішень з графічного дизайну від Wild Web!
         </p>
       </div>
-      <main-button class="btn-block-1">поговоримо?</main-button>
+      <main-button
+        class="btn-block-1"
+        :fontSize="'font-size:18px;padding:8px;max-width:280px'"
+        >поговоримо?</main-button
+      >
     </div>
     <div class="block-1__image">
       <img src="../../static/image/design-banner.png" alt="image-duck-banner" />
     </div>
-
-    <main-button class="btn-block-2">поговоримо?</main-button>
+    <main-button class="btn-block-2" :fontSize="'font-size:18px;padding:8px;'"
+      >поговоримо?</main-button
+    >
   </div>
 </template>
 <script>
@@ -51,6 +56,7 @@ export default {
   flex-direction: column;
   max-width: 535px;
   margin-top: 105px;
+  z-index: 5;
 }
 
 .block-1__body_title {
@@ -96,7 +102,7 @@ export default {
 
 .block-1__image {
   max-width: 50%;
-  z-index: 99;
+  z-index: 2;
   position: relative;
 }
 .block-1__image::before {
@@ -109,7 +115,7 @@ export default {
   transform: rotate(-47.3deg);
   opacity: 30%;
   background: linear-gradient(87.08deg, #203f6a 0%, #ea5a25 100%);
-  box-shadow: inset 0px 0px 100px 70px rgb(5, 5, 5);
+  box-shadow: inset -10px 0px 100px 90px rgb(5, 5, 5);
   z-index: 1;
 }
 .block-1__image::after {
@@ -166,11 +172,11 @@ export default {
     right: -300px;
     scale: 0.5;
   }
-  /* .block-1__body_title span:after {
-    scale: 0.5;
-    top: -22px;
-    right: 47%;
-  } */
+  .block-1__image::before {
+    bottom: -50px;
+    right: 0px;
+    transform: rotate(-47.3deg);
+  }
 }
 @media (max-width: 767px) {
   .block-1 {
@@ -188,16 +194,17 @@ export default {
   .block-1__image::after {
     display: none;
   }
+  .block-1__image::before {
+    height: 600px;
+    width: 662px;
+    top: -150px;
+    right: -200px;
+    transform: rotate(-47.3deg);
+  }
   .block-1__image img {
     position: static;
     scale: 0.4;
     z-index: 96;
-  }
-  .block-1__image::before {
-    bottom: -60px;
-    right: -130px;
-    height: 400px;
-    width: 862px;
   }
 
   .block-1__body_title {

@@ -1,6 +1,6 @@
 <template>
   <div class="main__button">
-    <button class="button">
+    <button class="button" v-bind:style="fontSize">
       <slot></slot>
     </button>
   </div>
@@ -8,18 +8,25 @@
 <script>
 export default {
   name: "main-button",
+  props: {
+    fontSize: {
+      type: String,
+      required: true,
+    },
+  },
 };
 </script>
-<style>
+<style scoped>
 .main__button {
-  margin-left: 40px;
+
 }
 .button {
   font-family: var(--title);
+  white-space: nowrap;
   text-transform: uppercase;
   position: relative;
-  width: 150px;
-  height: 37px;
+  width: 100%;
+  padding: 12px 10px;
   font-size: 12px;
   color: black;
   background: #ff723e;
@@ -28,7 +35,7 @@ export default {
 .button::before {
   content: "";
   position: absolute;
-  right: -36px;
+  right: -37px;
 
   top: 0px;
   border: 19px solid transparent;
@@ -38,13 +45,14 @@ export default {
 .button::after {
   content: "";
   position: absolute;
-  left: -36px;
+  left: -37px;
   bottom: 0;
   border: 19px solid transparent;
   border-right: 19px solid #ff723e;
 
   border-bottom: 19px solid #ff723e;
 }
-.button:hover {
+.main__button :hover {
+  opacity: 0.8;
 }
 </style>
