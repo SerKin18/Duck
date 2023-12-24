@@ -6,30 +6,68 @@
           <a href="#" class="header__logo">
             <img src="../../static/image/logo-full.png" alt="Logo" />
           </a>
-          <nav class="header__menu">
-            <ul @click.prevent="" class="header__list">
-              <li>
-                <a href="" class="header__link">Услуги<span></span></a>
-              </li>
-              <li>
-                <a href="" class="header__link">Портфолио<span></span></a>
-              </li>
-              <li>
-                <a href="" class="header__link">Преимущества<span></span></a>
-              </li>
-              <li>
-                <a href="" class="header__link">Калькулятор<span></span></a>
-              </li>
-              <li>
-                <a href="" class="header__link">Крядио<span></span></a>
-              </li>
-            </ul>
-          </nav>
-
-          <main-button class="btn-menu"> залишити заявку </main-button>
+          <div class="header__menu_items">
+            <nav class="header__menu">
+              <ul @click.prevent="" class="header__list">
+                <li>
+                  <a href="" class="header__link">Услуги<span></span></a>
+                </li>
+                <li>
+                  <a href="" class="header__link">Портфолио<span></span></a>
+                </li>
+                <li>
+                  <a href="" class="header__link">Преимущества<span></span></a>
+                </li>
+                <li>
+                  <a href="" class="header__link">Калькулятор<span></span></a>
+                </li>
+                <li>
+                  <a href="" class="header__link">Крядио<span></span></a>
+                </li>
+              </ul>
+            </nav>
+            <div class="header__button">
+              <main-button class="btn-menu"> залишити заявку </main-button>
+            </div>
+          </div>
+          <div
+            class="header__menu_dropdown"
+            v-show="openMenu"
+            v-bind:class="{ active: showMenu }"
+          >
+            <div class="header__menu_dropdown__btn" @click.stop="toggleMenu">
+              <button><span></span></button>
+            </div>
+            <div class="header__menu_dropdown_menu">
+              <nav class="header__menu">
+                <ul @click.prevent="" class="header__list">
+                  <li>
+                    <a href="" class="header__link">Услуги<span></span></a>
+                  </li>
+                  <li>
+                    <a href="" class="header__link">Портфолио<span></span></a>
+                  </li>
+                  <li>
+                    <a href="" class="header__link"
+                      >Преимущества<span></span
+                    ></a>
+                  </li>
+                  <li>
+                    <a href="" class="header__link">Калькулятор<span></span></a>
+                  </li>
+                  <li>
+                    <a href="" class="header__link">Крядио<span></span></a>
+                  </li>
+                </ul>
+              </nav>
+              <div class="header__button">
+                <main-button class="btn-menu"> залишити заявку </main-button>
+              </div>
+            </div>
+          </div>
           <div class="header__lang">
             <span>En</span>
-            <div class="header__burger">
+            <div class="header__burger" @click.stop="toggleMenu">
               <span></span>
               <span></span>
             </div>
@@ -44,9 +82,89 @@ import MainButton from "../button/MainButton.vue";
 export default {
   components: { MainButton },
   name: "Header",
+  data() {
+    return {
+      openMenu: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.openMenu = !this.openMenu;
+    },
+  },
 };
 </script>
-<style>
+<style scoped>
+.header__menu_dropdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100%;
+  padding: 40px 24px;
+  background-color: black;
+  z-index: 99;
+  .header__menu {
+    margin-left: 0px;
+  }
+
+  .header__menu_dropdown__btn {
+    position: relative;
+    width: 100%;
+    height: 30px;
+  }
+  .header__menu_dropdown__btn span::before,
+  .header__menu_dropdown__btn span::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 3px;
+    width: 25px;
+    height: 3px;
+    background-color: rgba(234, 90, 37, 1);
+  }
+  .header__menu_dropdown__btn span::after {
+    transform: rotate(45deg);
+  }
+  .header__menu_dropdown__btn span::before {
+    transform: rotate(-45deg);
+  }
+  .header__menu_dropdown_menu {
+    width: 100%;
+    background-color: black;
+    align-items: center;
+    justify-content: center;
+    .header__link {
+      margin: 0px 0px 40px 0px;
+    }
+    .header__list {
+      margin-top: 90px;
+    }
+    .header__button {
+      margin: 0 auto;
+      .btn-menu {
+        margin: 0px 0px 0px -8px;
+      }
+    }
+  }
+
+  .header__list {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.header__menu_items {
+  display: flex;
+  align-items: center;
+  z-index: 97;
+}
+.header__button {
+  width: 200px;
+}
 .header {
   margin-bottom: 90px;
   justify-content: space-between;
@@ -85,7 +203,7 @@ export default {
   margin-right: 40px;
   font-family: "GothamPro", sans-serif;
   font-size: 16px;
-  z-index: 96
+  z-index: 96;
 }
 .header__link li:last-child {
   margin-right: 0px;
@@ -187,8 +305,7 @@ export default {
     height: 40px;
     width: 142px;
   }
-  .header__list,
-  .btn-menu {
+  .header__menu_items {
     display: none;
   }
   .header__burger {

@@ -1,7 +1,7 @@
 <!-- Please remove this file from your project -->
 <template>
   <div class="wrapper">
-    <Header></Header>
+    <!-- <Header></Header> -->
     <Main></Main>
     <Footer></Footer>
   </div>

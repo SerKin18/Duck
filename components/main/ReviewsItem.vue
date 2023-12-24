@@ -3,8 +3,7 @@
     <div class="review-item" id="ratting">
       <div class="review-item__header">
         <div class="review-item__logo">
-          <img src="@/assets/reviews-logo3.png" alt="logo-review" />
-          <!-- <img :src="review.logo" alt="logo-review" /> -->
+          <img src="../../assets/reviews-logo1.png" alt="logo-review" />
         </div>
         <div class="review-item__name">
           <div class="review-item__title">{{ review.name }}</div>
@@ -101,11 +100,15 @@ export default {
 }
 .review-item__button_item {
   font-size: 14px;
+  width: 155px;
   line-height: 25px;
-  padding: 3px 20px;
+  padding: 3px 0px;
   background-color: transparent;
   border: 1px solid rgba(234, 90, 37, 1);
   border-radius: 20px;
+}
+.review-item__button_item:hover {
+  background-color: rgba(234, 90, 37, 1);
 }
 .review-item__stars {
   align-items: center;

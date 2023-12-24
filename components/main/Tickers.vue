@@ -57,11 +57,13 @@ export default {
 </script>
 <style scoped>
 .tickers {
+  position: relative;
   width: 100%;
-  z-index: 96;
   margin: 0 auto;
   transform: rotate(1deg);
+  z-index: 10;
 }
+
 .tickers span {
   text-transform: uppercase;
   font-family: var(--title-font);

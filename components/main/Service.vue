@@ -10,7 +10,7 @@
         :key="service.id"
       ></ServiceItem>
     </div>
-    <main-button>відправити запит</main-button>
+    <main-button :fontSize="'font-size:18px;padding:9px;width:280px;margin-left:0px'">відправити запит</main-button>
   </div>
 </template>
 <script>

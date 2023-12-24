@@ -10,7 +10,7 @@ export default {
   name: "main-button-black",
 };
 </script>
-<style>
+<style scoped>
 .main__button {
   margin-left: 40px;
 }
@@ -29,7 +29,7 @@ export default {
 .button::before {
   content: "";
   position: absolute;
-  right: -50px;
+  right: -49px;
 
   top: 0px;
   border: 25px solid transparent;
@@ -39,7 +39,7 @@ export default {
 .button::after {
   content: "";
   position: absolute;
-  left: -50px;
+  left: -49px;
   bottom: 0;
   border: 25px solid transparent;
   border-right: 25px solid #121212;
@@ -47,5 +47,7 @@ export default {
   border-bottom: 25px solid #121212;
 }
 .button:hover {
+	color: #ff723e;
+	box-shadow: 0px 0px 90px 2px #fcfcfc;
 }
 </style>
