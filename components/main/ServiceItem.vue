@@ -124,7 +124,7 @@ export default {
   max-width: 100%;
   margin-left: -40px;
 }
-.service-item:hover {
+.service-item_block:hover {
   background-color: rgba(234, 90, 37, 1);
   a {
     color: rgb(7, 7, 7);

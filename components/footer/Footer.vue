@@ -126,6 +126,13 @@ export default {
 };
 </script>
 <style>
+.footer{
+	padding: 0px 14.5px;
+}
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
 .footer__header {
   display: flex;
   flex-direction: column;

@@ -32,7 +32,7 @@ export default {
   name: "Banner",
 };
 </script>
-<style>
+<style scoped>
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -43,6 +43,7 @@ export default {
   justify-content: space-between;
   z-index: 9;
   margin-bottom: 100px;
+  padding:0px 14.5px;
 }
 .btn-block-2 {
   display: none;
@@ -190,6 +191,9 @@ export default {
     align-items: center;
     justify-content: flex-end;
     max-width: 100%;
+  }
+  .block-1__image img{
+	margin-left: 50px;
   }
   .block-1__image::after {
     display: none;

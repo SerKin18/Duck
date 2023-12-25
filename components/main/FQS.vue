@@ -33,7 +33,7 @@ export default {
   margin: 0 auto;
 }
 .fqs {
-  padding: 100px 0px;
+  padding: 100px 14.5px;
   width: 100%;
   background: url(../../static/image/why-us-image.jpg) center;
   display: flex;
@@ -78,7 +78,7 @@ export default {
 
 @media (max-width: 1200px) {
   .fqs {
-    padding: 50px 17px;
+    padding: 50px 14.5px;
   }
 
   .fqs__title {

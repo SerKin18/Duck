@@ -22,8 +22,8 @@
             <label for="">
               <input type="select" placeholder="Тип послуги" />
             </label>
-            <div class="contacts__body_form_btn">
-              <MainButton style="font-size: 20px">надіслати</MainButton>
+            <div class="contacts__body_form_btn" @click.prevent >
+              <MainButton @click.prevent :fontSize="'font-size:20px;padding:7px'" >надіслати</MainButton>
             </div>
           </form>
         </div>
@@ -111,11 +111,11 @@ export default {
 }
 .contacts {
   position: relative;
-  padding: 100px 0px;
+  padding: 100px 14.5px;
   background-color: black;
   display: flex;
   flex-direction: column;
-  z-index: 5;
+  z-index: 96;
 }
 .contacts::before {
   content: "";
@@ -188,6 +188,8 @@ export default {
 }
 .contacts__body_form_btn {
   margin-top: 50px;
+  margin-left: 40px;
+  width:308px;
 }
 .info__text {
   align-items: flex-start;
@@ -222,7 +224,7 @@ export default {
 }
 @media (max-width: 1200px) {
   .contacts {
-    padding: 50px 0px;
+    padding: 0px 14.5px;
   }
   .contacts__title {
     margin-bottom: 40px;

@@ -33,7 +33,7 @@
           <div
             class="header__menu_dropdown"
             v-show="openMenu"
-            v-bind:class="{ active: showMenu }"
+            
           >
             <div class="header__menu_dropdown__btn" @click.stop="toggleMenu">
               <button><span></span></button>
@@ -95,6 +95,9 @@ export default {
 };
 </script>
 <style scoped>
+header{
+	padding:0px 14.5px;
+}
 .header__menu_dropdown {
   position: absolute;
   top: 0;
@@ -146,7 +149,7 @@ export default {
     .header__button {
       margin: 0 auto;
       .btn-menu {
-        margin: 0px 0px 0px -8px;
+        margin: 0px 0px 0px 10px;
       }
     }
   }
@@ -169,10 +172,12 @@ export default {
   margin-bottom: 90px;
   justify-content: space-between;
   z-index: 97;
+
 }
 .container {
   max-width: 1280px;
   margin: 0 auto;
+
 }
 .header__body {
   display: flex;

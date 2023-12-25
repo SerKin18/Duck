@@ -10,7 +10,7 @@
         :key="service.id"
       ></ServiceItem>
     </div>
-    <main-button :fontSize="'font-size:18px;padding:9px;width:280px;margin-left:0px'">відправити запит</main-button>
+    <main-button :fontSize="'font-size:17px;padding:9px;width:220px;margin-left:0px'">відправити запит</main-button>
   </div>
 </template>
 <script>
@@ -27,13 +27,14 @@ export default {
   },
 };
 </script>
-<style scope>
+<style scoped>
 .services {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 97px;
   margin-bottom: 100px;
+  padding:0px 14.5px;
 }
 .services__title {
   text-transform: uppercase;
