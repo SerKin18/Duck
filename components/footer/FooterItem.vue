@@ -1,23 +1,35 @@
 <template>
   <div class="footer__servises">
-    <div class="footer__servises_title" @click.prevent="showFooterMenu">
-      <slot><h4></h4></slot>
-      <div class="FQS-item__btn footer__item__btn">
-        <button><span></span></button>
+    <MatchMedia v-slot="{ mobile }">
+      <div class="footer__servises_title" @click.prevent="showFooterMenu">
+        <slot><h4></h4></slot>
+        <div class="FQS-item__btn footer__item__btn">
+          <button><span></span></button>
+        </div>
       </div>
-    </div>
-    <div class="footer__list_items">
-      <nav>
-        <ul class="footer__list_item" v-show="showFooterText">
-          <li v-for="items in itemList">
-            <a @click.prevent href="#">{{ items }}</a>
-          </li>
-        </ul>
-      </nav>
-    </div>
+      <div v-if="mobile" class="footer__list_items">
+        <nav>
+          <ul class="footer__list_item" v-show="showFooterText">
+            <li v-for="items in itemList">
+              <a @click.prevent href="#">{{ items }}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div v-else class="footer__list_items">
+        <nav>
+          <ul class="footer__list_item">
+            <li v-for="items in itemList">
+              <a @click.prevent href="#">{{ items }}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </MatchMedia>
   </div>
 </template>
 <script>
+import { MatchMedia } from "vue-component-media-queries";
 export default {
   props: {
     itemList: {
@@ -26,17 +38,21 @@ export default {
     },
   },
   name: "footer-item",
+  components: { MatchMedia },
   data() {
     return {
-      showFooterText: true,
+      showFooterText:false,
     };
   },
+  inject: ["mediaQueries"],
+  
 
   methods: {
     showFooterMenu() {
       this.showFooterText = !this.showFooterText;
     },
   },
+
 };
 </script>
 <style scoped>
@@ -102,6 +118,7 @@ export default {
     flex: 1 0 100%;
     max-width: 767px;
     width: 100%;
+	 padding: 0px 0px 0px 0px;
   }
   .footer__list_items {
   }

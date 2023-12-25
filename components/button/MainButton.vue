@@ -11,7 +11,7 @@ export default {
   props: {
     fontSize: {
       type: String,
-      required: true,
+      required: false,
     },
   },
 };
@@ -35,8 +35,7 @@ export default {
 .button::before {
   content: "";
   position: absolute;
-  right: -37px;
-
+  right: -36px;
   top: 0px;
   border: 19px solid transparent;
   border-left: 19px solid #ff723e;
@@ -45,7 +44,7 @@ export default {
 .button::after {
   content: "";
   position: absolute;
-  left: -37px;
+  left: -36px;
   bottom: 0;
   border: 19px solid transparent;
   border-right: 19px solid #ff723e;
@@ -53,6 +52,6 @@ export default {
   border-bottom: 19px solid #ff723e;
 }
 .main__button :hover {
-  opacity: 0.8;
+  color:white
 }
 </style>

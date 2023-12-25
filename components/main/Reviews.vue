@@ -132,7 +132,7 @@ export default {
 </script>
 <style scoped>
 .reviews {
-  padding: 100px 0px;
+  padding: 100px 14.5px;
   width: 100%;
   height: 100%;
   display: flex;
@@ -263,7 +263,7 @@ export default {
     margin-bottom: 40px;
   }
   .reviews {
-    padding: 65px 0px;
+    padding: 65px 14.5px;
   }
 }
 </style>

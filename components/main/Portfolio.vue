@@ -6,7 +6,11 @@
       </div>
     </div>
     <div class="portfolio__body">
-      <PortfolioItem v-for="item in portfolioArray"></PortfolioItem>
+      <PortfolioItem
+        v-for="item in portfolios"
+        :item="item"
+        :key="item.id"
+      ></PortfolioItem>
     </div>
   </div>
 </template>
@@ -17,7 +21,44 @@ export default {
   name: "portfolio",
   data() {
     return {
-      portfolioArray: 6,
+      portfolios: [
+        {
+          company: "Fielman",
+          category: "Інтернет магазин",
+          id: "1",
+          img: "../../static/image/Service-portfolio-card1.jpg",
+        },
+        {
+          company: "Fielman",
+          category: "Інтернет магазин",
+          id: "2",
+          img: "../../static/image/Service-portfolio-card1.jpg",
+        },
+        {
+          company: "Fielman",
+          category: "Інтернет магазин",
+          id: "3",
+          img: "../../static/image/Service-portfolio-card1.jpg",
+        },
+        {
+          company: "Fielman",
+          category: "Інтернет магазин",
+          id: "4",
+          img: "../../static/image/Service-portfolio-card1.jpg",
+        },
+        {
+          company: "Fielman",
+          category: "Інтернет магазин",
+          id: "5",
+          img: "../../static/image/Service-portfolio-card1.jpg",
+        },
+        {
+          company: "Fielman",
+          category: "Інтернет магазин",
+          id: "6",
+          img: "../../static/image/Service-portfolio-card1.jpg",
+        },
+      ],
     };
   },
 };
@@ -41,6 +82,7 @@ export default {
   font-size: 80px;
   text-align: left;
   margin-bottom: 90px;
+  padding:0px 14.5px;
 }
 .portfolio__body {
   width: 100%;
@@ -48,5 +90,28 @@ export default {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+}
+@media (max-width: 1200px) {
+  .portfolio {
+    margin: 50px 0px 40px 0px;
+  }
+  .portfolio__title {
+    font-size: 60px;
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 970px) {
+  .portfolio__body {
+    align-items: center;
+    justify-content: center;
+  }
+  .portfolio__title {
+    font-size: 40px;
+  }
+}
+@media (max-width: 767px) {
+  .portfolio__title {
+    font-size: 22px;
+  }
 }
 </style>

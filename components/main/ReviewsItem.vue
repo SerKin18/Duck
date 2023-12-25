@@ -40,10 +40,11 @@ export default {
 </script>
 <style scoped>
 .review-items {
+
 }
 .review-item {
   max-width: 396px;
-
+min-width: 370px;
   max-height: 100%;
   padding: 20px 20px;
   margin: 2px 2px 70px 2px;
@@ -140,7 +141,7 @@ export default {
     width: 100%;
   }
   .review-item {
-    max-width: 100%;
+    width: 100%;
     margin: 0px 0px 20px 0px;
   }
   .review-item__body {
@@ -149,10 +150,14 @@ export default {
 }
 @media (max-width: 540px) {
   .review-items {
+	width: 100%;
     justify-content: center;
   }
   .review-item {
-    max-width: 370px;
+    width:100%
+  }
+  .review-item__body{
+	width:370px
   }
 }
 </style>

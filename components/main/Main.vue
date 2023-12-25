@@ -1,6 +1,5 @@
 <template>
   <div class="main">
-    <Header></Header>
     <div class="container">
       <Banner />
     </div>
