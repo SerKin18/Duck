@@ -32,7 +32,7 @@ export default {
   name: "Banner",
 };
 </script>
-<style>
+<style scoped>
 .container {
   max-width: 1280px;
   margin: 0 auto;

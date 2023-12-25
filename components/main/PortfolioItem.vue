@@ -3,7 +3,7 @@
     <!-- <div class="portfolio-item__image">
 			<img src="../../static/image/portfolio-card1.jpg" alt="portfolio-card">
 		</div> -->
-    <span></span>
+    <i></i>
     <div class="portfolio-item__hide-logo">
       <img
         src="../../static/image/portfolio-card-wrapper.jpg"
@@ -43,35 +43,62 @@ export default {
   justify-content: center;
   background: rgba(18, 18, 18, 0.9);
 }
-.portfolio-item span,
-.portfolio-item span::before,
-.portfolio-item span::after {
+.portfolio-item i,
+.portfolio-item i::before,
+.portfolio-item i::after {
   content: "";
   position: absolute;
   width: 160px;
   height: 100px;
   z-index: 7;
   opacity: 0;
+    pointer-events: none;
 }
-.portfolio-item span::after {
+.portfolio-item i::after {
   bottom: -450px;
   left: -44px;
   background: url(../../static/image/Vector2.png) center no-repeat;
 }
-.portfolio-item span {
+.portfolio-item i {
   top: -30px;
   left: -63px;
   background: url(../../static/image/Vector.png) center no-repeat;
 }
-.portfolio-item span::before {
+.portfolio-item i::before {
   bottom: -40px;
   right: -575px;
   transform: rotate(180deg);
   background: url(../../static/image/Vector2.png) center no-repeat;
 }
-.portfolio-item span,
-.portfolio-item span::before,
-.portfolio-item span::after {
+
+.portfolio-item:active{
+	.portfolio-item i,
+.portfolio-item i::before,
+.portfolio-item i::after {
+  content: "";
+  position: absolute;
+  width: 160px;
+  height: 100px;
+  z-index: 7;
+  opacity: 1;
+    pointer-events: none;
+}
+.portfolio-item i::after {
+  bottom: -450px;
+  left: -44px;
+  background: url(../../static/image/Vector2.png) center no-repeat;
+}
+.portfolio-item i {
+  top: -30px;
+  left: -63px;
+  background: url(../../static/image/Vector.png) center no-repeat;
+}
+.portfolio-item i::before {
+  bottom: -40px;
+  right: -575px;
+  transform: rotate(180deg);
+  background: url(../../static/image/Vector2.png) center no-repeat;
+}
 }
 .portfolio-item:hover {
   scale: 1.1;
@@ -79,11 +106,7 @@ export default {
   .portfolio-item__hide-logo {
     opacity: 0;
   }
-  .portfolio-item span,
-  .portfolio-item span::before,
-  .portfolio-item span::after {
-    opacity: 1;
-  }
+
 
   /* .portfolio-item span::before, .portfolio-item span::after {
     content: "";
@@ -136,10 +159,11 @@ export default {
   color: rgb(255, 255, 255);
 }
 
-.portfolio-item__link > span {
+.portfolio-item__link span {
   position: relative;
+  pointer-events: none;
 }
-.portfolio-item__link > span::before,
+.portfolio-item__link  span::before,
 .portfolio-item__link span::after {
   content: "";
   position: absolute;
@@ -147,13 +171,15 @@ export default {
   right: 0px;
   width: 15px;
   height: 2px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 253, 253);
+  pointer-events: none;
 }
 .portfolio-item__link span::before {
   top: -1px;
   right: -5px;
   transform: translateX(10px) rotate(-135deg);
   transform-origin: right bottom;
+  pointer-events: none;
 }
 .portfolio-item__link span::after {
   width: 12px;
@@ -161,5 +187,6 @@ export default {
   left: -138px;
   transform: translateX(140px) rotate(180deg);
   transform-origin: right;
+  pointer-events: none;
 }
 </style>

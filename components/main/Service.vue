@@ -27,7 +27,7 @@ export default {
   },
 };
 </script>
-<style scope>
+<style scoped>
 .services {
   display: flex;
   flex-direction: column;

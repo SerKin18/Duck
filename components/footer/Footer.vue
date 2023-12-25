@@ -126,6 +126,10 @@ export default {
 };
 </script>
 <style>
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
 .footer__header {
   display: flex;
   flex-direction: column;
