@@ -69,6 +69,11 @@ export default {
   color: white;
   text-align: center;
 }
+.FQS-item__text {
+  display: block;
+
+  transition: all 1s ease-out;
+}
 .FQS-item__text p {
   font-style: 16px;
   line-height: 25px;
@@ -115,7 +120,9 @@ export default {
 }
 .FQS-item__text {
   display: block;
+  transition: all 1s ease-out;
 }
+
 @media (max-width: 767px) {
   .FQS-item {
     padding: 14px;

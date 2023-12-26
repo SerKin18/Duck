@@ -3,7 +3,7 @@
     <div class="review-item" id="ratting">
       <div class="review-item__header">
         <div class="review-item__logo">
-          <img src="review.logo" alt="logo-review" />
+          <img v-bind:src="review.logo" alt="logo-review" />
         </div>
         <div class="review-item__name">
           <div class="review-item__title">{{ review.name }}</div>

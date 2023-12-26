@@ -96,7 +96,7 @@ export default {
 </script>
 <style scoped>
 header{
-	padding:0px 14.5px;
+	padding:18px 14.5px 0px 14.5px;
 }
 .header__menu_dropdown {
   position: absolute;
@@ -147,6 +147,7 @@ header{
       margin-top: 90px;
     }
     .header__button {
+		width: 240px;
       margin: 0 auto;
       .btn-menu {
         margin: 0px 0px 0px 10px;
@@ -166,7 +167,8 @@ header{
   z-index: 97;
 }
 .header__button {
-  width: 200px;
+  width: 180px;
+  margin: 0px 0px 0px 30px;
 }
 .header {
   margin-bottom: 90px;
@@ -190,7 +192,7 @@ header{
 }
 .header__lang {
   display: flex;
-  margin-left: 96px;
+  margin-left: 70px;
 }
 .header__menu {
   margin-left: 100px;
