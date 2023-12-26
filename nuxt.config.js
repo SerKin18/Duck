@@ -2,7 +2,10 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
   router: {
-	base: '/Duck/'
+	base: '/Duck'
+ },
+ publicRuntimeConfig: {
+	BASE_URL: '/Duck',
  },
 
 
