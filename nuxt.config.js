@@ -4,6 +4,9 @@ export default {
   router: {
     base: '/Duck'
   },
+  publicRuntimeConfig: {
+	BASE_URL: '/Duck',
+ },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
