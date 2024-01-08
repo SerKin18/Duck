@@ -49,6 +49,7 @@ export default {
   text-transform: uppercase;
   font-size: 80px;
   margin-bottom: 90px;
+  padding-left: 6px;
 }
 .fqs__title h2 {
   color: black;
@@ -78,7 +79,7 @@ export default {
 
 @media (max-width: 1200px) {
   .fqs {
-    padding: 50px 14.5px;
+    padding: 50px 8.5px;
   }
 
   .fqs__title {
@@ -98,6 +99,7 @@ export default {
   }
 }
 @media (max-width: 767px) {
+	
   .fqs__title {
     font-size: 22px;
     line-height: 21px;
