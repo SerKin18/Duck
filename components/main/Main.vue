@@ -7,7 +7,7 @@
     <div class="container">
       <Service :services="services"></Service>
     </div>
-	 <Portfolio/>
+    <Portfolio />
     <WhyUs :whyUsItems="whyUsItems"></WhyUs>
     <Reviews :reviews="reviews" />
     <FQS :FQSItems="FQSItems"></FQS>
@@ -30,7 +30,7 @@ export default {
     Banner,
     Tickers,
     Service,
-	 Portfolio,
+    Portfolio,
     WhyUs,
     FQS,
     Contacts,

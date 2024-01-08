@@ -54,6 +54,7 @@ export default {
   justify-content: space-between;
   background-color: #000000;
   padding: 21px 30px 21px 25px;
+  max-width: 1239px;
 }
 .FQS-item__body {
   display: flex;

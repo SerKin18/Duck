@@ -25,7 +25,7 @@
             <button
               class="btn__rewiews"
               :class="page === pagination.currentPage ? 'active' : ''"
-              v-for="page in pagination.pages"
+              v-for="page in tempNumberOfPages"
               :page="page"
               @click.prevent="setPage(page)"
               :key="page"
@@ -58,9 +58,58 @@ export default {
   data() {
     return {
       perPage: 6,
+      tempNumberOfPages: [],
       data: this.$props.reviews,
       pagination: {},
     };
+  },
+  watch: {
+    "pagination.pages": function () {
+      this.tempNumberOfPages = [...this.pagination.pages];
+      if (
+        this.pagination.currentPage >= 1 &&
+        this.pagination.currentPage <= 4
+      ) {
+        this.tempNumberOfPages = [
+          1,
+          2,
+          3,
+          4,
+          "...",
+          [...this.pagination.pages].length,
+        ];
+      }
+      if (
+        this.pagination.currentPage >= 4 &&
+        this.pagination.currentPage <= 7
+      ) {
+        this.tempNumberOfPages = [
+          1,
+          "... ",
+          4,
+          5,
+          6,
+          7,
+          8,
+          "...",
+          [...this.pagination.pages].length,
+        ];
+      }
+      if (
+        this.pagination.currentPage >= 8 &&
+        this.pagination.currentPage <= [...this.pagination.pages].length
+      ) {
+        this.tempNumberOfPages = [
+          1,
+          "...",
+          7,
+          8,
+          9,
+          [...this.pagination.pages].length,
+        ];
+      }
+      console.log(this.tempNumberOfPages);
+    },
   },
   computed: {
     collection() {
@@ -69,6 +118,9 @@ export default {
   },
   methods: {
     setPage(page) {
+      if (page === "...") {
+        return;
+      }
       this.pagination = this.paginator(this.data.length, page);
     },
     prevPage() {

@@ -95,7 +95,8 @@ export default {
 }
 .portfolio-item i::before {
   bottom: -40px;
-  right: -33vw;
+  right: -29.9vw;
+
   transform: rotate(180deg);
   background: url(../../static/image/Vector2.png) center no-repeat;
 }
@@ -189,7 +190,16 @@ export default {
     background-color: rgba(234, 90, 37, 1);
   }
 }
-
+@media (max-width: 1310px) {
+  .portfolio-item i::before {
+    right: -43vw;
+  }
+}
+@media (max-width: 923px) {
+  .portfolio-item i::before {
+    right: -77vw;
+  }
+}
 @media (max-width: 890px) {
   .portfolio-item__footer {
     padding: 35px 35px;

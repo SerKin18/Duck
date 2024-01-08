@@ -82,7 +82,7 @@ export default {
   font-size: 80px;
   text-align: left;
   margin-bottom: 90px;
-  padding:0px 14.5px;
+  padding: 0px 14.5px;
 }
 .portfolio__body {
   width: 100%;
@@ -90,10 +90,14 @@ export default {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  padding: 0px 100px;
 }
 @media (max-width: 1200px) {
   .portfolio {
     margin: 50px 0px 40px 0px;
+  }
+  .portfolio__body {
+    padding: 0px 80px;
   }
   .portfolio__title {
     font-size: 60px;
@@ -112,6 +116,10 @@ export default {
 @media (max-width: 767px) {
   .portfolio__title {
     font-size: 22px;
+  }
+  .portfolio__body {
+    padding: 0px 14.5px;
+    margin: 0px 20px;
   }
 }
 </style>
