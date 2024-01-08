@@ -12,14 +12,14 @@
       </div>
       <main-button
         class="btn-block-1"
-        :fontSize="'font-size:18px;padding:8px;max-width:280px'"
+        :fontSize="'font-size:18px;padding:8px;max-width:270px'"
         >поговоримо?</main-button
       >
     </div>
     <div class="block-1__image">
-      <img src="../../static/image/design-banner.png" alt="image-duck-banner" />
+      <img src="/image/design-banner.png" alt="image-duck-banner" />
     </div>
-    <main-button class="btn-block-2" :fontSize="'font-size:18px;padding:8px;'"
+    <main-button class="btn-block-2" :fontSize="'font-size:18px;padding:8px;width: 220px'"
       >поговоримо?</main-button
     >
   </div>
@@ -49,8 +49,9 @@ export default {
   display: none;
 }
 
-.btn-block-1 button {
-  width: 180px;
+.btn-block-1  {
+  width: 240px;
+  margin: 0px 0px 0px 50px;
 }
 .block-1__body {
   display: flex;

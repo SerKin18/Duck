@@ -84,6 +84,9 @@ export default {
   }
 }
 @media (max-width: 767px) {
+	.why-us{
+		padding: 0px 14.5px ;
+	}
   .why-us__title {
     font-size: 22px;
   }

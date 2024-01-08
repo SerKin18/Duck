@@ -1,14 +1,13 @@
 <template>
   <div class="portfolio-item">
-    <!-- <div class="portfolio-item__image">
-			<img src="fontImage" alt="portfolio-card">
-		</div> -->
+    <img
+      class="portfolio-item__img"
+      v-bind:src="item.img"
+      alt="portfolio-card"
+    />
     <i></i>
     <div class="portfolio-item__hide-logo" v-bind:style="colored">
-      <img
-        src="../../static/image/portfolio-card-wrapper.jpg"
-        alt="portfolio-logo"
-      />
+      <img src="image/portfolio-card-wrapper.jpg" alt="portfolio-logo" />
     </div>
     <div class="portfolio-item__footer">
       <div class="portfolio-item__text">
@@ -48,9 +47,14 @@ export default {
   min-width: 370px;
   height: 50vh;
   min-height: 290px;
-  background: url(../../static/image/portfolio-card1.jpg) center no-repeat;
   position: relative;
   flex: 1 0 33.333%;
+  z-index: 3;
+}
+.portfolio-item__img {
+  width: 100%;
+  height: 100%;
+  position: relative;
   z-index: 3;
 }
 .portfolio-item__hide-logo {
@@ -59,6 +63,10 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
   /* background: rgba(18, 18, 18, 0.9); */
 }
 .portfolio-item__hide-logo img {
@@ -87,7 +95,8 @@ export default {
 }
 .portfolio-item i::before {
   bottom: -40px;
-  right: -33vw;
+  right: -29.9vw;
+
   transform: rotate(180deg);
   background: url(../../static/image/Vector2.png) center no-repeat;
 }
@@ -110,6 +119,7 @@ export default {
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 6;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -180,7 +190,16 @@ export default {
     background-color: rgba(234, 90, 37, 1);
   }
 }
-
+@media (max-width: 1310px) {
+  .portfolio-item i::before {
+    right: -43vw;
+  }
+}
+@media (max-width: 923px) {
+  .portfolio-item i::before {
+    right: -77vw;
+  }
+}
 @media (max-width: 890px) {
   .portfolio-item__footer {
     padding: 35px 35px;

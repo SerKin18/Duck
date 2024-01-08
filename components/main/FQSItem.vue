@@ -54,6 +54,7 @@ export default {
   justify-content: space-between;
   background-color: #000000;
   padding: 21px 30px 21px 25px;
+  max-width: 1239px;
 }
 .FQS-item__body {
   display: flex;
@@ -68,6 +69,11 @@ export default {
   line-height: 25px;
   color: white;
   text-align: center;
+}
+.FQS-item__text {
+  display: block;
+
+  transition: all 1s ease-out;
 }
 .FQS-item__text p {
   font-style: 16px;
@@ -115,7 +121,9 @@ export default {
 }
 .FQS-item__text {
   display: block;
+  transition: all 1s ease-out;
 }
+
 @media (max-width: 767px) {
   .FQS-item {
     padding: 14px;
