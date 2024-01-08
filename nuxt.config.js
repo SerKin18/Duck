@@ -1,7 +1,12 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
-
+  router: {
+    base: "/Duck",
+  },
+  publicRuntimeConfig: {
+    BASE_URL: "/Duck",
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Duck-Project",
@@ -18,9 +23,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-	
-  ],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
