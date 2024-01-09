@@ -26,12 +26,12 @@
 									<div class="contact_services__title">
 										Тип послуги
 									</div>
-									<div class="contact_item__btn"  @click.prevent>
-										<button  @click.prevent><span></span></button>
+									<div class="contact_item__btn" :class="showServices ? 'active_btn' : ''">
+										<button @click.prevent="toggleServiceCard"><span></span></button>
 									</div>
 								</div>
-								<div class="contact_services__body	">
-
+								<div class="contact_services__body" v-show="showServices">
+									<ServiceButton v-for="item in itemListServices" :key="item[i]">{{ item }}</ServiceButton>
 								</div>
 							</div>
 							<div class="contacts__body_form_btn" @click.prevent>
@@ -98,9 +98,31 @@
 </div></template>
 <script>
 import MainButton from "../button/MainButton.vue";
+import ServiceButton from '../button/ServiceButton.vue'
 export default {
-	components: { MainButton },
+	components: { MainButton, ServiceButton },
 	name: "Contacts",
+	data() {
+		return {
+			showServices: false,
+			itemListServices: [
+				"Landing page",
+				"Корпоративні сайти",
+				"Інтернет магазин",
+				"Бізнес сайт",
+				"Сайт візитка",
+				"Дизайн сайту",
+				"Розробка сайту",
+				"Редизайн сайту",
+				"Ecommerce проекти",
+			]
+		}
+	},
+	methods: {
+		toggleServiceCard() {
+			this.showServices = !this.showServices;
+		},
+	},
 };
 </script>
 <style scoped>
@@ -214,46 +236,68 @@ export default {
 	color: rgba(248, 248, 248, 1);
 	opacity: 50%;
 }
-.contact_item__btn {
-  width: 30px;
-  height: 30px;
+
+.contact_item__btn,
+.contact_item__btn button {
+	width: 30px;
+	height: 30px;
+	background: transparent
 }
+
 .contact_item__btn {
-  position: relative;
-  padding-right: 20px;
+	position: relative;
+	padding-right: 20px;
 }
+
 .contact_item__btn span::before,
 .contact_item__btn span::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  width: 15px;
-  height: 2px;
-  background: rgba(234, 90, 37, 1);
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 15px;
+	width: 15px;
+	height: 2px;
+	background: rgba(234, 90, 37, 1);
 
 }
+
 .contact_item__btn span::after {
-  transform: rotate(90deg);
+	transform: rotate(90deg);
 }
-.contact_services__head:hover {
-	.contact_item__btn span::after {
-      top: 20px;
-      right: 18px;
-      width: 8px;
-      height: 2px;
-      background-color: rgb(255, 255, 255);
-    }
-    .contact_item__btn span::before,
-    .contact_item__btn span::after {
-      background-color: rgba(234, 90, 37, 1);
-    }
 
-  }
+.contact_services__head:hover {
+	.contact_item__btn span::before,
+	.contact_item__btn span::after {
+		background: rgb(247, 245, 245);
+	}
+}
+
+.active_btn {
+
+	span::after {
+		top: 18.5px;
+		right: 18px;
+		width: 8px;
+		height: 2px;
+		background-color: rgba(234, 90, 37, 1);
+	}
+
+	.contact_item__btn span::before,
+	.contact_item__btn span::after {
+		top: 18px;
+		right: 18px;
+		width: 8px;
+		height: 2px;
+
+		background-color: rgba(234, 90, 37, 1);
+	}
+}
 
 .contact_item__btn {}
 
-.contact_services__body {}
+.contact_services__body {
+	margin-bottom: 14px;
+}
 
 .contacts__body_form_btn {
 	margin-top: 50px;

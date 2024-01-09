@@ -231,6 +231,7 @@ span::after {
   color: black;
   font-size: 16px;
   line-height: 25px;
+
 }
 .service-item-body_footer__calc {
 }
@@ -241,6 +242,7 @@ span::after {
   color: white;
   font-size: 16px;
   line-height: 25px;
+
 }
 .service-item__footer {
   display: flex;
