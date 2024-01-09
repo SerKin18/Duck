@@ -105,9 +105,9 @@ export default {
   border: 1px solid rgba(234, 90, 37, 1);
 
   .FQS-item__btn span::after {
-    top: 20px;
-    right: 3px;
-    width: 8px;
+    top: 19px;
+    right: 3.5px;
+    width: 7.5px;
     height: 2px;
     background-color: rgb(255, 255, 255);
   }

@@ -39,6 +39,7 @@ export default {
 }
 
 :root {
+	--classic:"GothamPro",sans-serif;
 	--title:"GothamPro_Bold", sans-serif;
   --title-font: "NeutralFace", sans-serif;
   --subTitle-font: "Radiotechnika", sans-serif;
@@ -87,7 +88,7 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font-family: "GothamPro", sans-serif;
+  font-family: var(--classic)
 }
 
 input,
