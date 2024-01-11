@@ -21,19 +21,40 @@
           <h4>РОЗРОБКА САЙТУ:</h4>
         </div>
         <div class="calc_body__checkbox">
-          <div class="calc_body__checkbox_item">
-
-            <input type="checkbox" id="cmsCheckbox" name="cmsCheckbox" checked />
-				<span></span>
-            <label for="cmsCheckbox">Рукописна CMS</label>
+          <div
+            class="calc_body__checkbox_item"
+            :class="activeBtn1 ? 'active' : ''"
+          >
+            <label for="cmsCheckbox">
+              <input type="checkbox" id="cmsCheckbox" name="cmsCheckbox" />
+              <span @click="active1"></span>
+              <p @click="active1">Рукописна CMS</p>
+            </label>
           </div>
-			 <div class="calc_body__checkbox_item">
-            <input type="checkbox" id="formCheckbox" name="formCheckbox" checked />
-            <label for="formCheckbox">Форма збору даних</label>
+          <div
+            class="calc_body__checkbox_item"
+            :class="activeBtn2 ? 'active' : ''"
+          >
+            <label for="formCheckbox" @click.stop="active2">
+              <input
+                type="checkbox"
+                id="formCheckbox"
+                name="formCheckbox"
+                checked
+              />
+              <span @click="active2"></span>
+              <p @click="active2">Форма збору даних</p>
+            </label>
           </div>
-			 <div class="calc_body__checkbox_item">
-            <input type="checkbox" id="calcCheckbox" name="calcCheckbox" checked />
-            <label for="calcCheckbox">Калькулятор цін</label>
+          <div
+            class="calc_body__checkbox_item"
+            :class="activeBtn3 ? 'active' : ''"
+          >
+            <label for="calcCheckbox" @click="active3">
+              <input type="checkbox" id="calcCheckbox" name="calcCheckbox" />
+              <span @click="active3"></span>
+              <p @click="active3">Калькулятор цін</p>
+            </label>
           </div>
         </div>
         <div class="calc_body__footer">
@@ -61,6 +82,9 @@ export default {
   name: "Calc",
   data() {
     return {
+      activeBtn1: false,
+      activeBtn2: true,
+      activeBtn3: false,
       itemListServices: [
         "Розробка сайту",
         "Розробка Landing page",
@@ -73,77 +97,87 @@ export default {
       ],
     };
   },
+  methods: {
+    active1() {
+      this.activeBtn1 = !this.activeBtn1;
+    },
+    active2() {
+      this.activeBtn2 = !this.activeBtn2;
+    },
+    active3() {
+      this.activeBtn3 = !this.activeBtn3;
+    },
+  },
 };
 </script>
 <style scoped>
 .calc_body__checkbox {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 .calc_body__checkbox_item {
-	display: block;
-max-width: 200px;
-border: 1px solid rgba(220, 223, 230, 1);
-padding: 13px 34px 13px 11px;
-margin-bottom: 15px;
-text-align: flex-start;
+  max-width: 192px;
+  border: 1px solid rgba(220, 223, 230, 1);
+  padding: 13px 0px 13px 11px;
+  margin-bottom: 15px;
+  text-align: flex-start;
 }
-.calc_body__checkbox_item input{
-	display: none;
+input[type="checkbox"] {
+  height: 0px;
+  width: 0px;
 }
-.calc_body__checkbox_item span{
-
-}
-.calc_body__checkbox_item span {/* <-- стилизируем новый */
-height: 14px;
+.calc_body__checkbox_item span {
+  height: 14px;
   width: 14px;
   display: inline-block;
   position: relative;
-  background-color:#fcfcfc;
+  background-color: #fcfcfc;
   margin: 0px 0px -3px 0px;
 }
-/* .calc_body__checkbox_item span:hover{
-	background-color: rgba(234, 90, 37, 1);;
-} */
 .calc_body__checkbox_item span::before,
 .calc_body__checkbox_item span::after {
-	display: none;
   content: "";
   position: absolute;
   top: 50%;
   left: 1.5px;
   width: 8px;
-  height: 1px;
-  background-color: rgb(252, 2, 2);
+  height: 2px;
+  background-color: rgb(255, 255, 255);
 }
-.calc_body__checkbox_item span::before{
-	width: 5px;
-	transform:  rotate(-135deg);
+.calc_body__checkbox_item span::before {
+  width: 6px;
+  transform: rotate(-135deg);
 }
 .calc_body__checkbox_item span::after {
-	top: 6px;
-	left: 4.5px;
-	transform:  rotate(135deg);
+  top: 6px;
+  left: 4.5px;
+  transform: rotate(135deg);
+}
+.calc_body__checkbox_item input[type="checkbox"]:checked + span {
+  background: rgba(234, 90, 37, 1);
 }
 
-input[type=checkbox]:checked + .calc_body__checkbox_item span{
-	background: rgb(252, 2, 2);}
-	/* }{<-- ставим иконку, когда чекбокс включен 
-	.calc_body__checkbox_item span{
-		background-color: rgba(234, 90, 37, 1);
-	}
-	span:before,  span:after{
-display: block;
-	}} */
-.calc_body__checkbox_item label{
-	font-family: var(--classic);
-	color: rgba(248, 248, 248, 1);
-	opacity: 50%;
-	font-size: 12px;
-	text-wrap: nowrap;
-
-	margin-left: 8px;
-
+.calc_body__checkbox_item p {
+	display: inline;
+  font-family: var(--classic);
+  color: rgb(255, 255, 255);
+  opacity: 50%;
+  font-size: 12px;
+  text-wrap: nowrap;
+  font-style: normal;
+  margin-left: 6px;
+}
+.calc_body__checkbox_item:hover {
+  span {
+    background: rgb(143, 143, 143);
+  }
+}
+.active {
+  border: 1px solid rgba(234, 90, 37, 1);
+  p {
+    color: rgba(234, 90, 37, 1);
+    opacity: 100%;
+  }
 }
 .calc_body__title {
   font-family: var(--title-font);
