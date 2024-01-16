@@ -1,17 +1,33 @@
 <template>
-  <div class="calc_button">
+  <div class='calc_button'>
     <button>
       <slot></slot>
     </button>
   </div>
 </template>
 <script>
+
 export default {
   name: "Calc-Button",
-};
+  props:{
+
+  },
+  data(){
+	return{
+
+	}
+  },	
+}
+
+
 </script>
+
+
 <style scoped>
+
+
 .calc_button button {
+
   width: 300px;
   font-size: 16px;
   line-height: 25px;
@@ -26,7 +42,7 @@ export default {
 .calc_button button:hover {
   background: rgba(234, 90, 37, 1);
 }
-.active {
+.selected button{
   background: rgba(234, 90, 37, 1);
 }
 @media (max-width: 767px) {
