@@ -55,6 +55,33 @@
 								<CalcCheckboxItem widthName="left:-150%">6 i бiльше</CalcCheckboxItem>
 							</div>
 						</div>
+						<div class="calc_body__checkbox">
+				<CalcCheckbox
+				v-for="(checkBox,index) in tabsCheckBox[selectedIndex]"
+				@click="selectCheck(index)"
+				:class="{ selected: selectCheckBox === index }">{{ checkBox }}</CalcCheckbox>
+				<!-- <div class="calc_body__checkbox_item" :class="activeBtn1 ? 'active' : ''">
+					<label for="cmsCheckbox">
+						<input type="checkbox" id="cmsCheckbox" name="cmsCheckbox" />
+						<span @click="active1"></span>
+						<p @click="active1">Рукописна CMS</p>
+					</label>
+				</div>
+				<div class="calc_body__checkbox_item" :class="activeBtn2 ? 'active' : ''">
+					<label for="formCheckbox" @click.stop="active2">
+						<input type="checkbox" id="formCheckbox" name="formCheckbox" checked />
+						<span @click="active2"></span>
+						<p @click="active2">Форма збору даних</p>
+					</label>
+				</div>
+				<div class="calc_body__checkbox_item" :class="activeBtn3 ? 'active' : ''">
+					<label for="calcCheckbox" @click="active3">
+						<input type="checkbox" id="calcCheckbox" name="calcCheckbox" />
+						<span @click="active3"></span>
+						<p @click="active3">Калькулятор цін</p>
+					</label>
+				</div> -->
+			</div>
 					</div>
 					<div class="calc_body__tab __landingPage" v-show="activeTab(1)">
 						<div class="calc_body__title">
@@ -264,6 +291,7 @@
 
 			</div>
 			<div class="calc_body__checkbox">
+				<CalcCheckbox>CMS</CalcCheckbox>
 				<div class="calc_body__checkbox_item" :class="activeBtn1 ? 'active' : ''">
 					<label for="cmsCheckbox">
 						<input type="checkbox" id="cmsCheckbox" name="cmsCheckbox" />
@@ -306,13 +334,15 @@
 import MainButton from "../button/MainButton.vue";
 import CalcButton from "../button/CalcButton.vue";
 import CalcCheckboxItem from "./CalcCheckboxItem.vue";
+import CalcCheckbox from "./CalcCheckbox.vue";
 export default {
-	components: { MainButton, CalcButton, CalcCheckboxItem },
+	components: { MainButton, CalcButton, CalcCheckboxItem ,CalcCheckbox},
 	name: "Calc",
 
 	data() {
 		return {
-			selectedIndex: 7,
+			selectedIndex: 0,
+			selectCheckBox:0,
 			activeBtn1: false,
 			activeBtn2: true,
 			activeBtn3: false,
@@ -335,6 +365,9 @@ export default {
 		};
 	},
 	methods: {
+		selectCheckBox(i){
+
+		},
 		selectTab(i) {
 			console.log(i);
 			this.selectedIndex = i;
