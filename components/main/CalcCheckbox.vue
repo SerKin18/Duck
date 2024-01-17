@@ -1,9 +1,9 @@
 <template >
-<div class="calc_body__checkbox_item" :class="activeBtn ? 'active' : ''">
+<div class="calc_body__checkbox_item" >
 					<label for="cmsCheckbox">
 						<input type="checkbox" id="cmsCheckbox" name="cmsCheckbox" />
-						<span @click="active"></span>
-						<p @click="active">
+						<span ></span>
+						<p >
 						<slot></slot></p>
 					</label>
 				</div>
@@ -11,24 +11,7 @@
 <script>
 export default {
 	name:'calc-checkbox',
-	props(){
-		return{
-			checkBox:{
-				type:Number,
-				required: false,
-			}
-		}
-	},
-	data(){
-		return{
-			activeBtn: false,
-		}
-	},
-	methods:{
-		active() {
-			this.activeBtn[this.$props.checkBox] = !this.activeBtn[this.$props.checkBox];
-		},
-	}
+
 	
 }
 </script>
