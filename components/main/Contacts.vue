@@ -1,26 +1,24 @@
 <template>
-	<div class="contacts__block">
-		<div class="container">
-			<div class="contacts">
+			<div class="contacts container">
 				<div class="contacts__title">
 					<h2>Контакти</h2>
+					<div class="contacts__modal__btn" @click.stop="closeModal" v-show="this.$props.modal">
+              <button><span></span></button>
+            </div>
 				</div>
 				<div class="contacts__body">
 					<div class="contacts__body_form">
 						<form>
-							<label for="">
+							<label for="text">
 								<input class="contacts__form_inpt" type="text" placeholder="Введіть ваше ім'я *" />
 							</label>
-							<label for="">
+							<label for="number">
 								<input type="number" placeholder="Номер телефону *" />
 							</label>
-							<label for="">
+							<label for="mail">
 								<input type="mail" placeholder="Email *" />
 							</label>
-							<!-- <label for="" class="">
-								<input type="select" placeholder="Тип послуги" />
 
-							</label> -->
 							<div class="contact_services">
 								<div class="contact_services__head">
 									<div class="contact_services__title">
@@ -31,15 +29,15 @@
 									</div>
 								</div>
 								<div class="contact_services__body" v-show="showServices">
-									<ServiceButton v-for="item in itemListServices" :key="item[i]">{{ item }}</ServiceButton>
+									<ServiceButton v-for="(item,index) in itemListServices" :key="index">{{ item }}</ServiceButton>
 								</div>
 							</div>
-							<div class="contacts__body_form_btn" @click.prevent>
+							<div class="contacts__body_form_btn" @click.prevent="$emit('modalClose')">
 								<MainButton @click.prevent :fontSize="'font-size:20px;padding:7px'">надіслати</MainButton>
 							</div>
 						</form>
 					</div>
-					<div class="contacts__body_info">
+					<div class="contacts__body_info" v-show="!this.$props.modal">
 						<div class="info__text">
 							<div class="info__text_title">Номер телефону</div>
 							<div class="info__text_subtitle">+380633746749</div>
@@ -93,8 +91,8 @@
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
+
+
 </div></template>
 <script>
 import MainButton from "../button/MainButton.vue";
@@ -102,6 +100,11 @@ import ServiceButton from '../button/ServiceButton.vue'
 export default {
 	components: { MainButton, ServiceButton },
 	name: "Contacts",
+	props:{
+		modal:{
+			type:Boolean
+		}
+	},
 	data() {
 		return {
 			showServices: false,
@@ -122,25 +125,53 @@ export default {
 		toggleServiceCard() {
 			this.showServices = !this.showServices;
 		},
+		closeModal(){
+			
+		}
 	},
 };
 </script>
 <style scoped>
-.container {
-	max-width: 1280px;
-	margin: 0 auto;
-}
+
+  .contacts__modal__btn {
+    position: relative;
+    width: 30px;
+    height: 30px;
+	 text-align: right;
+
+  }
+  .contacts__modal__btn span::before,
+  .contacts__modal__btn span::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 3px;
+    width: 25px;
+    height: 3px;
+    background-color: rgb(253, 252, 252);
+  }
+  .contacts__modal__btn span::after {
+    transform: rotate(45deg);
+  }
+  .contacts__modal__btn span::before {
+    transform: rotate(-45deg);
+  }
+  .contacts__modal__btn:hover {
+	span::before,span::after{
+	background-color: rgba(234, 90, 37, 1);
+  }}
 
 .contacts {
 	position: relative;
-	padding: 100px 14.5px;
+	padding: 0px 14.5px;
 	background-color: black;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	z-index: 96;
 }
 
-.contacts::before {
+/* .contacts::before {
 	content: "";
 	position: absolute;
 	bottom: -170px;
@@ -153,9 +184,9 @@ export default {
 	box-shadow: inset 0px 0px 130px 50px black;
 
 	z-index: 1;
-}
+} */
 
-.contacts::after {
+/* .contacts::after {
 	content: "";
 	position: absolute;
 	top: 160px;
@@ -163,7 +194,7 @@ export default {
 	width: 160px;
 	height: 160px;
 	background: url(../../static/image/block-7-star.svg) center no-repeat;
-}
+} */
 
 .contacts__title {
 	font-family: var(--title-font);
@@ -171,10 +202,22 @@ export default {
 	text-transform: uppercase;
 	font-size: 80px;
 	margin-bottom: 90px;
+	display: flex;
+	align-items:center;
+	justify-content: space-between;
+	background:transparent
+}
+.contacts__title h2{
+	display: inline-block;
+	font-family: var(--title-font);
+	line-height: 76px;
+	text-transform: uppercase;
+	font-size: 80px;
 }
 
 .contacts__body {
 	display: flex;
+	width: 100%;
 	flex-wrap: wrap;
 	align-items: flex-start;
 	flex-direction: row;
@@ -183,7 +226,6 @@ export default {
 }
 
 .contacts__body_form {
-
 	flex: 0 0 50%;
 	max-width: 629px;
 	display: flex;
@@ -204,7 +246,7 @@ export default {
 .info__subtitl_list {
 	display: flex;
 	flex-wrap: wrap;
-	width: 300px;
+max-width: 420px;
 	padding-top: 10px;
 }
 
@@ -214,7 +256,8 @@ export default {
 }
 
 .contacts__body_info {
-	width: 417px;
+	
+	margin-left: 10px;
 }
 
 .contact_services {
@@ -349,10 +392,12 @@ export default {
 		padding: 0px 14.5px;
 	}
 
-	.contacts__title {
+	.contacts__title h2{
+		font-size: 60px;
+	}
+	.contacts__title{
 		margin-bottom: 40px;
 		margin-top: 50px;
-		font-size: 60px;
 	}
 
 	.contacts__body_form {}
@@ -363,16 +408,16 @@ export default {
 }
 
 @media (max-width: 970px) {
-	.contacts::after {
+	/* .contacts::after {
 		content: "";
 		position: absolute;
 		top: 50px;
 		right: 0px;
 		scale: 0.7;
 		transform: rotate(45deg);
-	}
+	} */
 
-	.contacts__title {
+	.contacts__title h2{
 		font-size: 40px;
 	}
 

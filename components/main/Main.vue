@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <!-- <div class="container">
+    <div class="container">
       <Banner />
     </div>
     <Tickers />
@@ -9,10 +9,10 @@
     </div>
     <Portfolio />
     <WhyUs :whyUsItems="whyUsItems"></WhyUs>
-    <Reviews :reviews="reviews" /> -->
-	 <Calc></Calc>
-    <!-- <FQS :FQSItems="FQSItems"></FQS>
-    <Contacts /> -->
+    <Reviews :reviews="reviews" />
+    <Calc></Calc>
+    <FQS :FQSItems="FQSItems"></FQS>
+    <ContactsBlock></ContactsBlock>
   </div>
 </template>
 <script>
@@ -22,10 +22,11 @@ import Portfolio from "./Portfolio.vue";
 import Tickers from "./Tickers.vue";
 import WhyUs from "./WhyUs.vue";
 import FQS from "./FQS.vue";
-import Contacts from "./Contacts.vue";
+import ContactsBlock from "./ContactsBlock.vue";
 import Reviews from "./Reviews.vue";
 import Calc from "./Calc.vue";
 import Header from "../header/Header.vue";
+import Modal from "./Modal.vue";
 export default {
   components: {
     Header,
@@ -35,9 +36,10 @@ export default {
     Portfolio,
     WhyUs,
     FQS,
-    Contacts,
+    ContactsBlock,
     Reviews,
-	 Calc
+    Calc,
+	 Modal
   },
   name: "Main",
   data() {
