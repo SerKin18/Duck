@@ -27,7 +27,7 @@
               </ul>
             </nav>
             <div class="header__button">
-              <main-button class="btn-menu"> залишити заявку </main-button>
+              <main-button class="btn-menu" @click="openModalWindow"> залишити заявку </main-button>
             </div>
           </div>
           <div
@@ -61,7 +61,7 @@
                 </ul>
               </nav>
               <div class="header__button">
-                <main-button class="btn-menu"> залишити заявку </main-button>
+                <main-button  @click="openModalWindow" class="btn-menu"> залишити заявку </main-button>
               </div>
             </div>
           </div>
@@ -74,23 +74,33 @@
           </div>
         </div>
       </div>
+
+			<Modal v-if="openModal" @close="openModal=false"></Modal>
+
+		
     </div>
   </header>
 </template>
 <script>
 import MainButton from "../button/MainButton.vue";
+import Modal from "../main/Modal.vue";
+
 export default {
-  components: { MainButton },
+  components: { MainButton,Modal },
   name: "Header",
   data() {
     return {
       openMenu: false,
+		openModal:false
     };
   },
   methods: {
     toggleMenu() {
       this.openMenu = !this.openMenu;
     },
+	 openModalWindow(){
+		this.openModal=!this.openModal
+	 }
   },
 };
 </script>

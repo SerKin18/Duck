@@ -9,8 +9,8 @@
 				<span>Сбросить</span>
 			</div>
 			<div class="calc_tabs">
-				<CalcButton v-for="(tab, index) in tabValue" :class="{ selected: selectedIndex === index }" :name="tab.tab" :key="index"
-					@click="selectTab()">{{ tab.tab }}</CalcButton>
+				<CalcButton v-for="(tab,index) in tabValue" :class="{ selected: selectedIndex === index}" :name="tab.tab" :key="index"
+					@click="selectTab">{{ tab.tab }}</CalcButton>
 			</div>
 			<div class="calc_body">
 				<!-- <div class="calc_body__title">
@@ -56,7 +56,7 @@
 							</div>
 						</div> -->
 						<div class="calc_body__checkbox">
-							<CalcCheckbox v-for="(checkBox, index) in tabsCheckBox[selectedIndex]">{{ checkBox }}</CalcCheckbox>
+							<CalcCheckbox v-for="(checkBox, index) in tabsCheckBox[selectedIndex]" :key="index">{{ checkBox }}</CalcCheckbox>
 							<!-- <div class="calc_body__checkbox_item" :class="activeBtn1 ? 'active' : ''">
 					<label for="cmsCheckbox">
 						<input type="checkbox" id="cmsCheckbox" name="cmsCheckbox" />
@@ -419,9 +419,9 @@ export default {
 	},
 	methods: {
 		selectTab() {
-			this.selectedIndex = index;
+			this.selectedIndex = id;
 			let dataPage = this.tabValue[selectedindex]
-			console.log(1);
+			console.log(this.tabValue[selectedIndex].page);
 		},
 		activeTab(i) {
 			return this.selectedIndex === i;
