@@ -9,8 +9,8 @@
 				<span>Сбросить</span>
 			</div>
 			<div class="calc_tabs">
-				<CalcButton v-for="(tab,index) in tabValue" :class="{ selected: selectedIndex === index}" :name="tab.tab" :key="index"
-					 :indexTab="index" @getIndexTab="selectTab" >{{ tab.tab }}</CalcButton>
+				<CalcButton v-for="(tab, index) in tabValue" :class="{ selected: selectedIndex === index }" :name="tab.tab"
+					:key="index" :indexTab="index" @getIndexTab="selectTab">{{ tab.tab }}</CalcButton>
 			</div>
 			<div class="calc_body">
 				<!-- <div class="calc_body__title">
@@ -24,39 +24,15 @@
 						</div>
 						<div class="calc_body_item">
 							<div class="calc_body_item__subtitle">Складність дизайну</div>
-							<CalcCheckBoxLine>
-								
-							</CalcCheckBoxLine>
-							<!-- <div class="calc_body_item_calc">
-								<CalcCheckboxItem widthName="left:-150%">Wow дизайн</CalcCheckboxItem>
-								<CalcCheckboxItem widthName="left:-150%" widthLine="display:none">Виберіть</CalcCheckboxItem>
-								<CalcCheckboxItem widthName="left:-260%" widthItem="width:25%">Простий дизайн</CalcCheckboxItem>
-								<CalcCheckboxItem widthName="left:-150%" widthItem="width:50%">Середній</CalcCheckboxItem>
-								<CalcCheckboxItem widthName="left:-150%" widthItem="width:75%">Складний</CalcCheckboxItem>
-
-							</div> -->
+							<CalcCheckBoxLine1 :checkBoxArray="tabValue[0].page.check" @valueItem1="getValue" />
 						</div>
 						<div class="calc_body_item">
 							<div class="calc_body_item__subtitle">Кількість унікальних сторінок</div>
-							<div class="calc_body_item_calc">
-								<CalcCheckboxItem widthName="left:-150%" widthLine="display:none">Виберіть</CalcCheckboxItem>
-								<CalcCheckboxItem widthItem="width:20%">1-3</CalcCheckboxItem>
-								<CalcCheckboxItem widthItem="width:40%">3-7</CalcCheckboxItem>
-								<CalcCheckboxItem widthItem="width:60%">7-15</CalcCheckboxItem>
-								<CalcCheckboxItem widthItem="width:80%">15-50</CalcCheckboxItem>
-								<CalcCheckboxItem widthName="left:-150%">50 i бiльше</CalcCheckboxItem>
-							</div>
+							<CalcCheckBoxLine1 :checkBoxArray="tabValue[0].page.check2" @valueItem1="getValue" />
 						</div>
 						<div class="calc_body_item">
 							<div class="calc_body_item__subtitle">Кількість мовних версій сайту</div>
-							<div class="calc_body_item_calc">
-								<CalcCheckboxItem widthName="left:5px" widthLine="display:none">1</CalcCheckboxItem>
-								<CalcCheckboxItem widthName="left:5px" widthItem="width:20%">2</CalcCheckboxItem>
-								<CalcCheckboxItem widthName="left:5px" widthItem="width:40%">3</CalcCheckboxItem>
-								<CalcCheckboxItem widthName="left:5px" widthItem="width:60%">4</CalcCheckboxItem>
-								<CalcCheckboxItem widthName="left:5px" widthItem="width:80%">5</CalcCheckboxItem>
-								<CalcCheckboxItem widthName="left:-150%">6 i бiльше</CalcCheckboxItem>
-							</div>
+							<CalcCheckBoxLine1 :checkBoxArray="tabValue[0].page.check3" @valueItem1="getValue" />
 						</div>
 						<div class="calc_body__checkbox">
 							<!-- <CalcCheckbox v-for="(checkBox, index) in tabsCheckBox[selectedIndex]" :key="index">{{ checkBox }}</CalcCheckbox> -->
@@ -335,13 +311,13 @@ import MainButton from "../button/MainButton.vue";
 import CalcButton from "../button/CalcButton.vue";
 import CalcCheckboxItem from "./CalcCheckboxItem.vue";
 import CalcCheckbox from "./CalcCheckbox.vue";
-import CalcCheckBoxLine from "./CalckCheckBoxLine.vue";
+import CalcCheckBoxLine1 from "./CalckCheckBoxLine.vue";
 export default {
-	components: { MainButton, CalcButton, CalcCheckboxItem, CalcCheckbox,CalcCheckBoxLine},
+	components: { MainButton, CalcButton, CalcCheckboxItem, CalcCheckbox, CalcCheckBoxLine1 },
 	name: "Calc",
 	data() {
 		return {
-			selectedIndex: 0,
+			selectedIndex: 1,
 			selectTabPage: [],
 			selectCheckBox: 0,
 			activeBtn1: false,
@@ -367,26 +343,191 @@ export default {
 					tab: "Розробка сайту",
 					page: {
 						subTitle: 'Складність дизайну',
-						check: [{ title: 'Виберіть',widthName:"left:-150%",widthLine:"display:none", value: 0 }, { title: 'Простий дизайн',widthName:"left:-260%", widthItem:"width:25%", value: 0 }, { title: 'Середній',widthName:"left:-150%", widthItem:"width:50%", value: 0 }, { title: 'Складний',widthName:"left:-150%", widthItem:"width:75%",value: 0 }, { title: 'Wow дизайн',widthName:"left:-150%", value: 0 }],
+						check: [{
+							title: "Виберіть",
+							widthName: "left:-150%",
+							widthLine: "display:none",
+							value: 0,
+							isActive: false,
+						},
+						{
+							title: "Простий дизайн",
+							widthName: "left:-260%",
+							widthItem: "width:25%",
+							value: 10,
+							isActive: false,
+						},
+						{
+							title: "Середній",
+							widthName: "left:-150%",
+							widthItem: "width:50%",
+							value: 20,
+							isActive: false,
+						},
+						{
+							title: "Складний",
+							widthName: "left:-150%",
+							widthItem: "width:75%",
+							value: 30,
+							isActive: false,
+						},
+						{
+							title: "Wow дизайн",
+							widthName: "left:-150%",
+							value: 40,
+							isActive: false,
+						},
+						],
 						subTitle: 'Кількість унікальних сторінок',
-						check: [{ title: 'Виберіть', value: 0 }, { title: '1-3', value: 0 }, { title: '3-7', value: 0 }, { title: '7-15', value: 0 }, { title: '15-50', value: 0 }, { title: '50 i бiльше', value: 0 }],
+						check2: [{
+							title: 'Виберіть', widthName: "left:-150%",
+							widthLine: "display:none",
+							value: 0,
+							isActive: false
+						}, {
+							title: '1-3',
+							widthLine: "width:20%",
+							value: 10,
+							isActive: false,
+						}, {
+							title: '3-7',
+							widthLine: "width:40%",
+							value: 20,
+							isActive: false
+						}, {
+							title: '7-15',
+							widthLine: "width:60%",
+							value: 30,
+							isActive: false
+						}, {
+							title: '15-50',
+							widthLine: "width:80%",
+							value: 40,
+							isActive: false
+						}, {
+							title: '5	0 i бiльше',
+							widthName: "left:-150%",
+							value: 0,
+							isActive: false,
+						}],
 						subTitle: 'Кількість мовних версій сайту',
-						check: [{ title: '1', value: 0 }, { title: '2', value: 0 }, { title: '3', value: 0 }, { title: '5', value: 0 }, { title: '6 i бiльше', value: 0 }]
+						check3: [{
+							title: '1', widthLine: "width:60%",
+							widthName: "left:5px",
+							widthLine: "display:none",
+							value: 10,
+							isActive: false
+						},
+						{
+							title: '2',
+							widthName: "left:5px",
+							widthItem: "width:20%",
+							value: 20,
+							isActive: false
+						},
+						{
+							title: '3', widthName: "left:5px",
+							widthItem: "width:40%",
+							value: 30,
+							isActive: false
+						}, {
+							title: '4', widthName: "left:5px",
+							widthItem: "width:60%",
+							value: 40,
+							isActive: false
+						}, {
+							title: '5', widthName: "left:5px",
+							widthItem: "width:80%",
+							value: 50,
+							isActive: false
+						}, { title: '6 i бiльше',
+						 widthName: "left:-150%",
+							value: 60,
+							isActive: false
+						}]
 					}
 				},
 				//  checkbox: [{ title: 'Рукописна CMS', value: 0 }, { title: 'Форма збору даних', value: 0 }, { title: 'Калькулятор цін', value: 0 }],
 				{
 					tab: "Розробка Landing page", page: {
-						subTitle: 'Складність дизайну', check: [{ title: 'Виберіть', value: 0 }, { title: 'Простий дизайн', value: 0 }, { title: 'Середній', value: 0 }, { title: 'Складний', value: 0 }, { title: 'Wow дизайн', value: 0 }],
-						subTitle: 'Кількість блоків (екранів)', check: [{ title: 'Виберіть', value: 0 }, { title: '1', value: 0 }, { title: '2', value: 0 }, { title: '3', value: 0 }, { title: '4', value: 0 }, { title: '5', value: 0 }, { title: '6', value: 0 }, { title: '7', value: 0 }, { title: '8', value: 0 }, { title: '9', value: 0 }, { title: '10 i бiльше', value: 0 }],
-						subTitle: 'Кількість мовних версій сайту', check: [{ title: '1', value: 0 }, { title: '2', value: 0 }, { title: '3', value: 0 }, { title: '4', value: 0 }, { title: '5', value: 0 }, { title: '6 i бiльше', value: 0 }]
+						subTitle: 'Складність дизайну',
+						 check:[{
+							title: "Виберіть",
+							widthName: "left:-150%",
+							widthLine: "display:none",
+							value: 0,
+							isActive: false,
+						},
+						{
+							title: "Простий дизайн",
+							widthName: "left:-260%",
+							widthItem: "width:25%",
+							value: 10,
+							isActive: false,
+						},
+						{
+							title: "Середній",
+							widthName: "left:-150%",
+							widthItem: "width:50%",
+							value: 20,
+							isActive: false,
+						},
+						{
+							title: "Складний",
+							widthName: "left:-150%",
+							widthItem: "width:75%",
+							value: 30,
+							isActive: false,
+						},
+						{
+							title: "Wow дизайн",
+							widthName: "left:-150%",
+							value: 40,
+							isActive: false,
+						},
+						],
+						subTitle: 'Кількість блоків (екранів)', check2: [{ title: 'Виберіть', value: 0 }, { title: '1', value: 0 }, { title: '2', value: 0 }, { title: '3', value: 0 }, { title: '4', value: 0 }, { title: '5', value: 0 }, { title: '6', value: 0 }, { title: '7', value: 0 }, { title: '8', value: 0 }, { title: '9', value: 0 }, { title: '10 i бiльше', value: 0 }],
+						subTitle: 'Кількість мовних версій сайту', check3: [{ title: '1', value: 0 }, { title: '2', value: 0 }, { title: '3', value: 0 }, { title: '4', value: 0 }, { title: '5', value: 0 }, { title: '6 i бiльше', value: 0 }]
 					}
 				},
 				{
 					tab: "Розробка Iнтернет магазину", page: {
 						subTitle: 'Складність дизайну', check: [{ title: 'Виберіть', value: 0 }, { title: 'Простий дизайн', value: 0 }, { title: 'Середній', value: 0 }, { title: 'Складний', value: 0 }, { title: 'Wow дизайн', value: 0 }],
 						subTitle: 'Кількість унікальних сторінок', check: [{ title: 'Виберіть', value: 0 }, { title: '1-3', value: 0 }, { title: '3-7', value: 0 }, { title: '7-15', value: 0 }, { title: '15-50', value: 0 }, { title: '50 i бiльше', value: 0 }],
-						subTitle: 'Кількість мовних версій сайту', check: [{ title: '1', value: 0 }, { title: '2', value: 0 }, { title: '3', value: 0 }, { title: '4', value: 0 }, { title: '5', value: 0 }, { title: '6 i бiльше', value: 0 }]
+						subTitle: 'Кількість мовних версій сайту',						check3: [{
+							title: '1', widthLine: "width:60%",
+							widthName: "left:5px",
+							widthLine: "display:none",
+							value: 10,
+							isActive: false
+						},
+						{
+							title: '2',
+							widthName: "left:5px",
+							widthItem: "width:20%",
+							value: 20,
+							isActive: false
+						},
+						{
+							title: '3', widthName: "left:5px",
+							widthItem: "width:40%",
+							value: 30,
+							isActive: false
+						}, {
+							title: '4', widthName: "left:5px",
+							widthItem: "width:60%",
+							value: 40,
+							isActive: false
+						}, {
+							title: '5', widthName: "left:5px",
+							widthItem: "width:80%",
+							value: 50,
+							isActive: false
+						}, { title: '6 i бiльше',
+						 widthName: "left:-150%",
+							value: 60,
+							isActive: false
+						}],
 					}
 				},
 				{
@@ -422,10 +563,14 @@ export default {
 		};
 	},
 	methods: {
+		getValue(value) {
+			console.log(value);
+
+		},
 		selectTab(id) {
 			this.selectedIndex = id;
 			// let dataPage = this.tabValue[this.selectedindex]
-			console.log({id});
+			console.log({ id });
 		},
 		activeTab(i) {
 			return this.selectedIndex === i;
@@ -758,5 +903,4 @@ input[type="checkbox"] {
 		margin-bottom: 40px;
 		padding: 0px -10px 0px -10px;
 	}
-}
-</style>
+}</style>

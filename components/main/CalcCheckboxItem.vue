@@ -41,12 +41,8 @@ export default {
     indexCircle: {
       type: Number,
     },
-  },
-  data() {
-    return {
-      activeCalcValue: 0,
-    };
-  },
+  }
+  
 };
 </script>
 <style scoped>

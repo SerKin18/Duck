@@ -1,7 +1,7 @@
 <template>
   <div class="calc_body_item_calc">
     <CalcCheckboxItem
-      v-for="(circle, index) in check"
+      v-for="(circle, index) in checkBoxArray"
       :indexCircle="index"
       :widthName="circle.widthName"
       :widthLine="circle.widthLine"
@@ -19,6 +19,11 @@ import CalcCheckboxItem from "./CalcCheckboxItem.vue";
 export default {
   components: { CalcCheckboxItem },
   name: "calk-checkbox-item-line",
+  props:{
+checkBoxArray:{
+	type:Array
+}
+  },
   data() {
     return {
       valueCircle: 0,
@@ -62,10 +67,11 @@ export default {
   },
   methods: {
     activeCalc(i) {
-      this.check.forEach((element) => (element.isActive = false));
-      this.check[i].isActive = true;
-      this.valueCircle = this.check[i].value;
+      this.$props.checkBoxArray.forEach((element) => (element.isActive = false));
+      this.$props.checkBoxArray[i].isActive = true;
+      this.valueCircle = this.$props.checkBoxArray[i].value;
       console.log(this.valueCircle);
+		this.$emit('valueItem1',this.valueCircle)
     },
   },
 };
