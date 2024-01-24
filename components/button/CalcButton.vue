@@ -1,33 +1,23 @@
 <template>
-  <div class='calc_button'>
-    <button>
+  <div class="calc_button">
+    <button @click.prevent="$emit('getIndexTab', indexTab)">
       <slot></slot>
     </button>
   </div>
 </template>
 <script>
-
 export default {
   name: "Calc-Button",
-  props:{
-
+  props: {
+    indexTab: {
+      type: Number,
+    },
   },
-  data(){
-	return{
-
-	}
-  },	
-}
-
-
+};
 </script>
 
-
 <style scoped>
-
-
 .calc_button button {
-
   width: 300px;
   font-size: 16px;
   line-height: 25px;
@@ -42,7 +32,7 @@ export default {
 .calc_button button:hover {
   background: rgba(234, 90, 37, 1);
 }
-.selected button{
+.selected button {
   background: rgba(234, 90, 37, 1);
 }
 @media (max-width: 767px) {

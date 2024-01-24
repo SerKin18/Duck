@@ -10,7 +10,7 @@
 			</div>
 			<div class="calc_tabs">
 				<CalcButton v-for="(tab,index) in tabValue" :class="{ selected: selectedIndex === index}" :name="tab.tab" :key="index"
-					@click="selectTab">{{ tab.tab }}</CalcButton>
+					 :indexTab="index" @getIndexTab="selectTab" >{{ tab.tab }}</CalcButton>
 			</div>
 			<div class="calc_body">
 				<!-- <div class="calc_body__title">
@@ -20,20 +20,23 @@
 
 					<div class="calc_body__tab __dev" v-show="activeTab(0)">
 						<div class="calc_body__title">
-							<h4>{{ tabValue[selectedIndex].tab }}:</h4>
+							<h4>Розробка сайту</h4>
 						</div>
 						<div class="calc_body_item">
-							<div class="calc_body_item__subtitle" v-for="name in tabValue[selectedIndex].page">{{ name }}</div>
-							<div class="calc_body_item_calc">
-								<!-- <CalcCheckboxItem widthName="left:-150%">Wow дизайн</CalcCheckboxItem>
+							<div class="calc_body_item__subtitle">Складність дизайну</div>
+							<CalcCheckBoxLine>
+								
+							</CalcCheckBoxLine>
+							<!-- <div class="calc_body_item_calc">
+								<CalcCheckboxItem widthName="left:-150%">Wow дизайн</CalcCheckboxItem>
 								<CalcCheckboxItem widthName="left:-150%" widthLine="display:none">Виберіть</CalcCheckboxItem>
 								<CalcCheckboxItem widthName="left:-260%" widthItem="width:25%">Простий дизайн</CalcCheckboxItem>
 								<CalcCheckboxItem widthName="left:-150%" widthItem="width:50%">Середній</CalcCheckboxItem>
-								<CalcCheckboxItem widthName="left:-150%" widthItem="width:75%">Складний</CalcCheckboxItem> -->
+								<CalcCheckboxItem widthName="left:-150%" widthItem="width:75%">Складний</CalcCheckboxItem>
 
-							</div>
+							</div> -->
 						</div>
-						<!-- <div class="calc_body_item">
+						<div class="calc_body_item">
 							<div class="calc_body_item__subtitle">Кількість унікальних сторінок</div>
 							<div class="calc_body_item_calc">
 								<CalcCheckboxItem widthName="left:-150%" widthLine="display:none">Виберіть</CalcCheckboxItem>
@@ -54,9 +57,9 @@
 								<CalcCheckboxItem widthName="left:5px" widthItem="width:80%">5</CalcCheckboxItem>
 								<CalcCheckboxItem widthName="left:-150%">6 i бiльше</CalcCheckboxItem>
 							</div>
-						</div> -->
+						</div>
 						<div class="calc_body__checkbox">
-							<CalcCheckbox v-for="(checkBox, index) in tabsCheckBox[selectedIndex]" :key="index">{{ checkBox }}</CalcCheckbox>
+							<!-- <CalcCheckbox v-for="(checkBox, index) in tabsCheckBox[selectedIndex]" :key="index">{{ checkBox }}</CalcCheckbox> -->
 							<!-- <div class="calc_body__checkbox_item" :class="activeBtn1 ? 'active' : ''">
 					<label for="cmsCheckbox">
 						<input type="checkbox" id="cmsCheckbox" name="cmsCheckbox" />
@@ -332,8 +335,9 @@ import MainButton from "../button/MainButton.vue";
 import CalcButton from "../button/CalcButton.vue";
 import CalcCheckboxItem from "./CalcCheckboxItem.vue";
 import CalcCheckbox from "./CalcCheckbox.vue";
+import CalcCheckBoxLine from "./CalckCheckBoxLine.vue";
 export default {
-	components: { MainButton, CalcButton, CalcCheckboxItem, CalcCheckbox },
+	components: { MainButton, CalcButton, CalcCheckboxItem, CalcCheckbox,CalcCheckBoxLine},
 	name: "Calc",
 	data() {
 		return {
@@ -363,7 +367,7 @@ export default {
 					tab: "Розробка сайту",
 					page: {
 						subTitle: 'Складність дизайну',
-						check: [{ title: 'Виберіть', value: 0 }, { title: 'Простий дизайн', value: 0 }, { title: 'Середній', value: 0 }, { title: 'Складний', value: 0 }, { title: 'Wow дизайн', value: 0 }],
+						check: [{ title: 'Виберіть',widthName:"left:-150%",widthLine:"display:none", value: 0 }, { title: 'Простий дизайн',widthName:"left:-260%", widthItem:"width:25%", value: 0 }, { title: 'Середній',widthName:"left:-150%", widthItem:"width:50%", value: 0 }, { title: 'Складний',widthName:"left:-150%", widthItem:"width:75%",value: 0 }, { title: 'Wow дизайн',widthName:"left:-150%", value: 0 }],
 						subTitle: 'Кількість унікальних сторінок',
 						check: [{ title: 'Виберіть', value: 0 }, { title: '1-3', value: 0 }, { title: '3-7', value: 0 }, { title: '7-15', value: 0 }, { title: '15-50', value: 0 }, { title: '50 i бiльше', value: 0 }],
 						subTitle: 'Кількість мовних версій сайту',
@@ -418,10 +422,10 @@ export default {
 		};
 	},
 	methods: {
-		selectTab() {
+		selectTab(id) {
 			this.selectedIndex = id;
-			let dataPage = this.tabValue[selectedindex]
-			console.log(this.tabValue[selectedIndex].page);
+			// let dataPage = this.tabValue[this.selectedindex]
+			console.log({id});
 		},
 		activeTab(i) {
 			return this.selectedIndex === i;

@@ -1,13 +1,14 @@
 <template>
   <div
     class="calc_checkbox__Item"
-    :class="activeCalcItem ? 'activeBtnCalc' : ''"
+    :class="isActive ? 'activeBtnCalc' : ''"
     v-bind:style="widthItem"
   >
+    <div class="calc_checkbox__line" v-bind:style="widthLine"></div>
     <div
-      class="calc_checkbox__line" v-bind:style="widthLine"
-    ></div>
-    <div class="calc_checkbox__circle" @click.prevent="activeCalc">
+      class="calc_checkbox__circle"
+      @click.prevent="$emit('getIndexCircle', indexCircle)"
+    >
       <div class="calc_checkbox__name" v-bind:style="widthName">
         <slot></slot>
       </div>
@@ -22,24 +23,29 @@ export default {
       type: String,
       required: false,
     },
-	 widthLine: {
+    widthLine: {
       type: String,
       required: false,
     },
-	 widthName: {
+    widthName: {
       type: String,
       required: false,
+    },
+    isActive: {
+      type: Boolean,
+    },
+    value: {
+      type: Number,
+      required: false,
+    },
+    indexCircle: {
+      type: Number,
     },
   },
   data() {
     return {
-      activeCalcItem: false,
+      activeCalcValue: 0,
     };
-  },
-  methods: {
-    activeCalc() {
-      this.activeCalcItem = !this.activeCalcItem;
-    },
   },
 };
 </script>
@@ -63,10 +69,9 @@ export default {
   box-shadow: 0px 0px 15px 3px rgba(234, 90, 37, 0.7);
   background: linear-gradient(0deg, #ea5a25, #ea5a25),
     linear-gradient(0deg, #ffffff, #ffffff);
-
 }
 .activeBtnCalc .calc_checkbox__line {
-	z-index: 94;
+  z-index: 94;
   background: linear-gradient(
     270deg,
     #ac3206 1.18%,
@@ -83,7 +88,6 @@ export default {
   z-index: 95;
 }
 .calc_checkbox__name {
-
   position: absolute;
   text-align: center;
   text-wrap: nowrap;
