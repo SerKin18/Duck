@@ -35,7 +35,7 @@ checkBoxArray:{
       this.$props.checkBoxArray[i].isActive = true;
       this.valueCircle = this.$props.checkBoxArray[i].value;
       console.log(this.valueCircle);
-		this.$emit('valueItem1',this.valueCircle)
+		this.$emit('valueItem2',this.valueCircle)
     },
   },
 };
