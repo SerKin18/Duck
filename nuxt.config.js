@@ -2,11 +2,20 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
   router: {
+<<<<<<< HEAD
     base: "/Duck",
   },
   publicRuntimeConfig: {
     BASE_URL: "/Duck",
   },
+=======
+	base: '/Duck'
+ },
+ publicRuntimeConfig: {
+	BASE_URL: '/Duck',
+ },
+
+>>>>>>> bb11166a44d7ebb17b9257d8128d41e05848912f
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Duck-Project",
@@ -19,7 +28,7 @@ export default {
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [{ rel: "icon", type: "image/x-icon", href: "./static/favicon(Duck).ico"}],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
