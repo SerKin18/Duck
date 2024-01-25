@@ -2,20 +2,11 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
   router: {
-<<<<<<< HEAD
     base: "/Duck",
   },
   publicRuntimeConfig: {
     BASE_URL: "/Duck",
   },
-=======
-	base: '/Duck'
- },
- publicRuntimeConfig: {
-	BASE_URL: '/Duck',
- },
-
->>>>>>> bb11166a44d7ebb17b9257d8128d41e05848912f
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: "Duck-Project",

@@ -1,47 +1,41 @@
 <template>
-  <label
-    :for="nameCheck"
-    class="calc_body__checkbox_item"
-    :class="isActive ? ' active' : ''"
-  >
-    <input type="checkbox" :id="nameCheck" :name="nameCheck" />
-    <span></span>
-    <p @click="$emit('getIndexCheck', indexCheck)"><slot></slot></p>
-  </label>
+  <div class="calc_body__checkbox_item">
+    <label for="cmsCheckbox">
+      <input type="checkbox" id="cmsCheckbox" name="cmsCheckbox" />
+      <span></span>
+      <p>
+        <slot></slot>
+      </p>
+    </label>
+  </div>
 </template>
 <script>
 export default {
-  name: "calc-checkbox-item",
-  props: {
-    isActive: {
-      type: Boolean,
-    },
-    value: {
-      type: Number,
-      required: false,
-    },
-    indexCheck: {
-      type: Number,
-    },
-    nameCheck: {
-      type: String,
-    },
-  },
+  name: "calc-checkbox-items",
+  props:{
+	checkBoxClick:{
+		type:Array
+	}
+  }
 };
 </script>
 <style scoped>
+.calc_body__checkbox_item {
+  max-width: 192px;
+  border: 1px solid rgba(220, 223, 230, 1);
+  padding: 13px 11px 13px 11px;
+  margin-bottom: 15px;
+  text-align: flex-start;
+}
+
 input[type="checkbox"] {
   height: 0px;
   width: 0px;
 }
 
-label {
+.calc_body__checkbox_item label {
   display: inline-block;
-  border: 1px solid rgba(220, 223, 230, 1);
-  padding: 0px 11px;
-  margin-bottom: 15px;
 }
-
 .calc_body__checkbox_item span {
   height: 14px;
   width: 14px;
@@ -61,7 +55,6 @@ label {
   height: 2px;
   background-color: rgb(255, 255, 255);
 }
-
 .calc_body__checkbox_item span::before {
   width: 6px;
   transform: rotate(-135deg);
@@ -73,32 +66,31 @@ label {
   transform: rotate(135deg);
 }
 
-input[type="checkbox"]:checked + span {
+.calc_body__checkbox_item input[type="checkbox"]:checked + span {
   background: rgba(234, 90, 37, 1);
 }
-
-p {
-  display: inline-block;
+.calc_body__checkbox_item p {
+  display: inline;
   font-family: var(--classic);
   color: rgb(255, 255, 255);
   opacity: 50%;
   font-size: 12px;
   text-wrap: nowrap;
   font-style: normal;
-  margin: 13px 6px 13px 10px;
+  margin-left: 6px;
 }
 
-label:hover {
+.calc_body__checkbox_item:hover {
   span {
     background: rgb(143, 143, 143);
   }
 }
-
 .active {
   border: 1px solid rgba(234, 90, 37, 1);
-}
-.active p {
-  color: rgba(234, 90, 37, 1);
-  opacity: 100%;
+
+  p {
+    color: rgba(234, 90, 37, 1);
+    opacity: 100%;
+  }
 }
 </style>
