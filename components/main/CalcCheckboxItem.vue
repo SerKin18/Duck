@@ -1,36 +1,21 @@
 <template>
-  <div
-    class="calc_checkbox__Item"
-    :class="isActive ? 'activeBtnCalc' : ''"
-    v-bind:style="widthItem"
-  >
-    <div class="calc_checkbox__line" v-bind:style="widthLine"></div>
-    <div
-      class="calc_checkbox__circle"
-      @click.prevent="$emit('getIndexCircle', indexCircle)"
+  <div class="calc_body__checkbox_items" >
+    <label
+      :for="nameCheck"
+      class="calc_body__checkbox_item"
+      :class="isActive ? ' active' : ''"
+		
     >
-      <div class="calc_checkbox__name" v-bind:style="widthName">
-        <slot></slot>
-      </div>
-    </div>
+      <input type="checkbox" :id="nameCheck" :name="nameCheck" />
+      <span></span>
+      <p @click="$emit('getIndexCheck', indexCheck)"  ><slot></slot></p>
+    </label>
   </div>
 </template>
 <script>
 export default {
-  name: "calc-checkbox",
+  name: "calc-checkbox-item",
   props: {
-    widthItem: {
-      type: String,
-      required: false,
-    },
-    widthLine: {
-      type: String,
-      required: false,
-    },
-    widthName: {
-      type: String,
-      required: false,
-    },
     isActive: {
       type: Boolean,
     },
@@ -38,59 +23,85 @@ export default {
       type: Number,
       required: false,
     },
-    indexCircle: {
+    indexCheck: {
       type: Number,
     },
-  }
-  
+    nameCheck: {
+      type: String,
+    },
+  },
 };
 </script>
 <style scoped>
-.calc_checkbox__Item {
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-.calc_checkbox__line {
-  width: 100%;
-  height: 1px;
-  background: rgb(136, 137, 138);
-  z-index: 93;
+input[type="checkbox"] {
+  height: 0px;
+  width: 0px;
 }
 
-.activeBtnCalc .calc_checkbox__circle {
-  scale: 1.2;
-  border: 1px solid #fff;
-  border-radius: 12.5px;
-  box-shadow: 0px 0px 15px 3px rgba(234, 90, 37, 0.7);
-  background: linear-gradient(0deg, #ea5a25, #ea5a25),
-    linear-gradient(0deg, #ffffff, #ffffff);
-}
-.activeBtnCalc .calc_checkbox__line {
-  z-index: 94;
-  background: linear-gradient(
-    270deg,
-    #ac3206 1.18%,
-    rgba(43, 19, 11, 0.1) 100%
-  );
+.calc_body__checkbox_item {
+  display: inline-block;
+  border: 1px solid rgba(220, 223, 230, 1);
+  padding: 0px 0px 0px 11px;
+  margin-bottom: 15px;
 }
 
-.calc_checkbox__circle {
-  width: 15px;
-  height: 15px;
-  border-radius: 15px;
-  background-color: #fff;
+.calc_body__checkbox_item span {
+  height: 14px;
+  width: 14px;
+  display: inline-block;
   position: relative;
-  z-index: 95;
+  background-color: #fcfcfc;
+  margin: 0px 0px -3px 0px;
 }
-.calc_checkbox__name {
-  position: absolute;
-  text-align: center;
-  text-wrap: nowrap;
-  top: 25px;
-  left: 0%;
-  opacity: 50%;
 
+.calc_body__checkbox_item span::before,
+.calc_body__checkbox_item span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 1.5px;
+  width: 8px;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+}
+
+.calc_body__checkbox_item span::before {
+  width: 6px;
+  transform: rotate(-135deg);
+}
+
+.calc_body__checkbox_item span::after {
+  top: 6px;
+  left: 4.5px;
+  transform: rotate(135deg);
+}
+
+input[type="checkbox"]:checked + span {
+  background: rgba(234, 90, 37, 1);
+}
+
+p {
+  display: inline-block;
+  font-family: var(--classic);
+  color: rgb(255, 255, 255);
+  opacity: 50%;
   font-size: 12px;
+  text-wrap: nowrap;
+  font-style: normal;
+  margin: 13px 16px 13px 10px;
+}
+
+label:hover {
+  span {
+    background: rgb(143, 143, 143);
+  }
+}
+
+.active {
+  border: 1px solid rgba(234, 90, 37, 1);
+}
+.active p {
+  color: rgba(234, 90, 37, 1);
+  opacity: 100%;
 }
 </style>
