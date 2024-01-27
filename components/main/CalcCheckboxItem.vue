@@ -1,13 +1,15 @@
 <template>
-  <label
-    :for="nameCheck"
-    class="calc_body__checkbox_item"
-    :class="isActive ? ' active' : ''"
-  >
-    <input type="checkbox" :id="nameCheck" :name="nameCheck" />
-    <span></span>
-    <p @click="$emit('getIndexCheck', indexCheck)"><slot></slot></p>
-  </label>
+  <div class="calc_body__checkbox_items">
+    <label
+      :for="nameCheck"
+      class="calc_body__checkbox_item"
+      :class="isActive ? ' active' : ''"
+    >
+      <input type="checkbox" :id="nameCheck" :name="nameCheck" />
+      <span></span>
+      <p @click="$emit('getIndexCheck', indexCheck)"><slot></slot></p>
+    </label>
+  </div>
 </template>
 <script>
 export default {
@@ -35,7 +37,7 @@ input[type="checkbox"] {
   width: 0px;
 }
 
-label {
+.calc_body__checkbox_item {
   display: inline-block;
   border: 1px solid rgba(220, 223, 230, 1);
   padding: 0px 11px;
