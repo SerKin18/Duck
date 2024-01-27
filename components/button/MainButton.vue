@@ -1,6 +1,6 @@
 <template>
   <div class="main__button">
-    <button class="button">
+    <button class="button" v-bind:style="fontSize">
       <slot></slot>
     </button>
   </div>
@@ -8,36 +8,38 @@
 <script>
 export default {
   name: "main-button",
+  props: {
+    fontSize: {
+      type: String,
+      required: false,
+    },
+  },
 };
 </script>
-<style scope>
+<style scoped>
 .main__button {
-  margin-left: 40px;
+
 }
 .button {
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: var(--title);
+  white-space: nowrap;
   text-transform: uppercase;
   position: relative;
-  width: 150px;
-  height: 37px;
+  width: 100%;
+  padding: 12px 10px;
   font-size: 12px;
-  font-weight: 400;
   color: black;
-  padding: 12px 20px;
   background: #ff723e;
-
-  /* background: linear-gradient(88.83deg, #ea5a25 2.34%, #ff723e 99.43%); */
+  box-shadow: 0px 2px 120px 5px #ff723e;
 }
 .button::before {
   content: "";
   position: absolute;
-  right: -37px;
+  right: -36px;
   top: 0px;
   border: 19px solid transparent;
   border-left: 19px solid #ff723e;
-  /* linear-gradient(88.83deg, #ea5a25 2.34%, #ff723e 99.43%); */
   border-top: 19px solid #ff723e;
-  /* linear-gradient(88.83deg, #ea5a25 2.34%, #ff723e 99.43%); */
 }
 .button::after {
   content: "";
@@ -46,10 +48,10 @@ export default {
   bottom: 0;
   border: 19px solid transparent;
   border-right: 19px solid #ff723e;
-  /* linear-gradient(88.83deg, #ea5a25 2.34%, #ff723e 99.43%); */
+
   border-bottom: 19px solid #ff723e;
-  /* linear-gradient(88.83deg, #ea5a25 2.34%, #ff723e 99.43%); */
 }
-.button:hover {
+.main__button :hover {
+  color:white
 }
 </style>
