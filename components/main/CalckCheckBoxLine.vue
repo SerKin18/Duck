@@ -8,6 +8,7 @@
       :widthItem="circle.widthItem"
       :key="circle[index]"
       :value="circle.value"
+		:time="circle.time"
       :isActive="circle.isActive"
       @getIndexCircle="activeCalc"
       >{{ circle.title }}</CalcCheckboxLineItem
@@ -27,6 +28,7 @@ checkBoxArray:{
   data() {
     return {
       valueCircle: 0,
+		timeCircle:0
     };
   },
   methods: {
@@ -34,8 +36,10 @@ checkBoxArray:{
       this.$props.checkBoxArray.forEach((element) => (element.isActive = false));
       this.$props.checkBoxArray[i].isActive = true;
       this.valueCircle = this.$props.checkBoxArray[i].value;
-      console.log(this.valueCircle);
-		this.$emit('valueItem1',this.valueCircle)
+		this.timeCircle = this.$props.checkBoxArray[i].time;
+
+		this.$emit('valueItem1',this)
+
     },
   },
 };
