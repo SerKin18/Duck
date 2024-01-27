@@ -232,11 +232,17 @@ export default {
 				"Розробка логотипу",
 				"Розробка фiрмового стилю",
 			],
-			tabsCheckBox: [[{ title: 'Рукописна CMS', value: 20, isActive: false }, { title: 'Форма збору даних', value: 40, isActive: false }, { title: 'Калькулятор цін', value: 60, isActive: false }],
-			[{ title: 'Рукописна CMS', value: 20, isActive: false }, { title: 'Форма збору даних', value: 20, isActive: false }, { title: 'Калькулятор цін', value: 60, isActive: false }],
-			[{ title: 'Форма збору даних', value: 20, isActive: false }, { title: 'Рукописна CMS', value: 20, isActive: false }, { title: 'Калькулятор цін', value: 60, isActive: false }, { title: 'Імпорт/експорт через Ексель', value: 60, isActive: false }, { title: 'Онлайн оплата', value: 60, isActive: false }, { title: 'Фільтр товарів', value: 60, isActive: false }, { title: 'Ярлики товарів(Акції,новинки...)', value: 60, isActive: false }, { title: 'Порівняння,рейтинг товарів', value: 60, isActive: false }],
-			[{ title: 'Форма збору даних', value: 20, isActive: false }, { title: 'Рукописна CMS', value: 20, isActive: false }, { title: 'Особистий кабінет', value: 60, isActive: false }],
-			[{ title: 'Бренд на аксесуарах', value: 20, isActive: false }, { title: 'Бренд на бланках', value: 20, isActive: false }, { title: 'Бренд на одягу', value: 20, isActive: false }]],
+			tabsCheckBox: [[{ title: 'Рукописна CMS', value: 15000, time: 10, isActive: false },
+			 { title: 'Форма збору даних', value: 500, time: 1, isActive: false },
+			  { title: 'Калькулятор цін', value: 1000, time: 1, isActive: false }],
+			[{ title: 'Рукописна CMS', value: 15000, time: 10, isActive: false },
+			 { title: 'Форма збору даних',value: 500, time: 1, isActive: false },
+			  { title: 'Калькулятор цін',value: 1000, time: 1, isActive: false }],
+			[{ title: 'Форма збору даних', value: 500, time: 1, isActive: false },
+			 { title: 'Рукописна CMS', value: 15000, time: 10, isActive: false },
+			 { title: 'Особистий кабінет',value: 1500, time: 6, isActive: false }, { title: 'Імпорт/експорт через Ексель', value: 5000, time: 4, isActive: false }, { title: 'Онлайн оплата',value: 3000, time: 3, isActive: false }, { title: 'Фільтр товарів', value: 1500, time: 3, isActive: false }, { title: 'Ярлики товарів(Акції,новинки...)', value: 3000, time: 3, isActive: false }, { title: 'Порівняння,рейтинг товарів', value: 3000, time: 3, isActive: false }],
+			[{ title: 'Форма збору даних', value: 500, time: 1, isActive: false }, { title: 'Рукописна CMS',  value: 15000, time: 10, isActive: false }, { title: 'Особистий кабінет',value: 1500, time: 6, isActive: false }],
+			[{ title: 'Бренд на аксесуарах', value: 500, time: 2, isActive: false }, { title: 'Бренд на бланках', value: 500, time: 2, isActive: false }, { title: 'Бренд на одягу', value: 500, time: 1, isActive: false }]],
 			tabValue: [
 				{
 					tab: "Розробка сайту",
@@ -254,31 +260,31 @@ export default {
 							title: "Простий дизайн",
 							widthName: "left:-260%",
 							widthItem: "width:25%",
-							value: 10,
-							time: 0,
+							value: 1,
+							time: 2,
 							isActive: false,
 						},
 						{
 							title: "Середній",
 							widthName: "left:-150%",
 							widthItem: "width:50%",
-							value: 20,
-							time: 0,
+							value: 2,
+							time: 4,
 							isActive: false,
 						},
 						{
 							title: "Складний",
 							widthName: "left:-150%",
 							widthItem: "width:75%",
-							value: 30,
-							time: 0,
+							value: 3,
+							time: 6,
 							isActive: false,
 						},
 						{
 							title: "Wow дизайн",
 							widthName: "left:-150%",
-							value: 40,
-							time: 0,
+							value: 4,
+							time: 8,
 							isActive: false,
 						},
 						],
@@ -286,38 +292,38 @@ export default {
 						check2: [{
 							title: 'Виберіть', widthName: "left:-150%",
 							widthLine: "display:none",
-							value: 0,
-							time: 0,
+							value: 3000,
+							time: 1,
 							isActive: false
 						}, {
 							title: '1-3',
 							widthLine: "width:20%",
-							value: 10,
-							time: 0,
+							value: 0,
+							time: 2,
 							isActive: false,
 						}, {
 							title: '3-7',
 							widthLine: "width:40%",
-							value: 20,
-							time: 0,
+							value: 9000,
+							time: 3,
 							isActive: false
 						}, {
 							title: '7-15',
 							widthLine: "width:60%",
-							value: 30,
-							time: 0,
+							value: 18000,
+							time: 4,
 							isActive: false
 						}, {
 							title: '15-50',
 							widthLine: "width:80%",
-							value: 40,
-							time: 0,
+							value: 30000,
+							time: 5,
 							isActive: false
 						}, {
 							title: '50 i бiльше',
 							widthName: "left:-150%",
-							value: 50,
-							time: 0,
+							value: 45000,
+							time: 6,
 							isActive: false,
 						}],
 						subTitle3: 'Кількість мовних версій сайту',
@@ -325,7 +331,7 @@ export default {
 							title: '1',
 							widthName: "left:5px",
 							widthLine: "display:none",
-							value: 10,
+							value: 0,
 							time: 0,
 							isActive: false
 						},
@@ -333,33 +339,33 @@ export default {
 							title: '2',
 							widthName: "left:5px",
 							widthItem: "width:20%",
-							value: 20,
-							time: 0,
+							value: 2000,
+							time: 2,
 							isActive: false
 						},
 						{
 							title: '3', widthName: "left:5px",
 							widthItem: "width:40%",
-							value: 30,
-							time: 0,
+							value: 4000,
+							time: 4,
 							isActive: false
 						}, {
 							title: '4', widthName: "left:5px",
 							widthItem: "width:60%",
-							value: 40,
-							time: 0,
+							value: 6000,
+							time: 6,
 							isActive: false
 						}, {
 							title: '5', widthName: "left:5px",
 							widthItem: "width:80%",
-							value: 50,
-							time: 0,
+							value: 8000,
+							time: 10,
 							isActive: false
 						}, {
 							title: '6 i бiльше',
 							widthName: "left:-150%",
-							value: 60,
-							time: 0,
+							value: 10000,
+							time: 12,
 							isActive: false
 						}]
 					}
@@ -380,31 +386,31 @@ export default {
 							title: "Простий дизайн",
 							widthName: "left:-260%",
 							widthItem: "width:25%",
-							value: 10,
-							time: 0,
+							value: 1,
+							time: 2,
 							isActive: false,
 						},
 						{
 							title: "Середній",
 							widthName: "left:-150%",
 							widthItem: "width:50%",
-							value: 20,
-							time: 0,
+							value: 2,
+							time: 4,
 							isActive: false,
 						},
 						{
 							title: "Складний",
 							widthName: "left:-150%",
 							widthItem: "width:75%",
-							value: 30,
-							time: 0,
+							value: 3,
+							time: 6,
 							isActive: false,
 						},
 						{
 							title: "Wow дизайн",
 							widthName: "left:-150%",
-							value: 40,
-							time: 0,
+							value: 4,
+							time: 8,
 							isActive: false,
 						},
 						],
@@ -419,72 +425,72 @@ export default {
 							title: '1',
 							widthItem: "width:10%",
 							widthName: "left:5px",
-							value: 10,
-							time: 0,
+							value: 1010,
+							time: 1,
 							isActive: false,
 						}, {
 							title: '2',
 							widthItem: "width:20%",
 							widthName: "left:5px",
-							value: 20,
-							time: 0,
+							value: 2040,
+							time: 2,
 							isActive: false,
 						}, {
 							title: '3',
 							widthItem: "width:30%",
 							widthName: "left:5px",
-							value: 30,
-							time: 0,
+							value: 3090,
+							time: 3,
 							isActive: false,
 						}, {
 							title: '4',
 							widthItem: "width:40%",
 							widthName: "left:5px",
-							value: 40,
-							time: 0,
+							value: 4160,
+							time: 4,
 							isActive: false
 						}, {
 							title: '5',
 							widthItem: "width:50%",
 							widthName: "left:5px",
-							value: 50,
-							time: 0,
+							value: 5250,
+							time: 5,
 							isActive: false,
 						}, {
 							title: '6',
 							widthItem: "width:60%",
 							widthName: "left:5px",
-							value: 60,
-							time: 0,
+							value: 6360,
+							time: 6,
 							isActive: false
 						},
 						{
 							title: '7',
 							widthItem: "width:70%",
 							widthName: "left:5px",
-							value: 70,
-							time: 0,
+							value: 7490,
+							time: 7,
 							isActive: false,
 						}, {
 							title: '8',
 							widthItem: "width:80%",
 							widthName: "left:5px",
-							value: 80,
-							time: 0,
+							value: 8640,
+							time: 8,
 							isActive: false
 						},
 						{
 							title: '9',
 							widthItem: "width:90%",
 							widthName: "left:5px",
-							value: 90,
-							time: 0,
+							value: 9810,
+							time: 9,
 							isActive: false
 						}, {
 							title: '10 i бiльше',
 							widthName: "left:-150%",
-							value: 50,
-							time: 0,
+							value: 11000,
+							time: 10,
 							isActive: false,
 						}],
 						subTitle3: 'Кількість мовних версій сайту',
@@ -492,7 +498,7 @@ export default {
 							title: '1', widthLine: "width:60%",
 							widthName: "left:5px",
 							widthLine: "display:none",
-							value: 10,
+							value: 0,
 							time: 0,
 							isActive: false
 						},
@@ -500,33 +506,33 @@ export default {
 							title: '2',
 							widthName: "left:5px",
 							widthItem: "width:20%",
-							value: 20,
+							value: 2000,
 							time: 0,
 							isActive: false
 						},
 						{
 							title: '3', widthName: "left:5px",
 							widthItem: "width:40%",
-							value: 30,
-							time: 0,
+							value: 4000,
+							time: 4,
 							isActive: false
 						}, {
 							title: '4', widthName: "left:5px",
 							widthItem: "width:60%",
-							value: 40,
-							time: 0,
+							value: 6000,
+							time: 6,
 							isActive: false
 						}, {
 							title: '5', widthName: "left:5px",
 							widthItem: "width:80%",
-							value: 50,
-							time: 0,
+							value: 8000,
+							time: 8,
 							isActive: false
 						}, {
 							title: '6 i бiльше',
 							widthName: "left:-150%",
-							value: 60,
-							time: 0,
+							value: 10000,
+							time: 10,
 							isActive: false
 						}]
 					}
@@ -539,39 +545,39 @@ export default {
 							title: "Виберіть",
 							widthName: "left:-150%",
 							widthLine: "display:none",
-							value: 0,
-							time: 0,
+							value: 15000,
+							time: 10,
 							isActive: false,
 						},
 						{
 							title: "Простий дизайн",
 							widthName: "left:-260%",
 							widthItem: "width:25%",
-							value: 10,
-							time: 0,
+							value: 1,
+							time: 2,
 							isActive: false,
 						},
 						{
 							title: "Середній",
 							widthName: "left:-150%",
 							widthItem: "width:50%",
-							value: 20,
-							time: 0,
+							value: 1,
+							time: 4,
 							isActive: false,
 						},
 						{
 							title: "Складний",
 							widthName: "left:-150%",
 							widthItem: "width:75%",
-							value: 30,
-							time: 0,
+							value: 1,
+							time: 6,
 							isActive: false,
 						},
 						{
 							title: "Wow дизайн",
 							widthName: "left:-150%",
-							value: 40,
-							time: 0,
+							value: 1,
+							time: 8,
 							isActive: false,
 						},
 						],
@@ -585,32 +591,32 @@ export default {
 						}, {
 							title: '1-3',
 							widthLine: "width:20%",
-							value: 10,
-							time: 0,
+							value: 1000,
+							time: 1,
 							isActive: false,
 						}, {
 							title: '3-7',
 							widthLine: "width:40%",
-							value: 20,
-							time: 0,
+							value: 3000,
+							time: 2,
 							isActive: false
 						}, {
 							title: '7-15',
 							widthLine: "width:60%",
-							value: 30,
-							time: 0,
+							value: 6000,
+							time: 3,
 							isActive: false
 						}, {
 							title: '15-50',
 							widthLine: "width:80%",
-							value: 40,
-							time: 0,
+							value: 10000,
+							time: 4,
 							isActive: false
 						}, {
 							title: '50 i бiльше',
 							widthName: "left:-150%",
-							value: 50,
-							time: 0,
+							value: 15000,
+							time: 5,
 							isActive: false,
 						}],
 						subTitle3: 'Кількість мовних версій сайту',
@@ -618,7 +624,7 @@ export default {
 							title: '1', widthLine: "width:60%",
 							widthName: "left:5px",
 							widthLine: "display:none",
-							value: 10,
+							value: 0,
 							time: 0,
 							isActive: false
 						},
@@ -626,33 +632,33 @@ export default {
 							title: '2',
 							widthName: "left:5px",
 							widthItem: "width:20%",
-							value: 20,
-							time: 0,
+							value: 1000,
+							time: 2,
 							isActive: false
 						},
 						{
 							title: '3', widthName: "left:5px",
 							widthItem: "width:40%",
-							value: 30,
-							time: 0,
+							value: 2000,
+							time: 3,
 							isActive: false
 						}, {
 							title: '4', widthName: "left:5px",
 							widthItem: "width:60%",
-							value: 40,
-							time: 0,
+							value: 3000,
+							time: 5,
 							isActive: false
 						}, {
 							title: '5', widthName: "left:5px",
 							widthItem: "width:80%",
-							value: 50,
-							time: 0,
+							value: 4000,
+							time: 7,
 							isActive: false
 						}, {
 							title: '6 i бiльше',
 							widthName: "left:-150%",
-							value: 60,
-							time: 0,
+							value: 5000,
+							time: 9,
 							isActive: false
 						}]
 					}
@@ -672,31 +678,31 @@ export default {
 							title: "Простий дизайн",
 							widthName: "left:-260%",
 							widthItem: "width:25%",
-							value: 10,
-							time: 0,
+							value: 1,
+							time: 2,
 							isActive: false,
 						},
 						{
 							title: "Середній",
 							widthName: "left:-150%",
 							widthItem: "width:50%",
-							value: 20,
-							time: 0,
+							value: 2,
+							time: 4,
 							isActive: false,
 						},
 						{
 							title: "Складний",
 							widthName: "left:-150%",
 							widthItem: "width:75%",
-							value: 30,
-							time: 0,
+							value: 3,
+							time: 6,
 							isActive: false,
 						},
 						{
 							title: "Wow дизайн",
 							widthName: "left:-150%",
-							value: 40,
-							time: 0,
+							value: 4,
+							time:8,
 							isActive: false,
 						},
 						],
@@ -710,32 +716,32 @@ export default {
 						}, {
 							title: '1-3',
 							widthLine: "width:20%",
-							value: 10,
-							time: 0,
+							value: 1000,
+							time: 1,
 							isActive: false,
 						}, {
 							title: '3-7',
 							widthLine: "width:40%",
-							value: 20,
-							time: 0,
+							value: 3000,
+							time: 2,
 							isActive: false
 						}, {
 							title: '7-15',
 							widthLine: "width:60%",
-							value: 30,
-							time: 0,
+							value: 6000,
+							time: 3,
 							isActive: false
 						}, {
 							title: '15-50',
 							widthLine: "width:80%",
-							value: 40,
-							time: 0,
+							value: 10000,
+							time: 6,
 							isActive: false
 						}, {
 							title: '50 i бiльше',
 							widthName: "left:-150%",
-							value: 50,
-							time: 0,
+							value: 15000,
+							time: 7,
 							isActive: false,
 						}],
 						subTitle3: 'Кількість мовних версій сайту',
@@ -743,7 +749,7 @@ export default {
 							title: '1', widthLine: "width:60%",
 							widthName: "left:5px",
 							widthLine: "display:none",
-							value: 10,
+							value: 0,
 							time: 0,
 							isActive: false
 						},
@@ -751,33 +757,33 @@ export default {
 							title: '2',
 							widthName: "left:5px",
 							widthItem: "width:20%",
-							value: 20,
-							time: 0,
+							value: 1000,
+							time: 2,
 							isActive: false
 						},
 						{
 							title: '3', widthName: "left:5px",
 							widthItem: "width:40%",
-							value: 30,
-							time: 0,
+							value: 2000,
+							time: 4,
 							isActive: false
 						}, {
 							title: '4', widthName: "left:5px",
 							widthItem: "width:60%",
-							value: 40,
-							time: 0,
+							value: 3000,
+							time: 6,
 							isActive: false
 						}, {
 							title: '5', widthName: "left:5px",
 							widthItem: "width:80%",
-							value: 50,
-							time: 0,
+							value: 4000,
+							time: 8,
 							isActive: false
 						}, {
 							title: '6 i бiльше',
 							widthName: "left:-150%",
-							value: 60,
-							time: 0,
+							value: 5000,
+							time: 10,
 							isActive: false
 						}]
 					}
@@ -795,42 +801,42 @@ export default {
 							title: '1',
 							widthItem: "width:10%",
 							widthName: "left:5px",
-							value: 10,
+							value: 5500,
 							time: 0,
 							isActive: false,
 						}, {
 							title: '2',
 							widthItem: "width:20%",
 							widthName: "left:5px",
-							value: 20,
+							value: 11000,
 							time: 0,
 							isActive: false,
 						}, {
 							title: '3',
 							widthItem: "width:30%",
 							widthName: "left:5px",
-							value: 30,
+							value: 16500,
 							time: 0,
 							isActive: false,
 						}, {
 							title: '4',
 							widthItem: "width:40%",
 							widthName: "left:5px",
-							value: 40,
+							value: 22000,
 							time: 0,
 							isActive: false
 						}, {
 							title: '5 i бiльше',
 							widthItem: "width:50%",
 							widthName: "left:5px",
-							value: 50,
+							value:27500,
 							time: 0,
 							isActive: false,
 						}, {
 							title: '10 i бiльше',
 							widthItem: "width:60%",
 							widthName: "left:5px",
-							value: 60,
+							value: 33000,
 							time: 0,
 							isActive: false
 						},
@@ -838,14 +844,14 @@ export default {
 							title: '20 i бiльше',
 							widthItem: "width:70%",
 							widthName: "left:5px",
-							value: 70,
+							value: 38500,
 							time: 0,
 							isActive: false,
 						}, {
 							title: '30 i бiльше',
 							widthItem: "width:80%",
 							widthName: "left:5px",
-							value: 80,
+							value: 44000,
 							time: 0,
 							isActive: false
 						},
@@ -853,13 +859,13 @@ export default {
 							title: '40 i бiльше',
 							widthItem: "width:90%",
 							widthName: "left:5px",
-							value: 90,
+							value: 49500,
 							time: 0,
 							isActive: false
 						}, {
 							title: '50 i бiльше',
 							widthName: "left:-150%",
-							value: 100,
+							value: 55000,
 							time: 0,
 							isActive: false,
 						}],
@@ -880,7 +886,7 @@ export default {
 							title: '1',
 							widthItem: "width:33.3%",
 							widthName: "left:5px",
-							value: 10,
+							value: 7500,
 							time: 0,
 							isActive: false
 						},
@@ -888,13 +894,13 @@ export default {
 							title: '2',
 							widthName: "left:5px",
 							widthItem: "width:66.6%",
-							value: 20,
+							value: 15000,
 							time: 0,
 							isActive: false
 						},
 						{
 							title: '3', widthName: "left:5px",
-							value: 30,
+							value: 22500,
 							time: 0,
 							isActive: false
 						},],
@@ -907,31 +913,31 @@ export default {
 							title: "Виберіть",
 							widthName: "left:-150%",
 							widthLine: "display:none",
-							value: 0,
-							time: 0,
+							value: 1,
+							time: 2,
 							isActive: false,
 						},
 						{
 							title: "Простий дизайн",
 							widthName: "left:-260%",
 							widthItem: "width:33.3%",
-							value: 10,
-							time: 0,
+							value: 2,
+							time: 4,
 							isActive: false,
 						},
 						{
 							title: "Середній",
 							widthName: "left:-150%",
 							widthItem: "width:66.6%",
-							value: 20,
-							time: 0,
+							value: 3,
+							time: 6,
 							isActive: false,
 						},
 						{
 							title: "Складний",
 							widthName: "left:-150%",
-							value: 30,
-							time: 0,
+							value: 4,
+							time: 8,
 							isActive: false,
 						}
 						],
@@ -945,25 +951,25 @@ export default {
 						}, {
 							title: '1',
 							widthLine: "width:25%",
-							value: 10,
-							time: 0,
+							value: 2500,
+							time: 1,
 							isActive: false,
 						}, {
 							title: '2',
 							widthLine: "width:50%",
-							value: 20,
-							time: 0,
+							value: 7500,
+							time: 2,
 							isActive: false
 						}, {
 							title: '3',
 							widthLine: "width:75%",
-							value: 30,
-							time: 0,
+							value: 15000,
+							time: 3,
 							isActive: false
 						}, {
 							title: '4+',
-							value: 40,
-							time: 0,
+							value: 25000,
+							time: 4,
 							isActive: false
 						}],
 					}
@@ -975,31 +981,31 @@ export default {
 							title: "Виберіть",
 							widthName: "left:-150%",
 							widthLine: "display:none",
-							value: 0,
-							time: 0,
+							value: 1,
+							time: 2,
 							isActive: false,
 						},
 						{
 							title: "Простий дизайн",
 							widthName: "left:-260%",
 							widthItem: "width:33.3%",
-							value: 10,
-							time: 0,
+							value: 2,
+							time: 4,
 							isActive: false,
 						},
 						{
 							title: "Середній",
 							widthName: "left:-150%",
 							widthItem: "width:66.6%",
-							value: 20,
-							time: 0,
+							value: 3,
+							time: 6,
 							isActive: false,
 						},
 						{
 							title: "Складний",
 							widthName: "left:-150%",
-							value: 30,
-							time: 0,
+							value: 4,
+							time: 8,
 							isActive: false,
 						}
 						],
@@ -1013,25 +1019,25 @@ export default {
 						}, {
 							title: '1',
 							widthLine: "width:25%",
-							value: 10,
-							time: 0,
+							value: 2500,
+							time: 1,
 							isActive: false,
 						}, {
 							title: '2',
 							widthLine: "width:50%",
-							value: 20,
-							time: 0,
+							value: 7500,
+							time: 2,
 							isActive: false
 						}, {
 							title: '3',
 							widthLine: "width:75%",
-							value: 30,
-							time: 0,
+							value: 15000,
+							time: 3,
 							isActive: false
 						}, {
 							title: '4+',
-							value: 40,
-							time: 0,
+							value: 25000,
+							time: 4,
 							isActive: false
 						}],
 					}
@@ -1115,11 +1121,11 @@ export default {
 }
 
 .calc_body__checkbox {
-	display: flex;
+	display: inline-flex;
 	flex-direction: column;
 	justify-content: flex-start;
 	width: 300px;
-	margin-top: 80px;
+	margin-top: 40px;
 
 }
 
