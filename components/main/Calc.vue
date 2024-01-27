@@ -55,7 +55,7 @@
 						</div>
 						<div class="calc_body_item">
 							<div class="calc_body_item__subtitle">{{ tabValue[1].page.subTitle3 }}</div>
-							<CalcCheckBoxLine2 :checkBoxArray="tabValue[1].page.check3" @valueItem3="getValue3" />
+							<CalcCheckBoxLine3 :checkBoxArray="tabValue[1].page.check3" @valueItem3="getValue3" />
 						</div>
 						<div class="calc_body__checkbox">
 							<CalcCheckboxItem v-for="(checkBox, index) in tabsCheckBox[1]" :indexCheck="index"
@@ -189,11 +189,11 @@
 			<div class="calc_body__footer">
 				<div class="calc_body__footer_column">
 					<div class="calc_body__footer_item">Орієнтовна вартість</div>
-					<div class="calc_body__footer_item">Від {{ value }} грн</div>
+					<div class="calc_body__footer_item">Від {{ total[selectedIndex].value }} грн</div>
 				</div>
 				<div class="calc_body__footer_column">
 					<div class="calc_body__footer_item">Термін виконання</div>
-					<div class="calc_body__footer_item">Від {{ time }} днів</div>
+					<div class="calc_body__footer_item">Від {{ total[selectedIndex].time }} днів</div>
 				</div>
 			</div>
 		</div>
@@ -214,14 +214,19 @@ export default {
 	name: "Calc",
 	data() {
 		return {
+			total:[{value:0,time:0},{value:0,time:0},{value:15000,time:0},{value:0,time:0},{value:0,time:0},{value:0,time:0},{value:0,time:0},{value:0,time:0}],
+			value1: 0,
+			value2: 0,
+			value3: 0,
+			value4: 0,
 			value: 0,
+			time1: 0,
+			time2: 0,
+			time3: 0,
+			time4: 0,
 			time: 0,
 			selectedIndex: 0,
 			selectTabPage: [],
-			selectCheckBox: 0,
-			activeBtn1: false,
-			activeBtn2: true,
-			activeBtn3: false,
 			tabs: [
 				"Розробка сайту",
 				"Розробка Landing page",
@@ -233,15 +238,15 @@ export default {
 				"Розробка фiрмового стилю",
 			],
 			tabsCheckBox: [[{ title: 'Рукописна CMS', value: 15000, time: 10, isActive: false },
-			 { title: 'Форма збору даних', value: 500, time: 1, isActive: false },
-			  { title: 'Калькулятор цін', value: 1000, time: 1, isActive: false }],
+			{ title: 'Форма збору даних', value: 500, time: 1, isActive: false },
+			{ title: 'Калькулятор цін', value: 1000, time: 1, isActive: false }],
 			[{ title: 'Рукописна CMS', value: 15000, time: 10, isActive: false },
-			 { title: 'Форма збору даних',value: 500, time: 1, isActive: false },
-			  { title: 'Калькулятор цін',value: 1000, time: 1, isActive: false }],
+			{ title: 'Форма збору даних', value: 500, time: 1, isActive: false },
+			{ title: 'Калькулятор цін', value: 1000, time: 1, isActive: false }],
 			[{ title: 'Форма збору даних', value: 500, time: 1, isActive: false },
-			 { title: 'Рукописна CMS', value: 15000, time: 10, isActive: false },
-			 { title: 'Особистий кабінет',value: 1500, time: 6, isActive: false }, { title: 'Імпорт/експорт через Ексель', value: 5000, time: 4, isActive: false }, { title: 'Онлайн оплата',value: 3000, time: 3, isActive: false }, { title: 'Фільтр товарів', value: 1500, time: 3, isActive: false }, { title: 'Ярлики товарів(Акції,новинки...)', value: 3000, time: 3, isActive: false }, { title: 'Порівняння,рейтинг товарів', value: 3000, time: 3, isActive: false }],
-			[{ title: 'Форма збору даних', value: 500, time: 1, isActive: false }, { title: 'Рукописна CMS',  value: 15000, time: 10, isActive: false }, { title: 'Особистий кабінет',value: 1500, time: 6, isActive: false }],
+			{ title: 'Рукописна CMS', value: 15000, time: 10, isActive: false },
+			{ title: 'Особистий кабінет', value: 1500, time: 6, isActive: false }, { title: 'Імпорт/експорт через Ексель', value: 5000, time: 4, isActive: false }, { title: 'Онлайн оплата', value: 3000, time: 3, isActive: false }, { title: 'Фільтр товарів', value: 1500, time: 3, isActive: false }, { title: 'Ярлики товарів(Акції,новинки...)', value: 3000, time: 3, isActive: false }, { title: 'Порівняння,рейтинг товарів', value: 3000, time: 3, isActive: false }],
+			[{ title: 'Форма збору даних', value: 500, time: 1, isActive: false }, { title: 'Рукописна CMS', value: 15000, time: 10, isActive: false }, { title: 'Особистий кабінет', value: 1500, time: 6, isActive: false }],
 			[{ title: 'Бренд на аксесуарах', value: 500, time: 2, isActive: false }, { title: 'Бренд на бланках', value: 500, time: 2, isActive: false }, { title: 'Бренд на одягу', value: 500, time: 1, isActive: false }]],
 			tabValue: [
 				{
@@ -252,7 +257,7 @@ export default {
 							title: "Виберіть",
 							widthName: "left:-150%",
 							widthLine: "display:none",
-							value: 0,
+							value: 1,
 							time: 0,
 							isActive: false,
 						},
@@ -292,38 +297,38 @@ export default {
 						check2: [{
 							title: 'Виберіть', widthName: "left:-150%",
 							widthLine: "display:none",
-							value: 3000,
+							value: 1,
 							time: 1,
 							isActive: false
 						}, {
 							title: '1-3',
 							widthLine: "width:20%",
-							value: 0,
-							time: 2,
+							value: 3000,
+							time: 1,
 							isActive: false,
 						}, {
 							title: '3-7',
 							widthLine: "width:40%",
 							value: 9000,
-							time: 3,
+							time: 2,
 							isActive: false
 						}, {
 							title: '7-15',
 							widthLine: "width:60%",
 							value: 18000,
-							time: 4,
+							time: 3,
 							isActive: false
 						}, {
 							title: '15-50',
 							widthLine: "width:80%",
 							value: 30000,
-							time: 5,
+							time: 4,
 							isActive: false
 						}, {
 							title: '50 i бiльше',
 							widthName: "left:-150%",
 							value: 45000,
-							time: 6,
+							time: 5,
 							isActive: false,
 						}],
 						subTitle3: 'Кількість мовних версій сайту',
@@ -418,7 +423,7 @@ export default {
 						check2: [{
 							title: 'Виберіть', widthName: "left:-150%",
 							widthLine: "display:none",
-							value: 0,
+							value: 1,
 							time: 0,
 							isActive: false
 						}, {
@@ -498,7 +503,7 @@ export default {
 							title: '1', widthLine: "width:60%",
 							widthName: "left:5px",
 							widthLine: "display:none",
-							value: 0,
+							value: 1,
 							time: 0,
 							isActive: false
 						},
@@ -507,7 +512,7 @@ export default {
 							widthName: "left:5px",
 							widthItem: "width:20%",
 							value: 2000,
-							time: 0,
+							time: 2,
 							isActive: false
 						},
 						{
@@ -702,7 +707,7 @@ export default {
 							title: "Wow дизайн",
 							widthName: "left:-150%",
 							value: 4,
-							time:8,
+							time: 8,
 							isActive: false,
 						},
 						],
@@ -829,7 +834,7 @@ export default {
 							title: '5 i бiльше',
 							widthItem: "width:50%",
 							widthName: "left:5px",
-							value:27500,
+							value: 27500,
 							time: 0,
 							isActive: false,
 						}, {
@@ -1046,16 +1051,45 @@ export default {
 		};
 	},
 	methods: {
+		getValue() {
+			if(this.selectedIndex!== 4 || 5){
+			this.value= (this.value1 * (this.value2 + this.value3) + this.value4)
+			return this.total[this.selectedIndex].value=this.value
+		}else{
+			return this.total[this.selectedIndex].value=this.value1
+		}
+	
+		},
+		getTime() {
+			if(this.selectedIndex!== 4 || 5){
+				this.time = (this.time1 + this.time2 + this.time3 + this.time4)
+				return this.total[this.selectedIndex].time=this.time
+			}else{
+				
+				return this.total[this.selectedIndex].time=0
+			}
+			
+		},
 		getValue1(value) {
 			console.log('1', value);
-
+			this.value1 = value.valueCircle;
+			this.getValue()
+			this.time1 = value.timeCircle;
+			this.getTime()
 		},
 		getValue2(value) {
 			console.log('2', value);
-
+			this.value2 = value.valueCircle;
+			this.getValue()
+			this.time2 = value.timeCircle
+			this.getTime()
 		},
 		getValue3(value) {
 			console.log('3', value);
+			this.value3 = value.valueCircle;
+			this.getValue()
+			this.time3 = value.timeCircle
+			this.getTime()
 		},
 		selectTab(id) {
 			this.selectedIndex = id;
@@ -1063,22 +1097,24 @@ export default {
 		},
 		getCheckboxValue(i) {
 			this.tabsCheckBox[this.selectedIndex][i].isActive = !this.tabsCheckBox[this.selectedIndex][i].isActive;
-			this.tabsCheckBox[this.selectedIndex][i].value
-			this.value += this.tabsCheckBox[this.selectedIndex][i].value
+			let activeCheckValue = 0
+			let activeCheckTime = 0
+			this.tabsCheckBox[this.selectedIndex].forEach(item => {
+				if (item.isActive) {
+					activeCheckValue += item.value
+					activeCheckTime += item.time
+				}
+			})
+			this.value4 = activeCheckValue
+			this.getValue()
+			this.time4 = activeCheckTime
+			this.getTime()
+
 
 		},
 		activeTab(i) {
 			return this.selectedIndex === i;
-		},
-		active1() {
-			this.activeBtn1 = !this.activeBtn1;
-		},
-		active2() {
-			this.activeBtn2 = !this.activeBtn2;
-		},
-		active3() {
-			this.activeBtn3 = !this.activeBtn3;
-		},
+		}
 	},
 };
 </script>
