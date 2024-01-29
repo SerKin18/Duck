@@ -1,14 +1,13 @@
 <template>
-  <div class="calc_body__checkbox_items" >
+  <div class="calc_body__checkbox_items">
     <label
       :for="nameCheck"
       class="calc_body__checkbox_item"
       :class="isActive ? ' active' : ''"
-		
     >
       <input type="checkbox" :id="nameCheck" :name="nameCheck" />
       <span></span>
-      <p @click="$emit('getIndexCheck', indexCheck)"  ><slot></slot></p>
+      <p @click.stop="$emit('getIndexCheck', indexCheck)"><slot></slot></p>
     </label>
   </div>
 </template>
@@ -76,9 +75,9 @@ input[type="checkbox"] {
   transform: rotate(135deg);
 }
 
-input[type="checkbox"]:checked + span {
+/* input[type="checkbox"]:checked + span {
   background: rgba(234, 90, 37, 1);
-}
+} */
 
 p {
   display: inline-block;
@@ -92,13 +91,17 @@ p {
 }
 
 label:hover {
-  span {
+  box-shadow: 0px 0px 5px 1px #ff723e;
+  /* span {
     background: rgb(143, 143, 143);
-  }
+  } */
 }
 
 .active {
   border: 1px solid rgba(234, 90, 37, 1);
+  span {
+    background: rgba(234, 90, 37, 1);
+  }
 }
 .active p {
   color: rgba(234, 90, 37, 1);

@@ -1,6 +1,6 @@
 <template>
   <div class="main__button">
-    <button class="button" v-bind:style="fontSize">
+    <button class="button" v-bind:style="fontSize" @click.prevent="$emit('openModal')">
       <slot></slot>
     </button>
   </div>

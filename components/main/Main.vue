@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <!-- <div class="container">
+    <div class="container">
       <Banner />
     </div>
     <Tickers />
@@ -9,10 +9,10 @@
     </div>
     <Portfolio />
     <WhyUs :whyUsItems="whyUsItems"></WhyUs>
-    <Reviews :reviews="reviews" /> -->
+    <Reviews :reviews="reviews" />
     <Calc></Calc>
-    <!-- <FQS :FQSItems="FQSItems"></FQS>
-    <ContactsBlock></ContactsBlock> -->
+    <FQS :FQSItems="FQSItems"></FQS>
+    <ContactsBlock></ContactsBlock>
   </div>
 </template>
 <script>

@@ -19,7 +19,7 @@ export default {
   background-color: black;
   display: flex;
   flex-direction: column;
-  z-index: 96;
+  z-index: 1;
 }
 .contacts__block::before {
   content: "";
@@ -33,7 +33,7 @@ export default {
   background: linear-gradient(87.08deg, #203f6a 0%, #ea5a25 100%);
   box-shadow: inset 0px 0px 130px 50px black;
 
-  z-index:98;
+  z-index:8;
 }
 .contacts__block::after {
   content: "";
@@ -44,7 +44,7 @@ export default {
   height: 160px;
   background: url(../../static/image/block-7-star.svg) center no-repeat;
   
-  z-index:98;
+  z-index:8;
 }
 .container {
   max-width: 1280px;

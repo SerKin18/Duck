@@ -6,7 +6,7 @@
       </div>
       <div class="calc_subtitle">
         <p>Розрахуйте орієнтовну вартість робіт</p>
-        <span>Сбросить</span>
+        <button @click="cleanTotalValue"><span>Сбросить</span></button>
       </div>
       <div class="calc_tabs">
         <CalcButton
@@ -341,7 +341,7 @@ import CalcCheckboxItem from "./CalcCheckboxItem.vue";
 import CalcCheckBoxLine1 from "./CalckCheckBoxLine.vue";
 import CalcCheckBoxLine2 from "./CalckCheckBoxLine2.vue";
 import CalcCheckBoxLine3 from "./CalckCheckBoxLine3.vue";
-const SEO_MARKETING_PAGES=[4,5];
+const SEO_MARKETING_PAGES = [4, 5];
 export default {
   components: {
     MainButton,
@@ -357,7 +357,7 @@ export default {
       total: [
         { value: 0, time: 0 },
         { value: 0, time: 0 },
-        { value: 15000, time: 0 },
+        { value: 0, time: 0 },
         { value: 0, time: 0 },
         { value: 0, time: 0 },
         { value: 0, time: 0 },
@@ -788,7 +788,7 @@ export default {
                 title: "Простий дизайн",
                 widthName: "left:-260%",
                 widthItem: "width:25%",
-                value: 1,
+                value: 15000,
                 time: 2,
                 isActive: false,
               },
@@ -796,7 +796,7 @@ export default {
                 title: "Середній",
                 widthName: "left:-150%",
                 widthItem: "width:50%",
-                value: 1,
+                value: 15000,
                 time: 4,
                 isActive: false,
               },
@@ -804,14 +804,14 @@ export default {
                 title: "Складний",
                 widthName: "left:-150%",
                 widthItem: "width:75%",
-                value: 1,
+                value: 15000,
                 time: 6,
                 isActive: false,
               },
               {
                 title: "Wow дизайн",
                 widthName: "left:-150%",
-                value: 1,
+                value: 15000,
                 time: 8,
                 isActive: false,
               },
@@ -1352,22 +1352,40 @@ export default {
       ],
     };
   },
-  updated() {
-	console.log('marc',this.total[this.selectedIndex],this.selectedIndex);
-  },
-  
   methods: {
+    cleanTotalValue() {
+      this.total[this.selectedIndex].value = 0;
+      this.total[this.selectedIndex].time = 0;
+      this.tabsCheckBox[this.selectedIndex].forEach((item) => {
+        if (item.isActive) {
+          item.isActive = false;
+        }
+      });
+      // this.tabValue[this.selectedIndex].page.forEach((item) => {
+      //   if (item === "check1" && item === "check2" && item === "check3") {
+      // 	this.tabValue[this.selectedIndex].page.check1.forEach((itemActive) => {
+      //       if (itemActive.isActive) {
+      //         itemActive.isActive = false;
+      //       }
+      //     })
+      // 	console.log(item);
+
+      //   }
+      // });
+    },
     getValue() {
-      if (!SEO_MARKETING_PAGES.includes(this.selectedIndex) ) {
+      if (this.selectedIndex === 2) {
+        this.value = this.value1 + this.value2 + this.value3 + this.value4;
+        this.total[this.selectedIndex].value = this.value;
+      } else if (!SEO_MARKETING_PAGES.includes(this.selectedIndex)) {
         this.value = this.value1 * (this.value2 + this.value3) + this.value4;
         this.total[this.selectedIndex].value = this.value;
-		  return
-      }
-			console.log(this.value1);	
+      } else {
         this.total[this.selectedIndex].value = this.value1;
+      }
     },
     getTime() {
-      if (this.selectedIndex !== 4 || 5) {
+      if (!SEO_MARKETING_PAGES.includes(this.selectedIndex)) {
         this.time = this.time1 + this.time2 + this.time3 + this.time4;
         this.total[this.selectedIndex].time = this.time;
       } else {
@@ -1545,7 +1563,10 @@ export default {
   font-family: var(--subTitle-font);
   text-transform: uppercase;
 }
-
+.calc_subtitle button {
+  background: transparent;
+  width: 110px;
+}
 .calc_subtitle span {
   display: inline-block;
   position: relative;
