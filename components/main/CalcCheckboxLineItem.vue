@@ -5,12 +5,13 @@
     v-bind:style="widthItem"
   >
     <div class="calc_checkbox__line" v-bind:style="widthLine"></div>
+
     <div
       class="calc_checkbox__circle"
       @click.prevent="$emit('getIndexCircle', indexCircle)"
     >
       <div class="calc_checkbox__name" v-bind:style="widthName">
-        <slot></slot>
+        <p><slot></slot></p>
       </div>
     </div>
   </div>
@@ -41,8 +42,7 @@ export default {
     indexCircle: {
       type: Number,
     },
-  }
-  
+  },
 };
 </script>
 <style scoped>
@@ -71,7 +71,7 @@ export default {
   background: linear-gradient(
     270deg,
     #ac3206 1.18%,
-    rgba(43, 19, 11, 0.1) 100%
+    rgba(43, 19, 11, 0.993) 100%
   );
 }
 
@@ -82,6 +82,7 @@ export default {
   background-color: #fff;
   position: relative;
   z-index: 95;
+  padding-right: 6px;
 }
 .calc_checkbox__name {
   position: absolute;

@@ -2,7 +2,7 @@
   <div class="modal-block">
     <div class="modal-window">
       <div class="modal container">
-        <Contacts :modal="true" @modalClose="closeModal"></Contacts>
+        <Contacts :modal="true" @closeModal="$emit('close')"></Contacts>
       </div>
     </div>
   </div>
@@ -12,11 +12,6 @@ import Contacts from "./Contacts.vue";
 export default {
   components: { Contacts },
   name: "modal-window",
-  methods: {
-    closeModal() {
-      this.$emit("close");
-    },
-  },
 };
 </script>
 <style scoped>
@@ -36,6 +31,7 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 15px;
+  overflow-y: hidden;
 }
 .modal-window {
   position: absolute;
@@ -44,6 +40,6 @@ export default {
 }
 .modal {
   background-color: black;
-  padding: 50px 35.5px;
+  padding: 0px 35.5px 50px 35.5px;
 }
 </style>

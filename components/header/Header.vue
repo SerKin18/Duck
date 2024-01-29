@@ -27,14 +27,12 @@
               </ul>
             </nav>
             <div class="header__button">
-              <main-button class="btn-menu" @click="openModalWindow"> залишити заявку </main-button>
+              <main-button class="btn-menu" @openModal="openModalWindow">
+                залишити заявку
+              </main-button>
             </div>
           </div>
-          <div
-            class="header__menu_dropdown"
-            v-show="openMenu"
-            
-          >
+          <div class="header__menu_dropdown" v-show="openMenu">
             <div class="header__menu_dropdown__btn" @click.stop="toggleMenu">
               <button><span></span></button>
             </div>
@@ -61,7 +59,9 @@
                 </ul>
               </nav>
               <div class="header__button">
-                <main-button  @click="openModalWindow" class="btn-menu"> залишити заявку </main-button>
+                <main-button @openModal="openModalWindow" class="btn-menu">
+                  залишити заявку
+                </main-button>
               </div>
             </div>
           </div>
@@ -75,9 +75,7 @@
         </div>
       </div>
 
-			<Modal v-if="openModal" @close="openModal=false"></Modal>
-
-		
+      <Modal v-if="openModal" @close="openModalWindow"></Modal>
     </div>
   </header>
 </template>
@@ -86,27 +84,27 @@ import MainButton from "../button/MainButton.vue";
 import Modal from "../main/Modal.vue";
 
 export default {
-  components: { MainButton,Modal },
+  components: { MainButton, Modal },
   name: "Header",
   data() {
     return {
       openMenu: false,
-		openModal:false
+      openModal: false,
     };
   },
   methods: {
     toggleMenu() {
       this.openMenu = !this.openMenu;
     },
-	 openModalWindow(){
-		this.openModal=!this.openModal
-	 }
+    openModalWindow() {
+      this.openModal = !this.openModal;
+    },
   },
 };
 </script>
 <style scoped>
-header{
-	padding:18px 14.5px 0px 14.5px;
+header {
+  padding: 18px 14.5px 0px 14.5px;
 }
 .header__menu_dropdown {
   position: absolute;
@@ -157,7 +155,7 @@ header{
       margin-top: 90px;
     }
     .header__button {
-		width: 240px;
+      width: 240px;
       margin: 0 auto;
       .btn-menu {
         margin: 0px 0px 0px 10px;
@@ -184,12 +182,10 @@ header{
   margin-bottom: 90px;
   justify-content: space-between;
   z-index: 97;
-
 }
 .container {
   max-width: 1280px;
   margin: 0 auto;
-
 }
 .header__body {
   display: flex;

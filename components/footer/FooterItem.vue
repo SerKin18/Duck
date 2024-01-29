@@ -41,18 +41,15 @@ export default {
   components: { MatchMedia },
   data() {
     return {
-      showFooterText:false,
+      showFooterText: false,
     };
   },
   inject: ["mediaQueries"],
-  
-
   methods: {
     showFooterMenu() {
       this.showFooterText = !this.showFooterText;
     },
   },
-
 };
 </script>
 <style scoped>
@@ -118,7 +115,7 @@ export default {
     flex: 1 0 100%;
     max-width: 767px;
     width: 100%;
-	 padding: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
   }
   .footer__list_items {
   }

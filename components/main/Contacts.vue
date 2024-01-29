@@ -2,7 +2,7 @@
 			<div class="contacts container">
 				<div class="contacts__title">
 					<h2>Контакти</h2>
-					<div class="contacts__modal__btn" @click.stop="closeModal" v-show="this.$props.modal">
+					<div class="contacts__modal__btn" @click.stop="$emit('closeModal')" v-show="this.$props.modal">
               <button><span></span></button>
             </div>
 				</div>
@@ -124,9 +124,6 @@ export default {
 	methods: {
 		toggleServiceCard() {
 			this.showServices = !this.showServices;
-		},
-		closeModal(){
-			
 		}
 	},
 };
@@ -222,7 +219,7 @@ export default {
 	align-items: flex-start;
 	flex-direction: row;
 	justify-content: space-between;
-	z-index: 6;
+	z-index: 2;
 }
 
 .contacts__body_form {
@@ -230,6 +227,7 @@ export default {
 	max-width: 629px;
 	display: flex;
 	flex-direction: column;
+	z-index: 5;
 }
 
 .contacts__body_form input {

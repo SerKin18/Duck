@@ -49,4 +49,12 @@ export default {
     margin: 5px 0px;
   }
 }
+@media (max-width: 370px) {
+  .calc_button {
+    width: 100%;
+  }
+  .calc_button button {
+    width: 100%;
+  }
+}
 </style>

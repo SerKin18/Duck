@@ -1,53 +1,78 @@
 <template>
   <div class="reviews">
-    <div class="container">
-      <div class="reviews__page">
-        <div class="reviews__header">
-          <div class="reviews__header_title">
-            <h2>відгуки<span> до </span>качки</h2>
+    <MatchMedia v-slot="{ mobile }">
+      <div class="container">
+        <div class="reviews__page">
+          <div class="reviews__header">
+            <div class="reviews__header_title">
+              <h2>відгуки<span> до </span>качки</h2>
+            </div>
           </div>
-        </div>
-        <div class="reviews__body">
-          <ReviewsItem
-            v-for="review in collection"
-            :review="review"
-            :key="review.id"
-          >
-          </ReviewsItem>
-        </div>
-        <div class="reviews__footer_toolbar">
-          <div class="toolbar__btn_group">
-            <button
-              class="btn__prev"
-              @click.prevent="prevPage"
-              v-bind:disabled="pagination.currentPage === 1"
-            ></button>
-            <button
-              class="btn__rewiews"
-              :class="page === pagination.currentPage ? 'active' : ''"
-              v-for="page in tempNumberOfPages"
-              :page="page"
-              @click.prevent="setPage(page)"
-              :key="page"
+          <div class="reviews__body">
+            <ReviewsItem
+              v-for="review in collection"
+              :review="review"
+              :key="review.id"
             >
-              {{ page }}
-            </button>
-            <button
-              class="btn__next"
-              @click.prevent="nextPage"
-              :disabled="pagination.currentPage >= data.length / perPage"
-            ></button>
+            </ReviewsItem>
+          </div>
+
+          <div class="reviews__footer_toolbar">
+            <div v-if="mobile" class="toolbar__btn_group">
+              <button
+                class="btn__prev"
+                @click.prevent="prevPage"
+                v-bind:disabled="pagination.currentPage === 1"
+              ></button>
+              <button
+                class="btn__rewiews"
+                :class="pageMobile === pagination.currentPage ? 'active' : ''"
+                v-for="pageMobile in tempNumberOfPagesMobile"
+                :page="pageMobile"
+                @click.prevent="setPage(pageMobile)"
+                :key="pageMobile"
+              >
+                {{ pageMobile }}
+              </button>
+              <button
+                class="btn__next"
+                @click.prevent="nextPage"
+                :disabled="pagination.currentPage >= data.length / perPage"
+              ></button>
+            </div>
+            <div v-else class="toolbar__btn_group">
+              <button
+                class="btn__prev"
+                @click.prevent="prevPage"
+                v-bind:disabled="pagination.currentPage === 1"
+              ></button>
+              <button
+                class="btn__rewiews"
+                :class="page === pagination.currentPage ? 'active' : ''"
+                v-for="page in tempNumberOfPages"
+                :page="page"
+                @click.prevent="setPage(page)"
+                :key="page"
+              >
+                {{ page }}
+              </button>
+              <button
+                class="btn__next"
+                @click.prevent="nextPage"
+                :disabled="pagination.currentPage >= data.length / perPage"
+              ></button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </MatchMedia>
   </div>
 </template>
 <script>
 import ReviewsItem from "./ReviewsItem.vue";
-
+import { MatchMedia } from "vue-component-media-queries";
 export default {
-  components: { ReviewsItem },
+  components: { ReviewsItem, MatchMedia },
   name: "Reviews",
   props: {
     reviews: {
@@ -59,6 +84,7 @@ export default {
     return {
       perPage: 6,
       tempNumberOfPages: [],
+      tempNumberOfPagesMobile: [],
       data: this.$props.reviews,
       pagination: {},
     };
@@ -66,11 +92,21 @@ export default {
   watch: {
     "pagination.pages": function () {
       this.tempNumberOfPages = [...this.pagination.pages];
+      this.tempNumberOfPagesMobile = [...this.pagination.pages];
       if (
         this.pagination.currentPage >= 1 &&
         this.pagination.currentPage <= 4
       ) {
         this.tempNumberOfPages = [
+          1,
+          2,
+          3,
+          4,
+          5,
+          "...",
+          [...this.pagination.pages].length,
+        ];
+        this.tempNumberOfPagesMobile = [
           1,
           2,
           3,
@@ -94,6 +130,7 @@ export default {
           "...",
           [...this.pagination.pages].length,
         ];
+        this.tempNumberOfPagesMobile = ["...", 4, 5, 6, 7, 8, "... "];
       }
       if (
         this.pagination.currentPage >= 8 &&
@@ -102,15 +139,24 @@ export default {
         this.tempNumberOfPages = [
           1,
           "...",
+          6,
+          7,
+          8,
+          9,
+          [...this.pagination.pages].length,
+        ];
+        this.tempNumberOfPagesMobile = [
+          1,
+          "...",
           7,
           8,
           9,
           [...this.pagination.pages].length,
         ];
       }
-      console.log(this.tempNumberOfPages);
     },
   },
+  inject: ["mediaQueries"],
   computed: {
     collection() {
       return this.paginate(this.data);
