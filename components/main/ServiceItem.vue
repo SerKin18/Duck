@@ -24,7 +24,7 @@
             </p>
           </div>
           <div class="service-item-main-bottom">
-            <main-button-black>відправити запит</main-button-black>
+            <main-button-black @openModal="$emit('openModal')">відправити запит</main-button-black>
           </div>
 
           <div class="service-item-body_footer">

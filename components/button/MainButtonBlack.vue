@@ -1,6 +1,7 @@
 <template>
   <div class="main__button">
-    <button class="button">
+    <button class="button"
+	 @click.prevent="$emit('openModal')">
       <slot></slot>
     </button>
   </div>

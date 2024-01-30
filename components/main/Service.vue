@@ -8,21 +8,42 @@
         v-for="service in services"
         :service="service"
         :key="service.id"
+        @openModal="openModalWindow"
       ></ServiceItem>
     </div>
-    <main-button :fontSize="'font-size:17px;padding:9px;width:220px;margin-left:0px'">відправити запит</main-button>
+    <main-button
+      @openModal="openModalWindow"
+      :fontSize="'font-size:17px;padding:9px;width:220px;margin-left:0px'"
+      >відправити запит</main-button
+    >
+    <Modal v-if="openModal" @close="openModalWindow"></Modal>
   </div>
 </template>
 <script>
 import MainButton from "../button/MainButton.vue";
 import ServiceItem from "./ServiceItem.vue";
+import Modal from "../main/Modal.vue";
 export default {
-  components: { MainButton, ServiceItem },
+  components: { MainButton, ServiceItem, Modal },
   name: "Service",
   props: {
     services: {
       type: Array,
       required: true,
+    },
+  },
+  data() {
+    return {
+      openMenu: false,
+      openModal: false,
+    };
+  },
+  methods: {
+    toggleMenu() {
+      this.openMenu = !this.openMenu;
+    },
+    openModalWindow() {
+      this.openModal = !this.openModal;
     },
   },
 };
@@ -34,7 +55,7 @@ export default {
   align-items: center;
   margin-top: 97px;
   margin-bottom: 100px;
-  padding:0px 14.5px;
+  padding: 0px 14.5px;
 }
 .services__title {
   text-transform: uppercase;
