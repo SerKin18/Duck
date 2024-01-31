@@ -1,7 +1,7 @@
 <template>
-  <div class="contacts container">
-    <div class="contacts__title">
-      <h2>Контакти</h2>
+  <div class="contacts container " :style="modalCalc?'padding: 0px':''">
+    <div v-show="!modalCalc" class="contacts__title">
+      <h2 >Контакти</h2>
       <div
         class="contacts__modal__btn"
         @click.stop="$emit('closeModal')"
@@ -11,20 +11,25 @@
       </div>
     </div>
     <div class="contacts__body">
-      <div class="contacts__body_form">
+      <div class="contacts__body_form" >
         <form>
           <label for="text">
             <input
               class="contacts__form_inpt"
+				  
               type="text"
               placeholder="Введіть ваше ім'я *"
             />
           </label>
           <label for="number">
-            <input type="number" placeholder="Номер телефону *" />
+            <input type="number" 
+				
+				placeholder="Номер телефону *" />
           </label>
           <label for="mail">
-            <input type="mail" placeholder="Email *" />
+            <input type="mail" 
+				
+				placeholder="Email *" />
           </label>
 
           <div class="contact_services">
@@ -60,8 +65,8 @@
               >
             </div>
           </div>
-          <div
-            class="contacts__body_form_btn"
+          <div v-show="!modalCalc"
+            class="contacts__body_form_btn'"
             @click.prevent="$emit('modalClose')"
           >
             <MainButton :fontSize="'font-size:20px;padding:7px'"
@@ -148,6 +153,9 @@ export default {
     modal: {
       type: Boolean,
     },
+	 modalCalc:{
+		type:Boolean
+	 }
   },
   data() {
     return {
@@ -231,6 +239,7 @@ export default {
   z-index: 96;
 }
 
+
 /* .contacts::before {
 	content: "";
 	position: absolute;
@@ -301,6 +310,7 @@ export default {
   border-bottom: 1px solid rgba(248, 248, 248, 1);
   margin-bottom: 30px;
 }
+
 
 .contacts__form_inpt {
 }
@@ -520,5 +530,13 @@ export default {
     flex: 1 1 100%;
     align-items: center;
   }
+
 }
+@media (max-width: 500px) {
+	.contacts__body_form input {
+		margin-bottom: 10px;
+	}
+}
+
+
 </style>

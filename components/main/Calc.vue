@@ -1,14 +1,23 @@
 <template>
   <div class="calc">
     <div class="container">
-      <div class="calc_title">
+      <div v-if="openMOdal" class="modal-calc">
+        <div class="calc_title">
+          <h2>Замовлення</h2>
+        </div>
+        <div class="contacts__modal__btn" @click.stop="$emit('close')">
+          <button><span></span></button>
+        </div>
+		  <Contacts :modal="true" :modalCalc="true" @closeModal="$emit('close')"></Contacts>
+      </div>
+      <div  class="calc_title">
         <h2>КАЛЬКУЛЯТОР <span>ВАРТОСТІ </span></h2>
       </div>
-      <div class="calc_subtitle">
+      <div   class="calc_subtitle">
         <p>Розрахуйте орієнтовну вартість робіт</p>
         <button @click="cleanTotalValue"><span>Сбросить</span></button>
       </div>
-      <div class="calc_tabs">
+      <div  class="calc_tabs">
         <CalcButton
           v-for="(tab, index) in tabValue"
           :class="{ selected: selectedIndex === index }"
@@ -25,11 +34,18 @@
 				</div> -->
         <div class="calc_body__calc">
           <div class="calc_body__tab __dev" v-show="activeTab(0)">
-            <div class="calc_body__title">
+            <div v-show="!modal" class="calc_body__title">
               <h4>{{ tabValue[0].tab }}:</h4>
             </div>
+				<!-- <div v-if ="modal" class="calc_body_item_modal">
+					<div class="calc_body_item__subtitle_modal">
+                {{ tabValue[0].page.subTitle1 }}
+              </div>
+
+
+				</div> -->
             <div class="calc_body_item">
-              <div class="calc_body_item__subtitle">
+              <div :class="modal?'calc_body_item__subtitle_modal':'calc_body_item__subtitle'">
                 {{ tabValue[0].page.subTitle1 }}
               </div>
               <CalcCheckBoxLine1
@@ -38,7 +54,7 @@
               />
             </div>
             <div class="calc_body_item">
-              <div class="calc_body_item__subtitle">
+              <div :class="modal?'calc_body_item__subtitle_modal':'calc_body_item__subtitle'">
                 {{ tabValue[0].page.subTitle2 }}
               </div>
               <CalcCheckBoxLine2
@@ -47,7 +63,7 @@
               />
             </div>
             <div class="calc_body_item">
-              <div class="calc_body_item__subtitle">
+              <div :class="modal?'calc_body_item__subtitle_modal':'calc_body_item__subtitle'">
                 {{ tabValue[0].page.subTitle3 }}
               </div>
               <CalcCheckBoxLine3
@@ -55,7 +71,7 @@
                 @valueItem3="getValue3"
               />
             </div>
-            <div class="calc_body__checkbox">
+            <div :class="modal?'calc_body__checkbox_modal':'calc_body__checkbox'">
               <CalcCheckboxItem
                 v-for="(checkBox, index) in tabsCheckBox[0]"
                 :indexCheck="index"
@@ -330,8 +346,9 @@
       </div>
     </div>
     <div class="calc_footer">
-      <MainButton>Заказати</MainButton>
+      <MainButton @openModal="openMOdal=true">Заказати</MainButton>
     </div>
+	 <!-- <ModalOrder :modalCalcOpen="openMOdal"></ModalOrder> -->
   </div>
 </template>
 <script>
@@ -341,6 +358,8 @@ import CalcCheckboxItem from "./CalcCheckboxItem.vue";
 import CalcCheckBoxLine1 from "./CalckCheckBoxLine.vue";
 import CalcCheckBoxLine2 from "./CalckCheckBoxLine2.vue";
 import CalcCheckBoxLine3 from "./CalckCheckBoxLine3.vue";
+import Contacts from "./Contacts.vue";
+import ModalOrder from './ModalOrder.vue'
 const SEO_MARKETING_PAGES = [4, 5];
 export default {
   components: {
@@ -350,10 +369,18 @@ export default {
     CalcCheckBoxLine1,
     CalcCheckBoxLine2,
     CalcCheckBoxLine3,
+	 Contacts,
+	 ModalOrder
   },
   name: "Calc",
+  props: {
+    modal: {
+      type: Boolean,
+    },
+  },
   data() {
     return {
+		openMOdal:false,
       total: [
         { value: 0, time: 0 },
         { value: 0, time: 0 },
@@ -1429,6 +1456,22 @@ export default {
 };
 </script>
 <style scoped>
+.contacts__body_form {
+  flex: 0 0 50%;
+  max-width: 629px;
+  display: flex;
+  flex-direction: column;
+  z-index: 5;
+}
+
+.contacts__body_form input {
+  padding: 3px 0px 22px 20px;
+  font-size: 16px;
+  width: 100%;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(248, 248, 248, 1);
+  margin-bottom: 30px;
+}
 .calc_body__calc {
   width: 100%;
   position: relative;
@@ -1443,6 +1486,9 @@ export default {
 .calc_body_item__subtitle {
   align-items: flex-start;
   margin: 30px 0px 10px 0px;
+}
+.calc_body_item__subtitle_modal{
+	margin: 10px 0px 10px 0px;
 }
 
 .calc_body_item_calc {
@@ -1472,11 +1518,27 @@ export default {
   width: 300px;
   margin-top: 40px;
 }
+.calc_body__checkbox_modal{
+	display: inline-flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 300px;
+  margin-top: 10px;
+}
 
 .calc_body__title {
   font-family: var(--title-font);
   font-size: 42px;
   line-height: 58px;
+}
+.calc_body__title_modal{
+	padding: 0px 0px 30px 20px;
+	font-family: var(--classic);
+	font-size: 16px;
+}
+.calc_body__subtitle_modal{
+	font-family: var(--classic);
+	font-size: 12px;
 }
 
 .calc_body__footer {
@@ -1648,8 +1710,8 @@ export default {
   .calc_subtitle span {
     display: none;
   }
-  .calc_body__tab{
-	margin-bottom: 10px;
+  .calc_body__tab {
+    margin-bottom: 10px;
   }
   .calc_tabs {
     width: 100%;
@@ -1658,11 +1720,11 @@ export default {
     margin-bottom: 40px;
     padding: 0px -10px 0px -10px;
   }
-  .calc_footer{
-	padding-top: 20px;
+  .calc_footer {
+    padding-top: 20px;
   }
-  .calc_body__checkbox{
-	margin-top: 20px;
+  .calc_body__checkbox {
+    margin-top: 20px;
   }
 }
 </style>
