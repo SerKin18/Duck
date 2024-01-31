@@ -1,6 +1,10 @@
 <template>
   <div class="main__button">
-    <button class="button" v-bind:style="fontSize" @click.prevent="$emit('openModal')">
+    <button
+      class="button"
+      v-bind:style="fontSize"
+      @click.prevent="$emit('openModal')"
+    >
       <slot></slot>
     </button>
   </div>
@@ -18,7 +22,6 @@ export default {
 </script>
 <style scoped>
 .main__button {
-
 }
 .button {
   font-family: var(--title);
@@ -52,6 +55,6 @@ export default {
   border-bottom: 19px solid #ff723e;
 }
 .main__button :hover {
-  color:white
+  color: white;
 }
 </style>

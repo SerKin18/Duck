@@ -65,6 +65,11 @@ export default {
   box-shadow: 0px 0px 15px 3px rgba(234, 90, 37, 0.7);
   background: linear-gradient(0deg, #ea5a25, #ea5a25),
     linear-gradient(0deg, #ffffff, #ffffff);
+  .calc_checkbox__name {
+    scale: 0.9;
+    top: 20px;
+    right: -15%;
+  }
 }
 .activeBtnCalc .calc_checkbox__line {
   z-index: 94;
@@ -93,5 +98,10 @@ export default {
   opacity: 50%;
 
   font-size: 12px;
+}
+@media (max-width: 767px) {
+  .calc_checkbox__name {
+    font-size: 9px;
+  }
 }
 </style>

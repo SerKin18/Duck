@@ -2,27 +2,29 @@
   <div class="service_button">
     <button
       class="service_button__item"
-      :class="activeBtn ? 'activeBtnService' : ''"
-      @click.prevent="toggleActive"
+      :class="isActive ? 'activeBtnService' : ''"
+      @click.prevent="$emit('itemIdSelect', itemId)"
     >
       <slot></slot>
-      <span @click="deleteItem"></span>
+      <span @click.stop="$emit('itemIdSelect', itemId)"></span>
     </button>
   </div>
 </template>
 <script>
 export default {
   name: "service-button",
-  data() {
-    return {
-      activeBtn: false,
-    };
+  props: {
+    isActive: {
+      type: Boolean,
+    },
+    itemId: {
+      type: String,
+    },
   },
   methods: {
     toggleActive() {
-      this.activeBtn = !this.activeBtn;
+      this.$emit("itemIndexSelect", this.props.indexItem);
     },
-    deleteItem() {},
   },
 };
 </script>
@@ -64,9 +66,9 @@ export default {
 .service_button__item span::after {
   content: "";
   position: absolute;
-  top: 48%;
-  right: 25.5%;
-  width: 7px;
+  top: 50%;
+  right: 3px;
+  width: 8px;
   height: 1px;
   background-color: rgba(234, 90, 37, 1);
   transform: rotate(45deg);
@@ -74,8 +76,8 @@ export default {
 .service_button__item span::after {
   transform: rotate(135deg);
 }
-.service_button__item span::before{
-	top: 47.5%;
+.service_button__item span::before {
+  top: 50%;
 }
 
 .activeBtnService {

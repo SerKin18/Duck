@@ -1361,17 +1361,6 @@ export default {
           item.isActive = false;
         }
       });
-      // this.tabValue[this.selectedIndex].page.forEach((item) => {
-      //   if (item === "check1" && item === "check2" && item === "check3") {
-      // 	this.tabValue[this.selectedIndex].page.check1.forEach((itemActive) => {
-      //       if (itemActive.isActive) {
-      //         itemActive.isActive = false;
-      //       }
-      //     })
-      // 	console.log(item);
-
-      //   }
-      // });
     },
     getValue() {
       if (this.selectedIndex === 2) {
@@ -1659,13 +1648,21 @@ export default {
   .calc_subtitle span {
     display: none;
   }
-
+  .calc_body__tab{
+	margin-bottom: 10px;
+  }
   .calc_tabs {
     width: 100%;
     height: 100%;
     justify-content: space-between;
     margin-bottom: 40px;
     padding: 0px -10px 0px -10px;
+  }
+  .calc_footer{
+	padding-top: 20px;
+  }
+  .calc_body__checkbox{
+	margin-top: 20px;
   }
 }
 </style>
