@@ -1,18 +1,20 @@
 <template>
   <div class="main">
-    <div class="container">
+	<Radio></Radio>
+	<!-- <ModalOrder></ModalOrder> -->
+    <!-- <div class="container">
       <Banner />
     </div>
     <Tickers />
     <div class="container">
       <Service :services="services"></Service>
-    </div>
-    <Portfolio />
+    </div> -->
+    <!-- <Portfolio />
     <WhyUs :whyUsItems="whyUsItems"></WhyUs>
     <Reviews :reviews="reviews" />
     <Calc></Calc>
     <FQS :FQSItems="FQSItems"></FQS>
-    <ContactsBlock></ContactsBlock>
+    <ContactsBlock></ContactsBlock> -->
   </div>
 </template>
 <script>
@@ -27,6 +29,8 @@ import Reviews from "./Reviews.vue";
 import Calc from "./Calc.vue";
 import Header from "../header/Header.vue";
 import Modal from "./Modal.vue";
+import ModalOrder from "./ModalOrder.vue";
+import Radio from "./Radio.vue";
 export default {
   components: {
     Header,
@@ -39,7 +43,9 @@ export default {
     ContactsBlock,
     Reviews,
     Calc,
-	 Modal
+	 Modal,
+	 Radio,
+	 ModalOrder
   },
   name: "Main",
   data() {
