@@ -65,11 +65,12 @@
               >
             </div>
           </div>
-          <div v-show="!modalCalc"
+          <div 
             class="contacts__body_form_btn'"
             @click.prevent="$emit('modalClose')"
           >
             <MainButton :fontSize="'font-size:20px;padding:7px'"
+				:style="'width:200px;margin-top:70px;margin-left:40px;'"
               >надіслати</MainButton
             >
           </div>
@@ -232,7 +233,7 @@ export default {
 .contacts {
   position: relative;
   padding: 0px 14.5px;
-  background-color: black;
+  background-color: transparent;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -417,11 +418,11 @@ export default {
   margin-bottom: 14px;
 }
 
-.contacts__body_form_btn {
+/* .contacts__body_form_btn {
   margin-top: 50px;
-  margin-left: 40px;
+  margin-left: 140px;
   width: 200px;
-}
+} */
 
 .info__text {
   align-items: flex-start;

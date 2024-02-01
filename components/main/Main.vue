@@ -1,20 +1,20 @@
 <template>
   <div class="main">
-	<Radio></Radio>
-	<!-- <ModalOrder></ModalOrder> -->
-    <!-- <div class="container">
+    <!-- <ModalOrder></ModalOrder> -->
+    <div class="container">
       <Banner />
     </div>
     <Tickers />
     <div class="container">
       <Service :services="services"></Service>
-    </div> -->
-    <!-- <Portfolio />
+    </div>
+    <Portfolio />
     <WhyUs :whyUsItems="whyUsItems"></WhyUs>
     <Reviews :reviews="reviews" />
     <Calc></Calc>
     <FQS :FQSItems="FQSItems"></FQS>
-    <ContactsBlock></ContactsBlock> -->
+    <ContactsBlock></ContactsBlock>
+    <Radio />
   </div>
 </template>
 <script>
@@ -43,9 +43,9 @@ export default {
     ContactsBlock,
     Reviews,
     Calc,
-	 Modal,
-	 Radio,
-	 ModalOrder
+    Modal,
+    Radio,
+    ModalOrder,
   },
   name: "Main",
   data() {
