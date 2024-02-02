@@ -8,7 +8,7 @@
       :widthItem="circle.widthItem"
       :key="circle[index]"
       :value="circle.value"
-		:time="circle.time"
+      :time="circle.time"
       :isActive="circle.isActive"
       @getIndexCircle="activeCalc"
       >{{ circle.title }}</CalcCheckboxLineItem
@@ -20,26 +20,27 @@ import CalcCheckboxLineItem from "./CalcCheckboxLineItem.vue";
 export default {
   components: { CalcCheckboxLineItem },
   name: "calk-checkbox-item-line",
-  props:{
-checkBoxArray:{
-	type:Array
-}
+  props: {
+    checkBoxArray: {
+      type: Array,
+    },
   },
   data() {
     return {
       valueCircle: 0,
-		timeCircle:0
+      timeCircle: 0,
     };
   },
   methods: {
     activeCalc(i) {
-      this.$props.checkBoxArray.forEach((element) => (element.isActive = false));
+      this.$props.checkBoxArray.forEach(
+        (element) => (element.isActive = false)
+      );
       this.$props.checkBoxArray[i].isActive = true;
       this.valueCircle = this.$props.checkBoxArray[i].value;
-		this.timeCircle = this.$props.checkBoxArray[i].time;
+      this.timeCircle = this.$props.checkBoxArray[i].time;
 
-		this.$emit('valueItem1',this)
-
+      this.$emit("valueItem1", this);
     },
   },
 };

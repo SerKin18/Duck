@@ -8,16 +8,20 @@
         <div class="contacts__modal__btn" @click.stop="$emit('close')">
           <button><span></span></button>
         </div>
-		  <Contacts :modal="true" :modalCalc="true" @closeModal="$emit('close')"></Contacts>
+        <Contacts
+          :modal="true"
+          :modalCalc="true"
+          @closeModal="$emit('close')"
+        ></Contacts>
       </div>
-      <div  class="calc_title">
+      <div class="calc_title">
         <h2>КАЛЬКУЛЯТОР <span>ВАРТОСТІ </span></h2>
       </div>
-      <div   class="calc_subtitle">
+      <div class="calc_subtitle">
         <p>Розрахуйте орієнтовну вартість робіт</p>
         <button @click="cleanTotalValue"><span>Сбросить</span></button>
       </div>
-      <div  class="calc_tabs">
+      <div class="calc_tabs">
         <CalcButton
           v-for="(tab, index) in tabValue"
           :class="{ selected: selectedIndex === index }"
@@ -37,7 +41,7 @@
             <div v-show="!modal" class="calc_body__title">
               <h4>{{ tabValue[0].tab }}:</h4>
             </div>
-				<!-- <div v-if ="modal" class="calc_body_item_modal">
+            <!-- <div v-if ="modal" class="calc_body_item_modal">
 					<div class="calc_body_item__subtitle_modal">
                 {{ tabValue[0].page.subTitle1 }}
               </div>
@@ -45,7 +49,13 @@
 
 				</div> -->
             <div class="calc_body_item">
-              <div :class="modal?'calc_body_item__subtitle_modal':'calc_body_item__subtitle'">
+              <div
+                :class="
+                  modal
+                    ? 'calc_body_item__subtitle_modal'
+                    : 'calc_body_item__subtitle'
+                "
+              >
                 {{ tabValue[0].page.subTitle1 }}
               </div>
               <CalcCheckBoxLine1
@@ -54,7 +64,13 @@
               />
             </div>
             <div class="calc_body_item">
-              <div :class="modal?'calc_body_item__subtitle_modal':'calc_body_item__subtitle'">
+              <div
+                :class="
+                  modal
+                    ? 'calc_body_item__subtitle_modal'
+                    : 'calc_body_item__subtitle'
+                "
+              >
                 {{ tabValue[0].page.subTitle2 }}
               </div>
               <CalcCheckBoxLine2
@@ -63,7 +79,13 @@
               />
             </div>
             <div class="calc_body_item">
-              <div :class="modal?'calc_body_item__subtitle_modal':'calc_body_item__subtitle'">
+              <div
+                :class="
+                  modal
+                    ? 'calc_body_item__subtitle_modal'
+                    : 'calc_body_item__subtitle'
+                "
+              >
                 {{ tabValue[0].page.subTitle3 }}
               </div>
               <CalcCheckBoxLine3
@@ -71,7 +93,11 @@
                 @valueItem3="getValue3"
               />
             </div>
-            <div :class="modal?'calc_body__checkbox_modal':'calc_body__checkbox'">
+            <div
+              :class="
+                modal ? 'calc_body__checkbox_modal' : 'calc_body__checkbox'
+              "
+            >
               <CalcCheckboxItem
                 v-for="(checkBox, index) in tabsCheckBox[0]"
                 :indexCheck="index"
@@ -346,9 +372,9 @@
       </div>
     </div>
     <div class="calc_footer">
-      <MainButton @openModal="openMOdal=true">Заказати</MainButton>
+      <MainButton @openModal="openMOdal = true">Заказати</MainButton>
     </div>
-	 <!-- <ModalOrder :modalCalcOpen="openMOdal"></ModalOrder> -->
+    <!-- <ModalOrder :modalCalcOpen="openMOdal"></ModalOrder> -->
   </div>
 </template>
 <script>
@@ -359,7 +385,7 @@ import CalcCheckBoxLine1 from "./CalckCheckBoxLine.vue";
 import CalcCheckBoxLine2 from "./CalckCheckBoxLine2.vue";
 import CalcCheckBoxLine3 from "./CalckCheckBoxLine3.vue";
 import Contacts from "./Contacts.vue";
-import ModalOrder from './ModalOrder.vue'
+import ModalOrder from "./ModalOrder.vue";
 const SEO_MARKETING_PAGES = [4, 5];
 export default {
   components: {
@@ -369,8 +395,8 @@ export default {
     CalcCheckBoxLine1,
     CalcCheckBoxLine2,
     CalcCheckBoxLine3,
-	 Contacts,
-	 ModalOrder
+    Contacts,
+    ModalOrder,
   },
   name: "Calc",
   props: {
@@ -380,7 +406,7 @@ export default {
   },
   data() {
     return {
-		openMOdal:false,
+      openMOdal: false,
       total: [
         { value: 0, time: 0 },
         { value: 0, time: 0 },
@@ -609,7 +635,7 @@ export default {
             ],
           },
         },
-        //  checkbox: [{ title: 'Рукописна CMS', value: 0 }, { title: 'Форма збору даних', value: 0 }, { title: 'Калькулятор цін', value: 0 }],
+
         {
           tab: "Розробка Landing page",
           page: {
@@ -1135,7 +1161,7 @@ export default {
               {
                 title: "5 i бiльше",
                 widthItem: "width:50%",
-                widthName: "left:5px",
+                widthName: "left:-150%",
                 value: 27500,
                 time: 0,
                 isActive: false,
@@ -1143,7 +1169,7 @@ export default {
               {
                 title: "10 i бiльше",
                 widthItem: "width:60%",
-                widthName: "left:5px",
+                widthName: "left:-150%",
                 value: 33000,
                 time: 0,
                 isActive: false,
@@ -1151,7 +1177,7 @@ export default {
               {
                 title: "20 i бiльше",
                 widthItem: "width:70%",
-                widthName: "left:5px",
+                widthName: "left:-150%",
                 value: 38500,
                 time: 0,
                 isActive: false,
@@ -1159,7 +1185,7 @@ export default {
               {
                 title: "30 i бiльше",
                 widthItem: "width:80%",
-                widthName: "left:5px",
+                widthName: "left:-150%",
                 value: 44000,
                 time: 0,
                 isActive: false,
@@ -1167,7 +1193,7 @@ export default {
               {
                 title: "40 i бiльше",
                 widthItem: "width:90%",
-                widthName: "left:5px",
+                widthName: "left:-150%",
                 value: 49500,
                 time: 0,
                 isActive: false,
@@ -1381,13 +1407,37 @@ export default {
   },
   methods: {
     cleanTotalValue() {
+      if (this.selectedIndex <= 3) {
+        this.tabsCheckBox[this.selectedIndex].forEach((item) => {
+          if (item.isActive) {
+            item.isActive = false;
+          }
+        });
+      }
+      if (this.tabValue[this.selectedIndex].page.hasOwnProperty("check1")) {
+        this.tabValue[this.selectedIndex].page.check1.forEach((item) => {
+          if (item.isActive) {
+            item.isActive = false;
+          }
+        });
+      }
+      if (this.tabValue[this.selectedIndex].page.hasOwnProperty("check2")) {
+        this.tabValue[this.selectedIndex].page.check2.forEach((item) => {
+          if (item.isActive) {
+            item.isActive = false;
+          }
+        });
+      }
+      if (this.tabValue[this.selectedIndex].page.hasOwnProperty("check3")) {
+        this.tabValue[this.selectedIndex].page.check3.forEach((item) => {
+          if (item.isActive) {
+            item.isActive = false;
+          }
+        });
+      }
+
       this.total[this.selectedIndex].value = 0;
       this.total[this.selectedIndex].time = 0;
-      this.tabsCheckBox[this.selectedIndex].forEach((item) => {
-        if (item.isActive) {
-          item.isActive = false;
-        }
-      });
     },
     getValue() {
       if (this.selectedIndex === 2) {
@@ -1472,6 +1522,7 @@ export default {
   border-bottom: 1px solid rgba(248, 248, 248, 1);
   margin-bottom: 30px;
 }
+
 .calc_body__calc {
   width: 100%;
   position: relative;
@@ -1487,8 +1538,9 @@ export default {
   align-items: flex-start;
   margin: 30px 0px 10px 0px;
 }
-.calc_body_item__subtitle_modal{
-	margin: 10px 0px 10px 0px;
+
+.calc_body_item__subtitle_modal {
+  margin: 10px 0px 10px 0px;
 }
 
 .calc_body_item_calc {
@@ -1518,8 +1570,9 @@ export default {
   width: 300px;
   margin-top: 40px;
 }
-.calc_body__checkbox_modal{
-	display: inline-flex;
+
+.calc_body__checkbox_modal {
+  display: inline-flex;
   flex-direction: column;
   justify-content: flex-start;
   width: 300px;
@@ -1531,14 +1584,16 @@ export default {
   font-size: 42px;
   line-height: 58px;
 }
-.calc_body__title_modal{
-	padding: 0px 0px 30px 20px;
-	font-family: var(--classic);
-	font-size: 16px;
+
+.calc_body__title_modal {
+  padding: 0px 0px 30px 20px;
+  font-family: var(--classic);
+  font-size: 16px;
 }
-.calc_body__subtitle_modal{
-	font-family: var(--classic);
-	font-size: 12px;
+
+.calc_body__subtitle_modal {
+  font-family: var(--classic);
+  font-size: 12px;
 }
 
 .calc_body__footer {
@@ -1614,10 +1669,12 @@ export default {
   font-family: var(--subTitle-font);
   text-transform: uppercase;
 }
+
 .calc_subtitle button {
   background: transparent;
   width: 110px;
 }
+
 .calc_subtitle span {
   display: inline-block;
   position: relative;
@@ -1710,9 +1767,11 @@ export default {
   .calc_subtitle span {
     display: none;
   }
+
   .calc_body__tab {
     margin-bottom: 10px;
   }
+
   .calc_tabs {
     width: 100%;
     height: 100%;
@@ -1720,9 +1779,11 @@ export default {
     margin-bottom: 40px;
     padding: 0px -10px 0px -10px;
   }
+
   .calc_footer {
     padding-top: 20px;
   }
+
   .calc_body__checkbox {
     margin-top: 20px;
   }
