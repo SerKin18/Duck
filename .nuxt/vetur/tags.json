@@ -1,0 +1,107 @@
+{
+  "App": {
+    "description": "Auto imported from components/App.vue"
+  },
+  "ButtonCalcButton": {
+    "description": "Auto imported from components/button/CalcButton.vue"
+  },
+  "ButtonClassicButton": {
+    "description": "Auto imported from components/button/ClassicButton.vue"
+  },
+  "ButtonMainButton": {
+    "description": "Auto imported from components/button/MainButton.vue"
+  },
+  "ButtonMainButtonBlack": {
+    "description": "Auto imported from components/button/MainButtonBlack.vue"
+  },
+  "ButtonServiceButton": {
+    "description": "Auto imported from components/button/ServiceButton.vue"
+  },
+  "ButtonStarsRating": {
+    "description": "Auto imported from components/button/StarsRating.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/header/Header.vue"
+  },
+  "Footer": {
+    "description": "Auto imported from components/footer/Footer.vue"
+  },
+  "FooterItem": {
+    "description": "Auto imported from components/footer/FooterItem.vue"
+  },
+  "MainBanner": {
+    "description": "Auto imported from components/main/Banner.vue"
+  },
+  "MainCalc": {
+    "description": "Auto imported from components/main/Calc.vue"
+  },
+  "MainCalcCheckboxItem": {
+    "description": "Auto imported from components/main/CalcCheckboxItem.vue"
+  },
+  "MainCalcCheckboxLineItem": {
+    "description": "Auto imported from components/main/CalcCheckboxLineItem.vue"
+  },
+  "MainCalckCheckBoxLine": {
+    "description": "Auto imported from components/main/CalckCheckBoxLine.vue"
+  },
+  "MainCalckCheckBoxLine2": {
+    "description": "Auto imported from components/main/CalckCheckBoxLine2.vue"
+  },
+  "MainCalckCheckBoxLine3": {
+    "description": "Auto imported from components/main/CalckCheckBoxLine3.vue"
+  },
+  "MainContacts": {
+    "description": "Auto imported from components/main/Contacts.vue"
+  },
+  "MainContactsBlock": {
+    "description": "Auto imported from components/main/ContactsBlock.vue"
+  },
+  "MainFQS": {
+    "description": "Auto imported from components/main/FQS.vue"
+  },
+  "MainFQSItem": {
+    "description": "Auto imported from components/main/FQSItem.vue"
+  },
+  "Main": {
+    "description": "Auto imported from components/main/Main.vue"
+  },
+  "MainModal": {
+    "description": "Auto imported from components/main/Modal.vue"
+  },
+  "MainModalOrder": {
+    "description": "Auto imported from components/main/ModalOrder.vue"
+  },
+  "MainPortfolio": {
+    "description": "Auto imported from components/main/Portfolio.vue"
+  },
+  "MainPortfolioItem": {
+    "description": "Auto imported from components/main/PortfolioItem.vue"
+  },
+  "MainRadio": {
+    "description": "Auto imported from components/main/Radio.vue"
+  },
+  "MainRadioItem": {
+    "description": "Auto imported from components/main/RadioItem.vue"
+  },
+  "MainReviews": {
+    "description": "Auto imported from components/main/Reviews.vue"
+  },
+  "MainReviewsItem": {
+    "description": "Auto imported from components/main/ReviewsItem.vue"
+  },
+  "MainService": {
+    "description": "Auto imported from components/main/Service.vue"
+  },
+  "MainServiceItem": {
+    "description": "Auto imported from components/main/ServiceItem.vue"
+  },
+  "MainTickers": {
+    "description": "Auto imported from components/main/Tickers.vue"
+  },
+  "MainWhyUs": {
+    "description": "Auto imported from components/main/WhyUs.vue"
+  },
+  "MainWhyUsItem": {
+    "description": "Auto imported from components/main/WhyUsItem.vue"
+  }
+}
