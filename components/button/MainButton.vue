@@ -1,6 +1,7 @@
 <template>
   <div class="main__button">
     <button
+      type="submit"
       class="button"
       v-bind:style="fontSize"
       @click.prevent="$emit('openModal')"

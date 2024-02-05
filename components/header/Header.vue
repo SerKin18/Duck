@@ -72,7 +72,7 @@
               <nav class="header__menu">
                 <ul @click.prevent="" class="header__list">
                   <li>
-                    <nuxt-link
+                    <nuxt-link  @click.stop="toggleMenu"
                       :to="{ path: '/', hash: 'service' }"
                       v-scroll-to="{ el: '#service' }"
                       class="header__link"
@@ -80,7 +80,7 @@
                     ></nuxt-link>
                   </li>
                   <li>
-                    <nuxt-link
+                    <nuxt-link  @click.stop="toggleMenu"
                       :to="{ path: '/', hash: 'portfolio' }"
                       v-scroll-to="{ el: '#portfolio' }"
                       class="header__link"
@@ -88,7 +88,7 @@
                     ></nuxt-link>
                   </li>
                   <li>
-                    <nuxt-link
+                    <nuxt-link  @click.stop="toggleMenu"
                       :to="{ path: '/', hash: 'whyus' }"
                       v-scroll-to="{ el: '#whyus' }"
                       class="header__link"
@@ -96,7 +96,7 @@
                     ></nuxt-link>
                   </li>
                   <li>
-                    <nuxt-link
+                    <nuxt-link  @click.stop="toggleMenu"
                       :to="{ path: '/', hash: 'calc' }"
                       v-scroll-to="{ el: '#calc' }"
                       class="header__link"
@@ -104,7 +104,7 @@
                     ></nuxt-link>
                   </li>
                   <li>
-                    <nuxt-link
+                    <nuxt-link @click.stop="toggleMenu"
                       :to="{ path: '/', hash: 'radio' }"
                       v-scroll-to="{ el: '#radio' }"
                       class="header__link"
