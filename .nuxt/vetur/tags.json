@@ -2,6 +2,12 @@
   "App": {
     "description": "Auto imported from components/App.vue"
   },
+  "Footer": {
+    "description": "Auto imported from components/footer/Footer.vue"
+  },
+  "FooterItem": {
+    "description": "Auto imported from components/footer/FooterItem.vue"
+  },
   "ButtonCalcButton": {
     "description": "Auto imported from components/button/CalcButton.vue"
   },
@@ -22,12 +28,6 @@
   },
   "Header": {
     "description": "Auto imported from components/header/Header.vue"
-  },
-  "Footer": {
-    "description": "Auto imported from components/footer/Footer.vue"
-  },
-  "FooterItem": {
-    "description": "Auto imported from components/footer/FooterItem.vue"
   },
   "MainBanner": {
     "description": "Auto imported from components/main/Banner.vue"
