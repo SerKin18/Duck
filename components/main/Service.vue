@@ -1,7 +1,7 @@
 <template>
   <div class="services">
     <div class="services__title">
-      <h2>Послуги</h2>
+      <h2 id="service">Послуги</h2>
     </div>
     <div class="services__body">
       <ServiceItem

@@ -1,6 +1,7 @@
 <template>
   <div class="main">
     <!-- <ModalOrder></ModalOrder> -->
+	 <Header ></Header>
     <div class="container">
       <Banner />
     </div>
@@ -15,9 +16,12 @@
     <FQS :FQSItems="FQSItems"></FQS>
     <ContactsBlock></ContactsBlock>
     <Radio />
+	 <Footer></Footer>
   </div>
 </template>
 <script>
+import Header from "../header/Header.vue";
+import Footer from "../footer/Footer.vue";
 import Banner from "./Banner.vue";
 import Service from "./Service.vue";
 import Portfolio from "./Portfolio.vue";
@@ -27,7 +31,6 @@ import FQS from "./FQS.vue";
 import ContactsBlock from "./ContactsBlock.vue";
 import Reviews from "./Reviews.vue";
 import Calc from "./Calc.vue";
-import Header from "../header/Header.vue";
 import Modal from "./Modal.vue";
 import ModalOrder from "./ModalOrder.vue";
 import Radio from "./Radio.vue";
@@ -46,6 +49,7 @@ export default {
     Modal,
     Radio,
     ModalOrder,
+	 Footer
   },
   name: "Main",
   data() {

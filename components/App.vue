@@ -2,17 +2,17 @@
 <template>
   <MediaQueryProvider ssr :queries="$options.queries">
     <div class="wrapper">
-      <Header></Header>
+		 <!-- <Header></Header> -->
       <Main></Main>
-      <Footer></Footer>
+      <!-- <Footer></Footer> -->
     </div>
   </MediaQueryProvider>
 </template>
 
 <script>
 import { MediaQueryProvider } from "vue-component-media-queries";
-import Footer from "./footer/Footer.vue";
-import Header from "./header/Header.vue";
+// import Footer from "./footer/Footer.vue";
+// import Header from "./header/Header.vue";
 import Main from "./main/Main.vue";
 const queries = {
   mobile: "(max-width: 760px)",
@@ -20,13 +20,9 @@ const queries = {
 
 export default 
 {
-  components: { Header, Main, Footer, MediaQueryProvider },
+  components: {  Main,  MediaQueryProvider },
   name: "App",
-  queries,
-  mounted() {
-	console.log(this);
-	
-  }
+  queries
 };
 </script>
 <style>

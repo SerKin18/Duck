@@ -2,7 +2,7 @@
   <div class="radio_block">
     <div class="container">
       <div class="radio_title">
-        <h2>Крядио</h2>
+        <h2 id="radio">Крядио</h2>
         <div class="radio__btn_header">
           <button><span></span></button>
         </div>

@@ -2,7 +2,7 @@
   <div class="portfolio">
     <div class="container">
       <div class="portfolio__title">
-        <h2>портфоліо</h2>
+        <h2 id="portfolio">портфоліо</h2>
       </div>
     </div>
     <div class="portfolio__body">

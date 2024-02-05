@@ -3,26 +3,58 @@
     <div class="container">
       <div class="header">
         <div class="header__body">
-          <a href="#" class="header__logo">
+          <nuxt-link to="" class="header__logo">
             <img src="../../static/image/logo-full.png" alt="Logo" />
-          </a>
+          </nuxt-link>
           <div class="header__menu_items">
             <nav class="header__menu">
               <ul @click.prevent="" class="header__list">
                 <li>
-                  <a href="" class="header__link">Услуги<span></span></a>
+                  <nuxt-link
+                    href=""
+                    class="header__link"
+                    :to="{ path: '/', hash: 'service' }"
+                    v-scroll-to="{ el: '#service' }"
+                    >Услуги<span></span
+                  ></nuxt-link>
                 </li>
                 <li>
-                  <a href="" class="header__link">Портфолио<span></span></a>
+                  <nuxt-link
+                    href=""
+                    class="header__link"
+                    :to="{ path: '/', hash: 'portfolio' }"
+                    v-scroll-to="{ el: '#portfolio' }"
+                    >Портфолио<span></span
+                  ></nuxt-link>
                 </li>
                 <li>
-                  <a href="" class="header__link">Преимущества<span></span></a>
+                  <nuxt-link
+                    href=""
+                    class="header__link"
+                    :to="{ path: '/', hash: 'whyus' }"
+                    v-scroll-to="{ el: '#whyus' }"
+                    >Преимущества<span></span
+                  ></nuxt-link>
                 </li>
                 <li>
-                  <a href="" class="header__link">Калькулятор<span></span></a>
+                  <nuxt-link
+                    class="header__link"
+                    :to="{ path: '/', hash: 'calc' }"
+                    v-scroll-to="{ el: '#calc' }"
+                    >Калькулятор</nuxt-link
+                  >
+                  <!-- <nuxt-link href="#calculate" class="header__link"
+                    >Калькулятор<span></span
+                  ></nuxt-link> -->
                 </li>
                 <li>
-                  <a href="" class="header__link">Крядио<span></span></a>
+                  <nuxt-link
+                    href=""
+                    class="header__link"
+                    :to="{ path: '/', hash: 'radio' }"
+                    v-scroll-to="{ el: '#radio' }"
+                    >Крядио<span></span
+                  ></nuxt-link>
                 </li>
               </ul>
             </nav>
@@ -40,21 +72,44 @@
               <nav class="header__menu">
                 <ul @click.prevent="" class="header__list">
                   <li>
-                    <a href="" class="header__link">Услуги<span></span></a>
+                    <nuxt-link
+                      :to="{ path: '/', hash: 'service' }"
+                      v-scroll-to="{ el: '#service' }"
+                      class="header__link"
+                      >Услуги<span></span
+                    ></nuxt-link>
                   </li>
                   <li>
-                    <a href="" class="header__link">Портфолио<span></span></a>
+                    <nuxt-link
+                      :to="{ path: '/', hash: 'portfolio' }"
+                      v-scroll-to="{ el: '#portfolio' }"
+                      class="header__link"
+                      >Портфолио<span></span
+                    ></nuxt-link>
                   </li>
                   <li>
-                    <a href="" class="header__link"
+                    <nuxt-link
+                      :to="{ path: '/', hash: 'whyus' }"
+                      v-scroll-to="{ el: '#whyus' }"
+                      class="header__link"
                       >Преимущества<span></span
-                    ></a>
+                    ></nuxt-link>
                   </li>
                   <li>
-                    <a href="" class="header__link">Калькулятор<span></span></a>
+                    <nuxt-link
+                      :to="{ path: '/', hash: 'calc' }"
+                      v-scroll-to="{ el: '#calc' }"
+                      class="header__link"
+                      >Калькулятор<span></span
+                    ></nuxt-link>
                   </li>
                   <li>
-                    <a href="" class="header__link">Крядио<span></span></a>
+                    <nuxt-link
+                      :to="{ path: '/', hash: 'radio' }"
+                      v-scroll-to="{ el: '#radio' }"
+                      class="header__link"
+                      >Крядио<span></span
+                    ></nuxt-link>
                   </li>
                 </ul>
               </nav>
@@ -189,7 +244,6 @@ header {
 }
 .header__body {
   display: flex;
-
   justify-content: space-between;
   align-items: center;
 }

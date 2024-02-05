@@ -2,7 +2,7 @@
   <div class="why-us">
     <div class="container">
       <div class="why-us__title">
-        <h2>Чому<span> ми </span>?</h2>
+        <h2 id="whyus">Чому<span> ми </span>?</h2>
       </div>
       <div class="why-us__body">
         <WhyUsItem
