@@ -31,16 +31,17 @@ export default {
   height: 100%;
   background: rgba(18, 18, 18, 0.8);
   z-index: 99;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: table;
   padding: 15px;
   overflow-y: hidden;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
 }
 .modal-window {
-  position: absolute;
-  z-index: 100;
-  width: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  overflow-y: hidden;
+  height: 100%;
 }
 .modal {
   background-color: black;

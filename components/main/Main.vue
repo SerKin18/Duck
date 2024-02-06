@@ -1,7 +1,7 @@
 <template>
   <div class="main">
-    <!-- <ModalOrder></ModalOrder> -->
-	 <Header ></Header>
+    <ModalOrder></ModalOrder>
+	 <!-- <Header ></Header>
     <div class="container">
       <Banner />
     </div>
@@ -16,7 +16,7 @@
     <FQS :FQSItems="FQSItems"></FQS>
     <ContactsBlock></ContactsBlock>
     <Radio />
-	 <Footer></Footer>
+	 <Footer></Footer> -->
   </div>
 </template>
 <script>

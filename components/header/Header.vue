@@ -11,7 +11,7 @@
               <ul @click.prevent="" class="header__list">
                 <li>
                   <nuxt-link
-                    href=""
+                    
                     class="header__link"
                     :to="{ path: '/', hash: 'service' }"
                     v-scroll-to="{ el: '#service' }"
@@ -20,7 +20,7 @@
                 </li>
                 <li>
                   <nuxt-link
-                    href=""
+                    
                     class="header__link"
                     :to="{ path: '/', hash: 'portfolio' }"
                     v-scroll-to="{ el: '#portfolio' }"
@@ -29,7 +29,7 @@
                 </li>
                 <li>
                   <nuxt-link
-                    href=""
+                    
                     class="header__link"
                     :to="{ path: '/', hash: 'whyus' }"
                     v-scroll-to="{ el: '#whyus' }"

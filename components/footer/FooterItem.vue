@@ -11,7 +11,12 @@
         <nav>
           <ul class="footer__list_item" v-show="showFooterText">
             <li v-for="items in itemList">
-              <a @click.prevent href="#">{{ items }}</a>
+              <nuxt-link
+                :key="items.title"
+                :to="{ path: '/', hash: items.path }"
+                v-scroll-to="{ el: '#' + items.path }"
+                >{{ items.title }}</nuxt-link
+              >
             </li>
           </ul>
         </nav>
@@ -20,7 +25,12 @@
         <nav>
           <ul class="footer__list_item">
             <li v-for="items in itemList">
-              <a @click.prevent href="#">{{ items }}</a>
+              <nuxt-link
+                :key="items.title"
+                :to="{ path: '/', hash: items.path }"
+                v-scroll-to="{ el: '#' + items.path }"
+                >{{ items.title }}</nuxt-link
+              >
             </li>
           </ul>
         </nav>

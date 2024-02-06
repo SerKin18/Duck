@@ -1,8 +1,6 @@
 <template>
   <div class="contacts__block">
-
-      <Contacts></Contacts>
-
+    <Contacts></Contacts>
   </div>
 </template>
 <script>
@@ -22,18 +20,18 @@ export default {
   z-index: 1;
 }
 .contacts__block::before {
+  display: none;
   content: "";
   position: absolute;
-  bottom: -170px;
-  left: -400px;
-  height: 492px;
-  width: 842px;
+  bottom: 0px;
+  left: 0px;
+  height: 292px;
+  width: 442px;
   transform: rotate(133deg);
   opacity: 30%;
   background: linear-gradient(87.08deg, #203f6a 0%, #ea5a25 100%);
   box-shadow: inset 0px 0px 130px 50px black;
-
-  z-index:8;
+  z-index: 8;
 }
 .contacts__block::after {
   content: "";
@@ -43,8 +41,8 @@ export default {
   width: 160px;
   height: 160px;
   background: url(../../static/image/block-7-star.svg) center no-repeat;
-  
-  z-index:8;
+
+  z-index: 8;
 }
 .container {
   max-width: 1280px;
@@ -52,9 +50,9 @@ export default {
 }
 
 @media (max-width: 970px) {
-	.contacts__block{
-		padding: 0px;
-	}
+  .contacts__block {
+    padding: 0px;
+  }
   .contacts__block::after {
     content: "";
     position: absolute;
@@ -62,6 +60,13 @@ export default {
     right: 0px;
     scale: 0.7;
     transform: rotate(45deg);
+  }
+  .contacts__block::before {
+  }
+}
+@media (max-width: 760px) {
+  .contacts__block::before {
+    display: none;
   }
 }
 </style>

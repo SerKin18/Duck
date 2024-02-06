@@ -92,26 +92,26 @@ export default {
   data() {
     return {
       itemListServices: [
-        "Landing page",
-        "Корпоративні сайти",
-        "Інтернет магазин",
-        "Бізнес сайт",
-        "Сайт візитка",
-        "Дизайн сайту",
-        "Розробка сайту",
-        "Редизайн сайту",
-        "Ecommerce проекти",
+        { title: "Landing page", path: "calc" },
+        { title: "Корпоративні сайти", path: "calc" },
+        { title: "Інтернет магазин", path: "calc" },
+        { title: "Бізнес сайт", path: "calc" },
+        { title: "Сайт візитка", path: "calc" },
+        { title: "Дизайн сайту", path: "calc" },
+        { title: "Розробка сайту", path: "calc" },
+        { title: "Редизайн сайту", path: "calc" },
+        { title: "Ecommerce проекти", path: "calc" },
       ],
       itemListInfo: [
-        "Про нас",
-        "Послуги",
-        "Портфоліо",
-        "Блог",
-        "Створення сайту на WordPress",
-        "Створення сайту на Opencart",
-        "Створення сайтів у Львові",
-        "Створення сайтів у Харкові",
-        "Створення сайту у Дніпрі",
+        { title: "Про нас", path: "" },
+        { title: "Послуги", path: "service" },
+        { title: "Портфоліо", path: "portfolio" },
+        { title: "Блог", path: "" },
+        { title: "Створення сайту на WordPress", path: "calc" },
+        { title: "Створення сайту на Opencart", path: "calc" },
+        { title: "Створення сайтів у Львові", path: "" },
+        { title: "Створення сайтів у Харкові", path: "" },
+        { title: "Створення сайту у Дніпрі", path: "" },
       ],
       itemListSocial: [
         "Facebook",
@@ -126,8 +126,8 @@ export default {
 };
 </script>
 <style>
-.footer{
-	padding: 0px 14.5px;
+.footer {
+  padding: 0px 14.5px;
 }
 .container {
   max-width: 1280px;
