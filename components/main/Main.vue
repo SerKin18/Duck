@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <ModalOrder></ModalOrder>
+    <ModalOrder :modalCalcOpen="true"></ModalOrder>
 	 <!-- <Header ></Header>
     <div class="container">
       <Banner />
@@ -17,6 +17,7 @@
     <ContactsBlock></ContactsBlock>
     <Radio />
 	 <Footer></Footer> -->
+	 <Calc></Calc>
   </div>
 </template>
 <script>

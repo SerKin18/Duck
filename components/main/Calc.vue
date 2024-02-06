@@ -1,14 +1,14 @@
 <template>
   <div class="calc">
     <div class="container">
-      <div class="calc_title">
+      <div v-show="!modalCalc" class="calc_title">
         <h2 id="calc">КАЛЬКУЛЯТОР <span>ВАРТОСТІ </span></h2>
       </div>
-      <div class="calc_subtitle">
+      <div v-show="!modalCalc" class="calc_subtitle">
         <p>Розрахуйте орієнтовну вартість робіт</p>
         <button @click="cleanTotalValue"><span>Сбросить</span></button>
       </div>
-      <div class="calc_tabs">
+      <div v-show="!modalCalc" class="calc_tabs">
         <CalcButton
           v-for="(tab, index) in tabValue"
           :class="{ selected: selectedIndex === index }"
@@ -25,18 +25,18 @@
 				</div> -->
         <div class="calc_body__calc">
           <div class="calc_body__tab __dev" v-show="activeTab(0)">
-            <div v-show="!modal" class="calc_body__title">
+            <div class="calc_body__title">
               <h4>{{ tabValue[0].tab }}:</h4>
             </div>
-            <!-- <div v-if ="modal" class="calc_body_item_modal">
-					<div class="calc_body_item__subtitle_modal">
-                {{ tabValue[0].page.subTitle1 }}
-              </div>
 
-
-				</div> -->
             <div class="calc_body_item">
-              <div class="calc_body_item__subtitle">
+              <div
+                :class="
+                  !modalCalc
+                    ? 'calc_body_item__subtitle'
+                    : 'calc_body_item__subtitle_modal'
+                "
+              >
                 {{ tabValue[0].page.subTitle1 }}
               </div>
               <CalcCheckBoxLine1
@@ -47,9 +47,9 @@
             <div class="calc_body_item">
               <div
                 :class="
-                  modal
-                    ? 'calc_body_item__subtitle_modal'
-                    : 'calc_body_item__subtitle'
+                  !modalCalc
+                    ? 'calc_body_item__subtitle'
+                    : 'calc_body_item__subtitle_modal'
                 "
               >
                 {{ tabValue[0].page.subTitle2 }}
@@ -62,9 +62,9 @@
             <div class="calc_body_item">
               <div
                 :class="
-                  modal
-                    ? 'calc_body_item__subtitle_modal'
-                    : 'calc_body_item__subtitle'
+                  !modalCalc
+                    ? 'calc_body_item__subtitle'
+                    : 'calc_body_item__subtitle_modal'
                 "
               >
                 {{ tabValue[0].page.subTitle3 }}
@@ -76,7 +76,7 @@
             </div>
             <div
               :class="
-                modal ? 'calc_body__checkbox_modal' : 'calc_body__checkbox'
+                modalCalc ? 'calc_body__checkbox_modal' : 'calc_body__checkbox'
               "
             >
               <CalcCheckboxItem
@@ -353,7 +353,7 @@
       </div>
     </div>
     <div class="calc_footer">
-      <MainButton @openModal="openMOdal = true">Заказати</MainButton>
+      <MainButton @openModal="openModal = true">Заказати</MainButton>
     </div>
     <!-- <ModalOrder :modalCalcOpen="openMOdal"></ModalOrder> -->
   </div>
@@ -366,7 +366,7 @@ import CalcCheckBoxLine1 from "./CalckCheckBoxLine.vue";
 import CalcCheckBoxLine2 from "./CalckCheckBoxLine2.vue";
 import CalcCheckBoxLine3 from "./CalckCheckBoxLine3.vue";
 import Contacts from "./Contacts.vue";
-import ModalOrder from "./ModalOrder.vue";
+
 import {
   PAGES,
   PAGES_LANDING,
@@ -388,11 +388,10 @@ export default {
     CalcCheckBoxLine2,
     CalcCheckBoxLine3,
     Contacts,
-    ModalOrder,
   },
   name: "Calc",
   props: {
-    modal: {
+    modalCalc: {
       type: Boolean,
     },
   },
@@ -612,23 +611,6 @@ export default {
 };
 </script>
 <style scoped>
-.contacts__body_form {
-  flex: 0 0 50%;
-  max-width: 629px;
-  display: flex;
-  flex-direction: column;
-  z-index: 5;
-}
-
-.contacts__body_form input {
-  padding: 3px 0px 22px 20px;
-  font-size: 16px;
-  width: 100%;
-  background-color: transparent;
-  border-bottom: 1px solid rgba(248, 248, 248, 1);
-  margin-bottom: 30px;
-}
-
 .calc_body__calc {
   width: 100%;
   position: relative;

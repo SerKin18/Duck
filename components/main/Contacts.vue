@@ -1,6 +1,16 @@
 <template>
   <div class="contacts container " :style="modalCalc?'padding: 0px':''">
-    <div v-show="!modalCalc" class="contacts__title">
+	<div v-if="modalCalc" class="contacts__title modalCalc">
+      <h2 >ЗАМОВЛЕННЯ</h2>
+      <div
+        class="contacts__modal__btn"
+        @click.stop="$emit('closeModal')"
+        v-show="this.$props.modal"
+      >
+        <button><span></span></button>
+      </div>
+    </div>
+    <div v-else="!modalCalc" class="contacts__title">
       <h2 >Контакти</h2>
       <div
         class="contacts__modal__btn"
@@ -10,6 +20,7 @@
         <button><span></span></button>
       </div>
     </div>
+	 
     <div class="contacts__body">
       <div class="contacts__body_form" >
         <form>
@@ -65,7 +76,7 @@
               >
             </div>
           </div>
-          <div 
+          <div v-show="!modalCalc"
             class="contacts__body_form_btn'"
             @click.prevent="$emit('modalClose')"
           >
@@ -283,6 +294,9 @@ export default {
   line-height: 76px;
   text-transform: uppercase;
   font-size: 80px;
+}
+.modalCalc{
+	margin-bottom: 70px;
 }
 
 .contacts__body {
