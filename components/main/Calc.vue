@@ -1,14 +1,14 @@
 <template>
-  <div class="calc">
+  <div :class="!modalCalc ? 'calc' : 'calc_modal'">
     <div class="container">
-      <div class="calc_title">
+      <div v-show="!modalCalc" class="calc_title">
         <h2 id="calc">КАЛЬКУЛЯТОР <span>ВАРТОСТІ </span></h2>
       </div>
-      <div class="calc_subtitle">
+      <div v-show="!modalCalc" class="calc_subtitle">
         <p>Розрахуйте орієнтовну вартість робіт</p>
         <button @click="cleanTotalValue"><span>Сбросить</span></button>
       </div>
-      <div class="calc_tabs">
+      <div v-show="!modalCalc" class="calc_tabs">
         <CalcButton
           v-for="(tab, index) in tabValue"
           :class="{ selected: selectedIndex === index }"
@@ -20,77 +20,139 @@
         >
       </div>
       <div class="calc_body">
-        <!-- <div class="calc_body__title">
-					<h4>РОЗРОБКА САЙТУ:</h4>
-				</div> -->
         <div class="calc_body__calc">
-          <div class="calc_body__tab __dev" v-show="activeTab(0)">
-            <div v-show="!modal" class="calc_body__title">
-              <h4>{{ tabValue[0].tab }}:</h4>
-            </div>
-            <!-- <div v-if ="modal" class="calc_body_item_modal">
-					<div class="calc_body_item__subtitle_modal">
-                {{ tabValue[0].page.subTitle1 }}
+          <div
+            class="calc_modalOrder"
+            v-show="modalCalc && selectTabModal === 0"
+          >
+            <div class="calc_body__tab_modal __dev" v-show="activeTab(0)">
+              <div class="calc_body__title_modal">
+                <h4>{{ tabValue[0].tab }}:</h4>
               </div>
 
+              <div class="calc_body_item_modal">
+                <div class="calc_body_item__subtitle_modal">
+                  {{ tabValue[0].page.subTitle1 }}
+                </div>
 
-				</div> -->
-            <div class="calc_body_item">
-              <div class="calc_body_item__subtitle">
-                {{ tabValue[0].page.subTitle1 }}
+                <div
+                  class="calc_body_line_modal"
+                  v-for="name in tabValue[0].page.check1"
+                  :value="name.value"
+                  :time="name.time"
+                  :isActive="name.isActive"
+                  v-bind:style="
+                    name.isActive ? 'color:rgba(234, 90, 37, 1)' : ''
+                  "
+                >
+                  {{ name.title }}
+                </div>
               </div>
-              <CalcCheckBoxLine1
-                :checkBoxArray="tabValue[0].page.check1"
-                @valueItem1="getValue1"
-              />
-            </div>
-            <div class="calc_body_item">
-              <div
-                :class="
-                  modal
-                    ? 'calc_body_item__subtitle_modal'
-                    : 'calc_body_item__subtitle'
-                "
-              >
-                {{ tabValue[0].page.subTitle2 }}
+              <div class="calc_body_item_modal">
+                <div class="calc_body_item__subtitle_modal">
+                  {{ tabValue[0].page.subTitle2 }}
+                </div>
+
+                <div
+                  class="calc_body_line_modal"
+                  v-for="name in tabValue[0].page.check2"
+                  :value="name.value"
+                  :time="name.time"
+                  :isActive="name.isActive"
+                  v-bind:style="
+                    name.isActive
+                      ? 'color:rgba(234, 90, 37, 1)'
+                      : 'display:none'
+                  "
+                >
+                  {{ name.title }}
+                </div>
               </div>
-              <CalcCheckBoxLine2
-                :checkBoxArray="tabValue[0].page.check2"
-                @valueItem2="getValue2"
-              />
-            </div>
-            <div class="calc_body_item">
-              <div
-                :class="
-                  modal
-                    ? 'calc_body_item__subtitle_modal'
-                    : 'calc_body_item__subtitle'
-                "
-              >
-                {{ tabValue[0].page.subTitle3 }}
+              <div class="calc_body_item_modal">
+                <div class="calc_body_item__subtitle_modal">
+                  {{ tabValue[0].page.subTitle3 }}
+                </div>
+
+                <div
+                  class="calc_body_line_modal"
+                  v-for="name in tabValue[0].page.check3"
+                  :value="name.value"
+                  :time="name.time"
+                  :isActive="name.isActive"
+                  v-bind:style="
+                    name.isActive
+                      ? 'color:rgba(234, 90, 37, 1)'
+                      : 'display:none'
+                  "
+                >
+                  {{ name.title }}
+                </div>
               </div>
-              <CalcCheckBoxLine3
-                :checkBoxArray="tabValue[0].page.check3"
-                @valueItem3="getValue3"
-              />
-            </div>
-            <div
-              :class="
-                modal ? 'calc_body__checkbox_modal' : 'calc_body__checkbox'
-              "
-            >
-              <CalcCheckboxItem
-                v-for="(checkBox, index) in tabsCheckBox[0]"
-                :indexCheck="index"
-                :value="checkBox.value"
-                :isActive="checkBox.isActive"
-                :key="index"
-                :nameCheck="checkBox.title"
-                @getIndexCheck="getCheckboxValue"
-                >{{ checkBox.title }}</CalcCheckboxItem
-              >
+              <div class="calc_body__checkbox_modal">
+                <CalcCheckboxItem
+                  v-for="(checkBox, index) in tabsCheckBox[0]"
+                  :indexCheck="index"
+                  :value="checkBox.value"
+                  :isActive="checkBox.isActive"
+                  :key="index"
+                  :nameCheck="checkBox.title"
+                  @getIndexCheck="getCheckboxValue"
+                  >{{ checkBox.title }}</CalcCheckboxItem
+                >
+              </div>
             </div>
           </div>
+          <div
+            class="calc_origin_component"
+            v-show="!modalCalc && selectedIndex === 0"
+          >
+            <div class="calc_body__tab __dev" v-show="activeTab(0)">
+              <div class="calc_body__title">
+                <h4>{{ tabValue[0].tab }}:</h4>
+              </div>
+
+              <div class="calc_body_item">
+                <div class="calc_body_item__subtitle">
+                  {{ tabValue[0].page.subTitle1 }}
+                </div>
+                <CalcCheckBoxLine1
+                  :checkBoxArray="tabValue[0].page.check1"
+                  @valueItem1="getValue1"
+                />
+              </div>
+              <div class="calc_body_item">
+                <div class="calc_body_item__subtitle">
+                  {{ tabValue[0].page.subTitle2 }}
+                </div>
+                <CalcCheckBoxLine2
+                  :checkBoxArray="tabValue[0].page.check2"
+                  @valueItem2="getValue2"
+                />
+              </div>
+              <div class="calc_body_item">
+                <div class="calc_body_item__subtitle">
+                  {{ tabValue[0].page.subTitle3 }}
+                </div>
+                <CalcCheckBoxLine3
+                  :checkBoxArray="tabValue[0].page.check3"
+                  @valueItem3="getValue3"
+                />
+              </div>
+              <div class="calc_body__checkbox">
+                <CalcCheckboxItem
+                  v-for="(checkBox, index) in tabsCheckBox[0]"
+                  :indexCheck="index"
+                  :value="checkBox.value"
+                  :isActive="checkBox.isActive"
+                  :key="index"
+                  :nameCheck="checkBox.title"
+                  @getIndexCheck="getCheckboxValue"
+                  >{{ checkBox.title }}</CalcCheckboxItem
+                >
+              </div>
+            </div>
+          </div>
+
           <div class="calc_body__tab __landingPage" v-show="activeTab(1)">
             <div class="calc_body__title">
               <h4>{{ tabValue[1].tab }}:</h4>
@@ -352,8 +414,11 @@
         </div>
       </div>
     </div>
-    <div class="calc_footer">
-      <MainButton @openModal="openMOdal = true">Заказати</MainButton>
+    <div v-show="!modalCalc" class="calc_footer">
+      <MainButton>Заказати</MainButton>
+    </div>
+    <div v-show="modalCalc" class="calc_footer_modalOrder">
+      <MainButton>Заказати</MainButton>
     </div>
     <!-- <ModalOrder :modalCalcOpen="openMOdal"></ModalOrder> -->
   </div>
@@ -366,7 +431,7 @@ import CalcCheckBoxLine1 from "./CalckCheckBoxLine.vue";
 import CalcCheckBoxLine2 from "./CalckCheckBoxLine2.vue";
 import CalcCheckBoxLine3 from "./CalckCheckBoxLine3.vue";
 import Contacts from "./Contacts.vue";
-import ModalOrder from "./ModalOrder.vue";
+
 import {
   PAGES,
   PAGES_LANDING,
@@ -388,12 +453,14 @@ export default {
     CalcCheckBoxLine2,
     CalcCheckBoxLine3,
     Contacts,
-    ModalOrder,
   },
   name: "Calc",
   props: {
-    modal: {
+    modalCalc: {
       type: Boolean,
+    },
+    selectTabModal: {
+      type: Number,
     },
   },
   data() {
@@ -612,23 +679,6 @@ export default {
 };
 </script>
 <style scoped>
-.contacts__body_form {
-  flex: 0 0 50%;
-  max-width: 629px;
-  display: flex;
-  flex-direction: column;
-  z-index: 5;
-}
-
-.contacts__body_form input {
-  padding: 3px 0px 22px 20px;
-  font-size: 16px;
-  width: 100%;
-  background-color: transparent;
-  border-bottom: 1px solid rgba(248, 248, 248, 1);
-  margin-bottom: 30px;
-}
-
 .calc_body__calc {
   width: 100%;
   position: relative;
@@ -638,6 +688,15 @@ export default {
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
+}
+.calc_body_item_modal {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+}
+.calc_body_line_modal {
+  font-weight: 700;
+  margin-left: 10px;
 }
 
 .calc_body_item__subtitle {
@@ -668,6 +727,11 @@ export default {
 .calc_body__tab {
   margin-bottom: 80px;
 }
+.calc_body__tab_modal {
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #fff;
+}
 
 .calc_body__checkbox {
   display: inline-flex;
@@ -679,10 +743,13 @@ export default {
 
 .calc_body__checkbox_modal {
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: flex-start;
-  width: 300px;
+  flex-wrap: wrap;
   margin-top: 10px;
+}
+.calc_body__checkbox_modal > * {
+  margin-right: 15px;
 }
 
 .calc_body__title {
@@ -736,6 +803,16 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.calc_modal {
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+}
+.calc_modalOrder {
+  padding: 0px;
+  width: 100%;
+  height: 100%;
 }
 
 .container {
@@ -823,6 +900,7 @@ export default {
 
 .calc_body {
   max-height: 100%;
+  width: 100%;
 }
 
 .calc_footer {
@@ -831,6 +909,13 @@ export default {
   justify-content: center;
   width: 100%;
   padding-top: 40px;
+}
+.calc_footer_modalOrder {
+  margin-top: 35px;
+  margin-left: 50px;
+}
+.calc_footer_modalOrder > * {
+  width: 170px;
 }
 
 .calc_footer > * {

@@ -1,26 +1,58 @@
 <template>
   <div class="modal-block">
-    <div class="modal-window container">
-      <div class="modal ">
-        <div class="contacts__modal__btn" @click.stop="$emit('modalCalcClose')">
-          <button><span></span></button>
-        </div>
-		 
-        <Calc :modal="modalCalcOpen"></Calc>
+    <div class="modal-window">
+      <div class="contacts__modal__btn" @click.stop="closeModalOrder">
+        <button><span></span></button>
+      </div>
+      <div class="modal container">
+        <Contacts
+          v-bind:modal="modalContact"
+          v-bind:modalCalc="modalCalc"
+          @closeModal="closeModalOrder"
+          @selectCalcTabs="selectTab"
+          @removeCalcTabs="removeTab"
+        ></Contacts>
+        <Calc v-bind:modalCalc="modalCalc" v-bind:selectTabModal="0"></Calc>
       </div>
     </div>
   </div>
 </template>
 <script>
 import Calc from "./Calc.vue";
+import Contacts from "./Contacts.vue";
+
 export default {
-  components: { Calc },
+  components: { Contacts, Calc },
   name: "modal-window",
-  props:{
-	modalCalcOpen:{
-		type:Boolean
-	}
-  }
+  props: {
+    modalCalcOpen: {
+      type: Boolean,
+    },
+    openOrderCalcTab: {
+      type: Number,
+    },
+  },
+  data() {
+    return {
+      selectCalc: 0,
+      modalCalc: true,
+      modalContact: true,
+    };
+  },
+  methods: {
+    selectTab(i) {
+      this.selectCalc = i;
+    },
+    removeTab(i) {
+      this.selectCalcTabs.filter((tab) => tab != i);
+    },
+    closeModalOrder() {
+      (this.modalContact = false), (this.modalCalcOpen = false);
+      this.$emit("close");
+    },
+  },
+
+
 };
 </script>
 <style scoped>
@@ -29,22 +61,23 @@ export default {
   margin: 0 auto;
 }
 .modal-block {
+  position: fixed;
+  left: 0;
+  top: 0;
   width: 100%;
-  height: 100%;
+
   background: rgba(18, 18, 18, 0.8);
   z-index: 99;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+  padding: 15px;
 }
-
 .modal-window {
-
+  overflow-y: hidden;
+  height: 100%;
 }
 .modal {
   background-color: black;
   padding: 50px 35.5px 50px 35.5px;
-  width:100%
 }
 .contacts__modal__btn {
   display: none;
@@ -52,7 +85,6 @@ export default {
   height: 30px;
   padding: 0px 14.5px;
   text-align: right;
-  margin-top:39px ;
 }
 .contacts__modal__btn button {
   position: relative;
@@ -82,76 +114,6 @@ export default {
     background-color: rgba(234, 90, 37, 1);
   }
 }
-.contacts__body_form {
-  flex: 0 0 50%;
-  max-width: 629px;
-  display: flex;
-  flex-direction: column;
-  z-index: 5;
-}
-
-.contacts__body_form input {
-  padding: 3px 0px 22px 20px;
-  font-size: 16px;
-  width: 100%;
-  background-color: transparent;
-  border-bottom: 1px solid rgba(248, 248, 248, 1);
-  margin-bottom: 30px;
-}
-.calc_footer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  padding-top: 40px;
-}
-
-.calc_footer > * {
-  width: 170px;
-}
-.calc_body__checkbox {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  width: 300px;
-  margin-top: 40px;
-}
-.calc_body__footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0px -10px 0px -10px;
-  margin: 0px -5px 0px -5px;
-}
-
-.calc_body__footer_column {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  flex: 0 1 50%;
-  margin: 0px 5px 0px 5px;
-}
-
-.calc_body__footer_item {
-  width: 100%;
-  color: #ffffff;
-  font-family: var(--title);
-  align-items: flex-start;
-  background: rgba(248, 248, 248, 0.05);
-  margin: 5px 5px;
-  padding: 14px 15px;
-}
-.calc_body_item {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 50px;
-}
-
-.calc_body_item__subtitle {
-  align-items: flex-start;
-  margin: 30px 0px 10px 0px;
-}
 @media (max-width: 767px) {
   .contacts__modal__btn {
     display: block;
@@ -163,5 +125,6 @@ export default {
   }
   .modal {
     padding: 0px;
-  }}
+  }
+}
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <!-- <ModalOrder></ModalOrder> -->
+    <!-- <ModalOrder :modalCalcOpen="true"></ModalOrder> -->
 	 <Header ></Header>
     <div class="container">
       <Banner />
@@ -597,58 +597,58 @@ export default {
           title: "Інтернет магазин",
           subtitle: "Розробляємо на Laravel, Opencart, WordPress, OkayCMS.",
           price: "2500",
-          id: "1",
+          id: 2,
         },
         {
           title: "Корпоративні сайти",
           subtitle:
             "Корпоративні проекти різної складності на Laravel, WordPress, OkayCMS.",
           price: "2500",
-          id: "2",
+          id: 0,
         },
         {
           title: "Landing page",
           subtitle: "Лендинги що продають на WordPress, Webflow, WIX.",
           price: "2500",
-          id: "3",
+          id: 1,
         },
         {
           title: "Бізнес сайт",
           subtitle: "Сайти послуг та продуктів на WordPress, Webflow, WIX.",
           price: "2500",
-          id: "4",
+          id: 3,
         },
         {
           title: "Дизайн сайту",
           subtitle: `Використовуємо прості і сміливі рішення, які запам'ятаються відвідувачам і виділять вас серед конкурентів.`,
           price: "2500",
-          id: "5",
+          id: 0,
         },
         {
           title: "Сайт візитка",
           subtitle: "Прості сайти на WordPress, OkayCMS, Webflow, WIX.",
           price: "2500",
-          id: "6",
+          id: 6,
         },
         {
           title: "Доопрацювання сайту",
           subtitle: `Впроваджуємо нові "хотілки", розвиваємо функціонал, оптимізуємо роботу модулів 
 							і плагінів.`,
           price: "2500",
-          id: "7",
+          id: 7,
         },
         {
           title: "Редизайн сайту",
           subtitle:
             'Допомагаємо клієнтам бути попереду конкурентів. Оновлюємо дизайн, додаємо нові "фішки".',
           price: "2500",
-          id: "8",
+          id: 0,
         },
         {
           title: "Технічна підтримка",
           subtitle: "Підтримуємо та розвиваємо створені та існуючі проекти.",
           price: "2500",
-          id: "9",
+          id: 5,
         },
       ],
       info: [],

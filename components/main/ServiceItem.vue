@@ -24,7 +24,11 @@
             </p>
           </div>
           <div class="service-item-main-bottom">
-            <main-button-black @openModal="$emit('openModal')">відправити запит</main-button-black>
+            <main-button-black
+              @openModal="openModalOrder"
+				  :id="service.id"
+              >відправити запит</main-button-black
+            >
           </div>
 
           <div class="service-item-body_footer">
@@ -51,6 +55,7 @@
 </template>
 <script>
 import MainButtonBlack from "../button/MainButtonBlack.vue";
+
 export default {
   components: { MainButtonBlack },
   name: "service-item",
@@ -59,6 +64,9 @@ export default {
       type: Object,
       required: true,
     },
+	 id:{
+		type:Number
+	 }
   },
   data() {
     return {
@@ -72,6 +80,13 @@ export default {
     closeCard() {
       this.showServiceCard = !this.showServiceCard;
     },
+	 openModalOrder(id){
+		
+		console.log(id);
+		
+		this.showServiceCard=false;
+		this.$emit('openModalOrder', id)
+	 }
   },
 };
 </script>
@@ -231,7 +246,6 @@ span::after {
   color: black;
   font-size: 16px;
   line-height: 25px;
-
 }
 .service-item-body_footer__calc {
 }
@@ -242,7 +256,6 @@ span::after {
   color: white;
   font-size: 16px;
   line-height: 25px;
-
 }
 .service-item__footer {
   display: flex;
@@ -357,4 +370,5 @@ span::after {
     left: -18px;
   }
 }
+
 </style>

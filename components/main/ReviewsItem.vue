@@ -43,7 +43,6 @@ export default {
 }
 .review-item {
   max-width: 396px;
-  min-width: 330px;
   max-height: 100%;
   padding: 20px 20px;
   margin: 2px 2px 70px 2px;
@@ -136,9 +135,7 @@ export default {
   }
 }
 @media (max-width: 767px) {
-  .review-items {
-    width: 100%;
-  }
+
   .review-item {
     width: 100%;
     margin: 0px 0px 20px 0px;
@@ -152,11 +149,23 @@ export default {
     width: 100%;
     justify-content: center;
   }
-  .review-item {
-    width: 100%;
-  }
+
   .review-item__body {
-    min-width: 330px;
+  
   }
+}
+@media (max-width: 400px){
+	.review-item{
+		padding:10px 5px ;
+	}
+	.review-item__header{
+		margin-bottom: 5px;
+	}
+	.review-item__footer{
+		flex-direction: column-reverse;
+	}
+	.review-item__body p{
+
+	}
 }
 </style>

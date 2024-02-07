@@ -5,10 +5,11 @@
     </div>
     <div class="services__body">
       <ServiceItem
-        v-for="service in services"
+        v-for="(service,index) in services"
         :service="service"
-        :key="service.id"
-        @openModal="openModalWindow"
+        :key="index"
+		  
+        @openModalOrder="openModalOrderWindow"
       ></ServiceItem>
     </div>
     <main-button
@@ -16,15 +17,18 @@
       :fontSize="'font-size:17px;padding:9px;width:220px;margin-left:0px'"
       >відправити запит</main-button
     >
-    <Modal v-if="openModal" @close="openModalWindow"></Modal>
+    <ModalOrder v-if="openModalOrder" @close="openModalOrderWindow"
+	 v-bind:openOrderCalcTab="openModalOrderCalc"></ModalOrder>
+	 <Modal v-if="openModal" @close="openModalWindow"></Modal>
   </div>
 </template>
 <script>
 import MainButton from "../button/MainButton.vue";
 import ServiceItem from "./ServiceItem.vue";
-import Modal from "../main/Modal.vue";
+import ModalOrder from "./ModalOrder.vue";
+import Modal from './Modal'
 export default {
-  components: { MainButton, ServiceItem, Modal },
+  components: { MainButton, ServiceItem, ModalOrder ,Modal},
   name: "Service",
   props: {
     services: {
@@ -35,7 +39,9 @@ export default {
   data() {
     return {
       openMenu: false,
-      openModal: false,
+      openModalOrder: false,
+		openModalOrderCalc:0,
+		openModal:false
     };
   },
   methods: {
@@ -44,6 +50,10 @@ export default {
     },
     openModalWindow() {
       this.openModal = !this.openModal;
+    },
+	 openModalOrderWindow(id) {
+		this.openModalOrderCalc=id
+      this.openModalOrder = !this.openModalOrder;
     },
   },
 };

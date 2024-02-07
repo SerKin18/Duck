@@ -1,7 +1,7 @@
 <template>
   <div class="main__button">
     <button class="button"
-	 @click.prevent="$emit('openModal')">
+	 @click.prevent="$emit('openModal',id)">
       <slot></slot>
     </button>
   </div>
@@ -9,6 +9,11 @@
 <script>
 export default {
   name: "main-button-black",
+  props:{
+	id:{
+		type:Number
+	}
+  }
 };
 </script>
 <style scoped>

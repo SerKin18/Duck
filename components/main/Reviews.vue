@@ -351,6 +351,11 @@ export default {
   flex-wrap: wrap;
   padding: 0px -7px;
 }
+@media (max-width: 1200px) {
+  .reviews__body {
+    justify-content: center;
+  }
+}
 @media (max-width: 767px) {
   .reviews__header {
     margin-bottom: 40px;
@@ -363,5 +368,7 @@ export default {
   .reviews {
     padding: 65px 14.5px;
   }
+}
+@media (max-width: 400px){
 }
 </style>

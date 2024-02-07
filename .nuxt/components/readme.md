@@ -7,14 +7,14 @@ You can directly use them in pages and other components without the need to impo
 **Tip:** If a component is conditionally rendered with `v-if` and is big, it is better to use `Lazy` or `lazy-` prefix to lazy load.
 
 - `<App>` | `<app>` (components/App.vue)
-- `<Footer>` | `<footer>` (components/footer/Footer.vue)
-- `<FooterItem>` | `<footer-item>` (components/footer/FooterItem.vue)
 - `<ButtonCalcButton>` | `<button-calc-button>` (components/button/CalcButton.vue)
 - `<ButtonClassicButton>` | `<button-classic-button>` (components/button/ClassicButton.vue)
 - `<ButtonMainButton>` | `<button-main-button>` (components/button/MainButton.vue)
 - `<ButtonMainButtonBlack>` | `<button-main-button-black>` (components/button/MainButtonBlack.vue)
 - `<ButtonServiceButton>` | `<button-service-button>` (components/button/ServiceButton.vue)
 - `<ButtonStarsRating>` | `<button-stars-rating>` (components/button/StarsRating.vue)
+- `<Footer>` | `<footer>` (components/footer/Footer.vue)
+- `<FooterItem>` | `<footer-item>` (components/footer/FooterItem.vue)
 - `<Header>` | `<header>` (components/header/Header.vue)
 - `<MainBanner>` | `<main-banner>` (components/main/Banner.vue)
 - `<MainCalc>` | `<main-calc>` (components/main/Calc.vue)
