@@ -1,7 +1,7 @@
 <template>
-  <div class="contacts container " :style="modalCalc?'padding: 0px':''">
-	<div v-if="modalCalc" class="contacts__title modalCalc">
-      <h2 >ЗАМОВЛЕННЯ</h2>
+  <div class="contacts container" :style="modalCalc ? 'padding: 0px' : ''">
+    <div v-if="modalCalc" class="contacts__title modalCalc">
+      <h2>ЗАМОВЛЕННЯ</h2>
       <div
         class="contacts__modal__btn"
         @click.stop="$emit('closeModal')"
@@ -11,7 +11,7 @@
       </div>
     </div>
     <div v-else="!modalCalc" class="contacts__title">
-      <h2 >Контакти</h2>
+      <h2>Контакти</h2>
       <div
         class="contacts__modal__btn"
         @click.stop="$emit('closeModal')"
@@ -20,27 +20,22 @@
         <button><span></span></button>
       </div>
     </div>
-	 
+
     <div class="contacts__body">
-      <div class="contacts__body_form" >
+      <div class="contacts__body_form">
         <form>
           <label for="text">
             <input
               class="contacts__form_inpt"
-				  
               type="text"
               placeholder="Введіть ваше ім'я *"
             />
           </label>
           <label for="number">
-            <input type="number" 
-				
-				placeholder="Номер телефону *" />
+            <input type="number" placeholder="Номер телефону *" />
           </label>
           <label for="mail">
-            <input type="mail" 
-				
-				placeholder="Email *" />
+            <input type="mail" placeholder="Email *" />
           </label>
 
           <div class="contact_services">
@@ -51,7 +46,8 @@
                   :key="index"
                   :isActive="item.isActive"
                   :itemId="item.type"
-                  @itemIdSelect="toggleListItemSelect"
+                  @itemIdSelect="$emit('selectCalcTabs', index)"
+                  @removeItemSelect="removeSelect"
                   >{{ item.type }}</ServiceButton
                 >
               </div>
@@ -72,16 +68,19 @@
                 :isActive="item.isActive"
                 :itemId="item.type"
                 @itemIdSelect="toggleListItemActive"
+                @removeItemSelect="removeSelect"
                 >{{ item.type }}</ServiceButton
               >
             </div>
           </div>
-          <div v-show="!modalCalc"
+          <div
+            v-show="!modalCalc"
             class="contacts__body_form_btn'"
             @click.prevent="$emit('modalClose')"
           >
-            <MainButton :fontSize="'font-size:20px;padding:7px'"
-				:style="'width:200px;margin-top:70px;margin-left:40px;'"
+            <MainButton
+              :fontSize="'font-size:20px;padding:7px'"
+              :style="'width:200px;margin-top:70px;margin-left:40px;'"
               >надіслати</MainButton
             >
           </div>
@@ -165,9 +164,9 @@ export default {
     modal: {
       type: Boolean,
     },
-	 modalCalc:{
-		type:Boolean
-	 }
+    modalCalc: {
+      type: Boolean,
+    },
   },
   data() {
     return {
@@ -197,16 +196,22 @@ export default {
         this.selectServices = false;
       }
     },
-    toggleListItemActive(id) {
+    toggleListItemActive(name) {
       this.itemListServices.forEach((item, index) => {
-        if (item.type === id) {
-          item.isActive = !item.isActive;
+        if (item.type === name) {
+          item.isActive = true;
           this.selectServices = true;
           this.itemListServicesSelect.push(item);
+          this.$emit("selectCalcTabs", index);
+          this.toggleServiceCard();
         }
       });
       console.log(this.itemListServices);
       console.log(this.itemListServicesSelect);
+    },
+    removeSelect(i) {
+      this.itemListServicesSelect.filter((item) => item != i);
+      this.$emit("removeCalcTabs", i);
     },
   },
 };
@@ -251,7 +256,6 @@ export default {
   z-index: 96;
 }
 
-
 /* .contacts::before {
 	content: "";
 	position: absolute;
@@ -295,8 +299,8 @@ export default {
   text-transform: uppercase;
   font-size: 80px;
 }
-.modalCalc{
-	margin-bottom: 70px;
+.modalCalc {
+  margin-bottom: 70px;
 }
 
 .contacts__body {
@@ -325,7 +329,6 @@ export default {
   border-bottom: 1px solid rgba(248, 248, 248, 1);
   margin-bottom: 30px;
 }
-
 
 .contacts__form_inpt {
 }
@@ -545,13 +548,10 @@ export default {
     flex: 1 1 100%;
     align-items: center;
   }
-
 }
 @media (max-width: 500px) {
-	.contacts__body_form input {
-		margin-bottom: 10px;
-	}
+  .contacts__body_form input {
+    margin-bottom: 10px;
+  }
 }
-
-
 </style>

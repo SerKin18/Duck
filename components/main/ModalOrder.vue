@@ -1,16 +1,18 @@
 <template>
   <div class="modal-block">
     <div class="modal-window">
-      <div class="contacts__modal__btn" @click.stop="$emit('close')">
+      <div class="contacts__modal__btn" @click.stop="closeModalOrder">
         <button><span></span></button>
       </div>
       <div class="modal container">
         <Contacts
-          :modal="true"
-          :modalCalc="true"
-          @closeModal="$emit('close')"
+          v-bind:modal="modalContact"
+          v-bind:modalCalc="modalCalc"
+          @closeModal="closeModalOrder"
+          @selectCalcTabs="selectTab"
+          @removeCalcTabs="removeTab"
         ></Contacts>
-        <Calc :modalCalc="true"></Calc>
+        <Calc v-bind:modalCalc="modalCalc" v-bind:selectTabModal="0"></Calc>
       </div>
     </div>
   </div>
@@ -26,10 +28,31 @@ export default {
     modalCalcOpen: {
       type: Boolean,
     },
+    openOrderCalcTab: {
+      type: Number,
+    },
   },
   data() {
-    return {};
+    return {
+      selectCalc: 0,
+      modalCalc: true,
+      modalContact: true,
+    };
   },
+  methods: {
+    selectTab(i) {
+      this.selectCalc = i;
+    },
+    removeTab(i) {
+      this.selectCalcTabs.filter((tab) => tab != i);
+    },
+    closeModalOrder() {
+      (this.modalContact = false), (this.modalCalcOpen = false);
+      this.$emit("close");
+    },
+  },
+
+
 };
 </script>
 <style scoped>
@@ -47,11 +70,8 @@ export default {
   z-index: 99;
 
   padding: 15px;
-
 }
 .modal-window {
-
- 
   overflow-y: hidden;
   height: 100%;
 }

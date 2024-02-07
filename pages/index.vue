@@ -3,8 +3,9 @@
 </template>
 
 <script>
-import Header from '../components/header/Header.vue';
-import Calc from '../components/main/Calc.vue';
+import Header from "../components/header/Header.vue";
+import Calc from "../components/main/Calc.vue";
+
 export default {
   name: "IndexPage",
 };
@@ -40,8 +41,8 @@ export default {
 }
 
 :root {
-	--classic:"GothamPro",sans-serif;
-	--title:"GothamPro_Bold", sans-serif;
+  --classic: "GothamPro", sans-serif;
+  --title: "GothamPro_Bold", sans-serif;
   --title-font: "NeutralFace", sans-serif;
   --subTitle-font: "Radiotechnika", sans-serif;
 }
@@ -89,7 +90,7 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font-family: var(--classic)
+  font-family: var(--classic);
 }
 
 input,

@@ -6,7 +6,7 @@
       @click.prevent="$emit('itemIdSelect', itemId)"
     >
       <slot></slot>
-      <span @click.stop="$emit('itemIdSelect', itemId)"></span>
+      <span @click.stop="$emit('removeItemSelect', itemId)"></span>
     </button>
   </div>
 </template>

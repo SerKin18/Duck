@@ -369,4 +369,6 @@ export default {
     padding: 65px 14.5px;
   }
 }
+@media (max-width: 400px){
+}
 </style>

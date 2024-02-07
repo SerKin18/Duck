@@ -14,7 +14,7 @@
               <nuxt-link
                 :key="items.title"
                 :to="{ path: '/', hash: items.path }"
-                v-scroll-to="{ el: '#' + items.path }"
+                :v-scroll-to="{ el: '#' + items.path }"
                 >{{ items.title }}</nuxt-link
               >
             </li>
@@ -28,7 +28,7 @@
               <nuxt-link
                 :key="items.title"
                 :to="{ path: '/', hash: items.path }"
-                v-scroll-to="{ el: '#' + items.path }"
+                :v-scroll-to="{ el: '#' + items.path }"
                 >{{ items.title }}</nuxt-link
               >
             </li>

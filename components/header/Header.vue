@@ -11,28 +11,25 @@
               <ul @click.prevent="" class="header__list">
                 <li>
                   <nuxt-link
-                    
                     class="header__link"
                     :to="{ path: '/', hash: 'service' }"
-                    v-scroll-to="{ el: '#service' }"
+                    :v-scroll-to="{ el: '#service' }"
                     >Услуги<span></span
                   ></nuxt-link>
                 </li>
                 <li>
                   <nuxt-link
-                    
                     class="header__link"
                     :to="{ path: '/', hash: 'portfolio' }"
-                    v-scroll-to="{ el: '#portfolio' }"
+                    :v-scroll-to="{ el: '#portfolio' }"
                     >Портфолио<span></span
                   ></nuxt-link>
                 </li>
                 <li>
                   <nuxt-link
-                    
                     class="header__link"
                     :to="{ path: '/', hash: 'whyus' }"
-                    v-scroll-to="{ el: '#whyus' }"
+                    :v-scroll-to="{ el: '#whyus' }"
                     >Преимущества<span></span
                   ></nuxt-link>
                 </li>
@@ -40,7 +37,7 @@
                   <nuxt-link
                     class="header__link"
                     :to="{ path: '/', hash: 'calc' }"
-                    v-scroll-to="{ el: '#calc' }"
+                    :v-scroll-to="{ el: '#calc' }"
                     >Калькулятор</nuxt-link
                   >
                   <!-- <nuxt-link href="#calculate" class="header__link"
@@ -52,7 +49,7 @@
                     href=""
                     class="header__link"
                     :to="{ path: '/', hash: 'radio' }"
-                    v-scroll-to="{ el: '#radio' }"
+                    :v-scroll-to="{ el: '#radio' }"
                     >Крядио<span></span
                   ></nuxt-link>
                 </li>
@@ -70,43 +67,43 @@
             </div>
             <div class="header__menu_dropdown_menu">
               <nav class="header__menu">
-                <ul @click.prevent="" class="header__list">
-                  <li>
-                    <nuxt-link  @click.stop="toggleMenu"
+                <ul class="header__list">
+                  <li @click="toggleMenu">
+                    <nuxt-link
                       :to="{ path: '/', hash: 'service' }"
-                      v-scroll-to="{ el: '#service' }"
+                      :v-scroll-to="{ el: '#service' }"
                       class="header__link"
                       >Услуги<span></span
                     ></nuxt-link>
                   </li>
-                  <li>
-                    <nuxt-link  @click.stop="toggleMenu"
+                  <li @click="toggleMenu">
+                    <nuxt-link
                       :to="{ path: '/', hash: 'portfolio' }"
-                      v-scroll-to="{ el: '#portfolio' }"
+                      :v-scroll-to="{ el: '#portfolio' }"
                       class="header__link"
                       >Портфолио<span></span
                     ></nuxt-link>
                   </li>
-                  <li>
-                    <nuxt-link  @click.stop="toggleMenu"
+                  <li @click="toggleMenu">
+                    <nuxt-link
                       :to="{ path: '/', hash: 'whyus' }"
-                      v-scroll-to="{ el: '#whyus' }"
+                      :v-scroll-to="{ el: '#whyus' }"
                       class="header__link"
                       >Преимущества<span></span
                     ></nuxt-link>
                   </li>
-                  <li>
-                    <nuxt-link  @click.stop="toggleMenu"
+                  <li @click="toggleMenu">
+                    <nuxt-link
                       :to="{ path: '/', hash: 'calc' }"
-                      v-scroll-to="{ el: '#calc' }"
+                      :v-scroll-to="{ el: '#calc' }"
                       class="header__link"
                       >Калькулятор<span></span
                     ></nuxt-link>
                   </li>
-                  <li>
-                    <nuxt-link @click.stop="toggleMenu"
+                  <li @click="toggleMenu">
+                    <nuxt-link
                       :to="{ path: '/', hash: 'radio' }"
-                      v-scroll-to="{ el: '#radio' }"
+                      :v-scroll-to="{ el: '#radio' }"
                       class="header__link"
                       >Крядио<span></span
                     ></nuxt-link>
@@ -150,6 +147,7 @@ export default {
   methods: {
     toggleMenu() {
       this.openMenu = !this.openMenu;
+      console.log(this.openMenu);
     },
     openModalWindow() {
       this.openModal = !this.openModal;
