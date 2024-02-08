@@ -8,9 +8,6 @@
   "FooterItem": {
     "description": "Auto imported from components/footer/FooterItem.vue"
   },
-  "Header": {
-    "description": "Auto imported from components/header/Header.vue"
-  },
   "ButtonCalcButton": {
     "description": "Auto imported from components/button/CalcButton.vue"
   },
@@ -28,6 +25,9 @@
   },
   "ButtonStarsRating": {
     "description": "Auto imported from components/button/StarsRating.vue"
+  },
+  "Header": {
+    "description": "Auto imported from components/header/Header.vue"
   },
   "MainBanner": {
     "description": "Auto imported from components/main/Banner.vue"

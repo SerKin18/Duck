@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="container">
-      <div class="header">
+      <div class="header" id="header">
         <div class="header__body">
           <nuxt-link to="" class="header__logo">
             <img src="../../static/image/logo-full.png" alt="Logo" />

@@ -80,6 +80,13 @@
     </div>
     <div class="footer__bottom">
       <p>© 2023 kravatka.agency - All right reserved</p>
+      <button>
+        <nuxt-link
+          :to="{ path: '/', hash: 'header' }"
+          :v-scroll-to="{ el: '#header' }"
+          >до початку</nuxt-link
+        >
+      </button>
     </div>
   </div>
 </template>
@@ -210,6 +217,29 @@ export default {
 }
 .footer__bottom p {
   text-align: center;
+}
+.footer__bottom {
+  position: relative;
+}
+
+.footer__bottom button {
+  position: absolute;
+  top: -150px;
+  right: 50px;
+  width: 80px;
+  height: 80px;
+  background: transparent;
+  border: 1px solid rgba(234, 90, 37, 1);
+  text-align: center;
+}
+.footer__bottom a {
+  font-family: var(--subTitle-font);
+  text-wrap: wrap;
+  font-size: 10px;
+  line-height: 19px;
+}
+.footer__bottom button:hover {
+  background: rgba(234, 90, 37, 1);
 }
 @media (max-width: 1200px) {
   .footer__body {
