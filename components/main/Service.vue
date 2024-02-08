@@ -5,10 +5,9 @@
     </div>
     <div class="services__body">
       <ServiceItem
-        v-for="(service,index) in services"
+        v-for="(service, index) in services"
         :service="service"
         :key="index"
-		  
         @openModalOrder="openModalOrderWindow"
       ></ServiceItem>
     </div>
@@ -17,18 +16,21 @@
       :fontSize="'font-size:17px;padding:9px;width:220px;margin-left:0px'"
       >відправити запит</main-button
     >
-    <ModalOrder v-if="openModalOrder" @close="openModalOrderWindow"
-	 v-bind:openOrderCalcTab="openModalOrderCalc"></ModalOrder>
-	 <Modal v-if="openModal" @close="openModalWindow"></Modal>
+    <ModalOrder
+      v-if="openModalOrder"
+      @close="openModalOrderWindow"
+      v-bind:openOrderCalcTab="openModalOrderCalc"
+    ></ModalOrder>
+    <Modal v-if="openModal" @close="openModalWindow"></Modal>
   </div>
 </template>
 <script>
 import MainButton from "../button/MainButton.vue";
 import ServiceItem from "./ServiceItem.vue";
 import ModalOrder from "./ModalOrder.vue";
-import Modal from './Modal'
+import Modal from "./Modal";
 export default {
-  components: { MainButton, ServiceItem, ModalOrder ,Modal},
+  components: { MainButton, ServiceItem, ModalOrder, Modal },
   name: "Service",
   props: {
     services: {
@@ -40,8 +42,8 @@ export default {
     return {
       openMenu: false,
       openModalOrder: false,
-		openModalOrderCalc:0,
-		openModal:false
+      openModalOrderCalc: 0,
+      openModal: false,
     };
   },
   methods: {
@@ -51,8 +53,8 @@ export default {
     openModalWindow() {
       this.openModal = !this.openModal;
     },
-	 openModalOrderWindow(id) {
-		this.openModalOrderCalc=id
+    openModalOrderWindow(id) {
+      this.openModalOrderCalc = id;
       this.openModalOrder = !this.openModalOrder;
     },
   },
@@ -75,7 +77,6 @@ export default {
   margin-bottom: 90px;
 }
 .services__body {
-  margin-bottom: 40px;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -97,6 +98,9 @@ export default {
 @media (max-width: 767px) {
   .services__title {
     font-size: 22px;
+  }
+  .services__body {
+    margin-bottom: 40px;
   }
 }
 </style>

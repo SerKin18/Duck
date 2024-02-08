@@ -167,6 +167,7 @@ export default {
 </script>
 <style scoped>
 .radio_block {
+  position: relative;
   padding: 100px 14.5px;
   background: rgba(32, 63, 106, 1);
   z-index: 9;
@@ -451,7 +452,7 @@ export default {
     margin-bottom: 40px;
   }
   .radio_block {
-    padding: 50px 14.5px 50px 14.5px;
+    padding: 30px 14.5px 50px 14.5px;
     align-items: center;
   }
   .radio_title {

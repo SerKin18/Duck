@@ -19,7 +19,9 @@
     <div class="block-1__image">
       <img src="/image/design-banner.png" alt="image-duck-banner" />
     </div>
-    <main-button class="btn-block-2" :fontSize="'font-size:18px;padding:8px;width: 220px'"
+    <main-button
+      class="btn-block-2"
+      :fontSize="'font-size:18px;padding:8px;width: 220px'"
       >поговоримо?</main-button
     >
   </div>
@@ -43,17 +45,18 @@ export default {
   justify-content: space-between;
   z-index: 9;
   margin-bottom: 100px;
-  padding:0px 14.5px;
+  padding: 0px 14.5px;
 }
 .btn-block-2 {
   display: none;
 }
 
-.btn-block-1  {
+.btn-block-1 {
   width: 240px;
   margin: 0px 0px 0px 50px;
 }
 .block-1__body {
+  position: relative;
   display: flex;
   flex-direction: column;
   max-width: 535px;
@@ -91,7 +94,7 @@ export default {
   right: 50.5%;
   width: 34.29px;
   height: 34.29px;
-  background: url(../../static/image/block-1-snow-i.svg) center;
+  background: url(~/static/image/block-1-snow-i.svg) center;
 }
 
 .block-1__body_text {
@@ -104,7 +107,7 @@ export default {
 
 .block-1__image {
   max-width: 50%;
-  z-index: 2;
+  z-index: 5;
   position: relative;
 }
 .block-1__image::before {
@@ -127,7 +130,7 @@ export default {
   right: 100px;
   width: 230px;
   height: 230px;
-  background: url(../../static/image/bloc-1-image8.png) center no-repeat;
+  background: url(~/static/image/bloc-1-image8.png) center no-repeat;
   z-index: 2;
 }
 .block-1__image img {
@@ -136,6 +139,16 @@ export default {
   right: -130px;
   scale: 0.7;
   z-index: 96;
+}
+.block-1__body::before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: -170px;
+  width: 230px;
+  height: 230px;
+  background: url(../../static/image/block-1-image3.png) center no-repeat;
+  z-index: 1;
 }
 
 @media (max-width: 1200px) {
@@ -156,6 +169,12 @@ export default {
   }
   .block-1__body {
     margin-top: 50px;
+  }
+  .block-1__body::before {
+    top: 60px;
+    right: -100px;
+    scale: 0.9;
+    z-index: 1;
   }
 }
 @media (max-width: 970px) {
@@ -188,28 +207,36 @@ export default {
   .block-1__body {
     max-width: 100%;
   }
+  .block-1__body::before {
+    top: 200px;
+    left: -30px;
+    scale: 0.8;
+    z-index: 1;
+  }
   .block-1__image {
     align-items: center;
     justify-content: flex-end;
     max-width: 100%;
   }
-  .block-1__image img{
-	margin-left: 50px;
+  .block-1__image img {
+    margin-left: 50px;
+    z-index: 5;
+    position: static;
+    scale: 0.4;
+    z-index: 5;
   }
   .block-1__image::after {
-    display: none;
+    top: -40px;
+    right: 0px;
+    scale: 0.8;
+    z-index: 1;
   }
   .block-1__image::before {
     height: 600px;
     width: 662px;
     top: -150px;
-    right: -200px;
+    right: -100px;
     transform: rotate(-47.3deg);
-  }
-  .block-1__image img {
-    position: static;
-    scale: 0.4;
-    z-index: 96;
   }
 
   .block-1__body_title {

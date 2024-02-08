@@ -6,7 +6,7 @@
           <span></span>
           <h4 @click.stop="closeCard">{{ service.title }}</h4>
         </div>
-        <div class="service-item-header__subtitle">
+        <div class="service-item-header__subtitle" @click.stop="showCard">
           <p>{{ service.subtitle }}</p>
         </div>
         <div class="service-item-body" v-show="showServiceCard">
@@ -24,9 +24,7 @@
             </p>
           </div>
           <div class="service-item-main-bottom">
-            <main-button-black
-              @openModal="openModalOrder"
-				  :id="service.id"
+            <main-button-black @openModal="openModalOrder" :id="service.id"
               >відправити запит</main-button-black
             >
           </div>
@@ -64,9 +62,9 @@ export default {
       type: Object,
       required: true,
     },
-	 id:{
-		type:Number
-	 }
+    id: {
+      type: Number,
+    },
   },
   data() {
     return {
@@ -80,13 +78,12 @@ export default {
     closeCard() {
       this.showServiceCard = !this.showServiceCard;
     },
-	 openModalOrder(id){
-		
-		console.log(id);
-		
-		this.showServiceCard=false;
-		this.$emit('openModalOrder', id)
-	 }
+    openModalOrder(id) {
+      console.log(id);
+
+      this.showServiceCard = false;
+      this.$emit("openModalOrder", id);
+    },
   },
 };
 </script>
@@ -94,6 +91,7 @@ export default {
 .active {
   z-index: 6;
   max-height: 100%;
+
   background-color: rgba(234, 90, 37, 1);
 
   .service-item-header__title span::before,
@@ -101,6 +99,9 @@ export default {
     top: 8px;
     left: -25px;
     background-color: rgb(7, 7, 7);
+  }
+  .service-item {
+    height: 100%;
   }
   .service-item-header__title span::before {
     top: 10px;
@@ -118,11 +119,13 @@ export default {
     margin-bottom: 0px;
   }
 }
+
 .service-item_block {
   display: flex;
   align-self: start;
   flex-direction: column;
-  max-width: 435px;
+  max-width: 417px;
+
   height: 100%;
   padding: 14px 23px;
   margin-bottom: 70px;
@@ -132,8 +135,9 @@ export default {
   align-self: start;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 100%;
-  height: 100%;
+  height: 186px;
 }
 .service-item-main-bottom {
   max-width: 100%;
@@ -150,11 +154,12 @@ export default {
   }
 }
 .service-item__header {
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 .service-item-header__title {
   font-family: var(--title-font);
   text-transform: uppercase;
+  text-wrap: nowrap;
   font-size: 24px;
   color: white;
   margin-bottom: 20px;
@@ -261,6 +266,7 @@ span::after {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  margin-top: 10px;
 }
 .service-item-footer__link a {
   position: relative;
@@ -370,5 +376,4 @@ span::after {
     left: -18px;
   }
 }
-
 </style>
