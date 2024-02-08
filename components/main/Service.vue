@@ -75,11 +75,23 @@ export default {
   font-size: 80px;
   align-self: start;
   margin-bottom: 90px;
+  position: relative;
 }
 .services__body {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+}
+.services__title::after {
+  content: "";
+  position: absolute;
+  top: 160px;
+  right: -1050px;
+  width: 190px;
+  height: 190px;
+  background: url(../../static/image/service-image-background.png) center
+    no-repeat;
+  z-index: 1;
 }
 @media (max-width: 1200px) {
   .services {
