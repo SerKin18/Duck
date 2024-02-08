@@ -80,6 +80,13 @@
     </div>
     <div class="footer__bottom">
       <p>© 2023 kravatka.agency - All right reserved</p>
+      <button>
+        <nuxt-link
+          :to="{ path: '/', hash: 'header' }"
+          :v-scroll-to="{ el: '#header' }"
+          >до початку</nuxt-link
+        >
+      </button>
     </div>
   </div>
 </template>
@@ -114,18 +121,18 @@ export default {
         { title: "Створення сайту у Дніпрі", path: "" },
       ],
       itemListSocial: [
-        "Facebook",
-        "Instagram",
-        "Linkedin",
-        "Behance",
-        "Vimeo",
-        "Pinterest",
+        { title: "Facebook", path: "" },
+        { title: "Instagram", path: "" },
+        { title: "Linkedin", path: "" },
+        { title: "Behance", path: "" },
+        { title: "Vimeo", path: "" },
+        { title: "Pinterest", path: "" },
       ],
     };
   },
 };
 </script>
-<style>
+<style scoped>
 .footer {
   padding: 0px 14.5px;
 }
@@ -211,6 +218,29 @@ export default {
 .footer__bottom p {
   text-align: center;
 }
+.footer__bottom {
+  position: relative;
+}
+
+.footer__bottom button {
+  position: absolute;
+  top: -150px;
+  right: 50px;
+  width: 80px;
+  height: 80px;
+  background: transparent;
+  border: 1px solid rgba(234, 90, 37, 1);
+  text-align: center;
+}
+.footer__bottom button > * {
+  font-family: var(--subTitle-font);
+  text-wrap: wrap;
+  font-size: 10px;
+  line-height: 19px;
+}
+.footer__bottom button:hover {
+  background: rgba(234, 90, 37, 1);
+}
 @media (max-width: 1200px) {
   .footer__body {
     flex-wrap: wrap;
@@ -244,6 +274,9 @@ export default {
     .info__text {
       display: none;
     }
+  }
+  .footer__bottom button {
+    display: none;
   }
 }
 </style>
