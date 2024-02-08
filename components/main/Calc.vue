@@ -899,10 +899,21 @@ export default {
 }
 
 .calc_body {
+  position: relative;
   max-height: 100%;
   width: 100%;
 }
 
+.calc_body::before {
+  content: "";
+  position: absolute;
+  bottom: -130px;
+  left: -250px;
+  width: 210px;
+  height: 190px;
+  background: url(../../static/image/calc-background.png) center no-repeat;
+  z-index: 1;
+}
 .calc_footer {
   display: flex;
   align-items: center;

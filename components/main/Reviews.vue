@@ -327,6 +327,7 @@ export default {
 .reviews__header {
   margin-bottom: 90px;
 }
+
 .reviews__header_title {
   font-family: var(--title);
   letter-spacing: -2px;
@@ -345,11 +346,22 @@ export default {
   }
 }
 .reviews__body {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   padding: 0px -7px;
+}
+.reviews__body::after {
+  content: "";
+  position: absolute;
+  top: 220px;
+  right: -250px;
+  width: 190px;
+  height: 190px;
+  background: url(../../static/image/reviews-background.png) center no-repeat;
+  z-index: 1;
 }
 @media (max-width: 1200px) {
   .reviews__body {
@@ -369,6 +381,6 @@ export default {
     padding: 65px 14.5px;
   }
 }
-@media (max-width: 400px){
+@media (max-width: 400px) {
 }
 </style>
