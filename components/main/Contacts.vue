@@ -73,16 +73,18 @@
               >
             </div>
           </div>
-          <div
-            v-show="!modalCalc"
-            class="contacts__body_form_btn'"
-            @click.prevent="$emit('modalClose')"
-          >
-            <MainButton
-              :fontSize="'font-size:20px;padding:7px'"
-              :style="'width:200px;margin-top:70px;margin-left:40px;'"
-              >надіслати</MainButton
+          <div class="contacts__body_form_btn-wrapper">
+            <div
+              v-show="!modalCalc"
+              class="contacts__body_form_btn'"
+              @click.prevent="$emit('modalClose')"
             >
+              <MainButton
+                :fontSize="'font-size:20px;padding:7px'"
+                :style="'width:200px;margin-top:70px;margin-left:40px;'"
+                >надіслати</MainButton
+              >
+            </div>
           </div>
         </form>
       </div>
@@ -256,20 +258,19 @@ export default {
   z-index: 96;
 }
 
-/* .contacts::before {
-	content: "";
-	position: absolute;
-	bottom: -170px;
-	left: -620px;
-	height: 492px;
-	width: 842px;
-	transform: rotate(133deg);
-	opacity: 30%;
-	background: linear-gradient(87.08deg, #203f6a 0%, #ea5a25 100%);
-	box-shadow: inset 0px 0px 130px 50px black;
-
-	z-index: 1;
-} */
+.contacts::before {
+  content: "";
+  position: absolute;
+  bottom: -180px;
+  left: -680px;
+  height: 492px;
+  width: 842px;
+  transform: rotate(135deg);
+  opacity: 30%;
+  background: linear-gradient(87.08deg, #203f6a 0%, #ea5a25 100%);
+  box-shadow: inset 0px 0px 130px 50px black;
+  z-index: 1;
+}
 
 /* .contacts::after {
 	content: "";
@@ -523,7 +524,7 @@ export default {
 }
 
 @media (max-width: 767px) {
-  .contacts__modal__btn {
+  .contacts__body_form_btn-wrapper {
     display: none;
   }
   .contacts__title {
@@ -536,8 +537,6 @@ export default {
 
   .contacts__body_form_btn {
     display: none;
-    margin-top: 10px;
-    flex: 1 1 100%;
   }
 
   .contacts__body_info {
@@ -547,6 +546,12 @@ export default {
   .contacts__body_info {
     flex: 1 1 100%;
     align-items: center;
+  }
+  .contacts::before {
+    bottom: -80px;
+    left: -350px;
+    height: 492px;
+    width: 842px;
   }
 }
 @media (max-width: 500px) {

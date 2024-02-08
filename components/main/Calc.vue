@@ -953,9 +953,11 @@ export default {
 
   .calc_subtitle p {
     font-size: 10px;
+    text-wrap: nowrap;
   }
 
-  .calc_subtitle span {
+  .calc_subtitle button,
+  span {
     display: none;
   }
 
