@@ -121,18 +121,18 @@ export default {
         { title: "Створення сайту у Дніпрі", path: "" },
       ],
       itemListSocial: [
-        "Facebook",
-        "Instagram",
-        "Linkedin",
-        "Behance",
-        "Vimeo",
-        "Pinterest",
+        { title: "Facebook", path: "" },
+        { title: "Instagram", path: "" },
+        { title: "Linkedin", path: "" },
+        { title: "Behance", path: "" },
+        { title: "Vimeo", path: "" },
+        { title: "Pinterest", path: "" },
       ],
     };
   },
 };
 </script>
-<style>
+<style scoped>
 .footer {
   padding: 0px 14.5px;
 }
@@ -232,7 +232,7 @@ export default {
   border: 1px solid rgba(234, 90, 37, 1);
   text-align: center;
 }
-.footer__bottom a {
+.footer__bottom button > * {
   font-family: var(--subTitle-font);
   text-wrap: wrap;
   font-size: 10px;
@@ -274,6 +274,9 @@ export default {
     .info__text {
       display: none;
     }
+  }
+  .footer__bottom button {
+    display: none;
   }
 }
 </style>

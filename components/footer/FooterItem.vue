@@ -116,6 +116,44 @@ export default {
 .footer__item__btn span::after {
   transform: rotate(90deg);
 }
+.FQS-item__btn {
+  width: 30px;
+  height: 30px;
+}
+.FQS-item__btn {
+  position: relative;
+  display: none;
+}
+.FQS-item__btn span::before,
+.FQS-item__btn span::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 15px;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+}
+.FQS-item__btn span::after {
+  transform: rotate(90deg);
+}
+
+.FQS-item_block:hover {
+  padding: 5px;
+  border: 1px solid rgba(234, 90, 37, 1);
+
+  .FQS-item__btn span::after {
+    top: 19px;
+    right: 3.5px;
+    width: 7.5px;
+    height: 2px;
+    background-color: rgb(255, 255, 255);
+  }
+  .FQS-item__btn span::before,
+  .FQS-item__btn span::after {
+    background-color: rgba(234, 90, 37, 1);
+  }
+}
 @media (max-width: 1200px) {
 }
 @media (max-width: 970px) {
