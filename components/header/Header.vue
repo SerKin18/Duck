@@ -111,7 +111,11 @@
                 </ul>
               </nav>
               <div class="header__button">
-                <main-button @openModal="openModalWindow" :noneShadow="true" class="btn-menu">
+                <main-button
+                  @openModal="openModalWindow"
+                  :noneShadow="true"
+                  class="btn-menu"
+                >
                   залишити заявку
                 </main-button>
               </div>
@@ -160,7 +164,7 @@ header {
   padding: 18px 14.5px 0px 14.5px;
 }
 .header__menu_dropdown {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   flex-direction: column;
@@ -171,6 +175,7 @@ header {
   padding: 40px 24px;
   background-color: black;
   z-index: 99;
+  overflow: none;
   .header__menu {
     margin-left: 0px;
   }
@@ -201,6 +206,7 @@ header {
     background-color: black;
     align-items: center;
     justify-content: center;
+
     .header__link {
       margin: 0px 0px 40px 0px;
     }

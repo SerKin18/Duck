@@ -1363,6 +1363,68 @@ export const PAGES_REVIEWS = [
     id: "60",
   },
 ];
+export const CALC_CHECKBOX= [
+	[
+	  { title: "Рукописна CMS", value: 15000, time: 10, isActive: false },
+	  { title: "Форма збору даних", value: 500, time: 1, isActive: false },
+	  { title: "Калькулятор цін", value: 1000, time: 1, isActive: false },
+	],
+	[
+	  { title: "Рукописна CMS", value: 15000, time: 10, isActive: false },
+	  { title: "Форма збору даних", value: 500, time: 1, isActive: false },
+	  { title: "Калькулятор цін", value: 1000, time: 1, isActive: false },
+	],
+	[
+	  { title: "Форма збору даних", value: 500, time: 1, isActive: false },
+	  { title: "Рукописна CMS", value: 15000, time: 10, isActive: false },
+	  { title: "Особистий кабінет", value: 1500, time: 6, isActive: false },
+	  {
+		 title: "Імпорт/експорт через Ексель",
+		 value: 5000,
+		 time: 4,
+		 isActive: false,
+	  },
+	  { title: "Онлайн оплата", value: 3000, time: 3, isActive: false },
+	  { title: "Фільтр товарів", value: 1500, time: 3, isActive: false },
+	  {
+		 title: "Ярлики товарів(Акції,новинки...)",
+		 value: 3000,
+		 time: 3,
+		 isActive: false,
+	  },
+	  {
+		 title: "Порівняння,рейтинг товарів",
+		 value: 3000,
+		 time: 3,
+		 isActive: false,
+	  },
+	],
+	[
+	  { title: "Форма збору даних", value: 500, time: 1, isActive: false },
+	  { title: "Рукописна CMS", value: 15000, time: 10, isActive: false },
+	  { title: "Особистий кабінет", value: 1500, time: 6, isActive: false },
+	],
+	[
+	  {
+		 title: "Бренд на аксесуарах",
+		 value: 500,
+		 time: 2,
+		 isActive: false,
+	  },
+	  { title: "Бренд на бланках", value: 500, time: 2, isActive: false },
+	  { title: "Бренд на одягу", value: 500, time: 1, isActive: false },
+	],
+ ];
+ export const CALC_TABS_ITEM=[
+	"Розробка сайту",
+	"Розробка Landing page",
+	"Розробка Iнтернет магазину",
+	"Розробка портала",
+	"Контекстна реклама",
+	"SEO просування",
+	"Розробка логотипу",
+	"Розробка фiрмового стилю",
+ ];
 export const FQS_ITEMS = [
   {
     text: "Скільки часу потрібно для дизайну та розробки веб-сайту?",

@@ -36,6 +36,9 @@ export default {
   overflow-y: hidden;
   cursor: pointer;
   transition: opacity 0.3s ease;
+  .contacts::before {
+    display: none;
+  }
 }
 .modal-window {
   display: table-cell;

@@ -62,23 +62,31 @@ export default {
   position: fixed;
   left: 0;
   top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
   background: rgba(18, 18, 18, 0.8);
   z-index: 99;
   padding: 15px;
-  .contacts::before,.calc_footer::before {
+  overflow-y: scroll;
+  scroll-behavior: auto;
+  .contacts::before,
+  .calc_footer::before {
     display: none;
   }
 }
+
 .modal-window {
-  overflow-y: hidden;
+  width: 100%;
   height: 100%;
 }
 .modal {
   background-color: black;
   padding: 50px 35.5px 50px 35.5px;
 }
+
 .contacts__modal__btn {
   display: none;
   width: 100%;

@@ -441,6 +441,8 @@ import {
   PAGES_SEO,
   PAGES_LOGO,
   PAGES_STYLE,
+  CALC_CHECKBOX,
+  CALC_TABS_ITEM
 } from "../../data/staticData";
 const SEO_MARKETING_PAGES = [4, 5];
 const getInitialTotal = () => ({ value: 0, time: 0 });
@@ -479,68 +481,8 @@ export default {
       time: 0,
       selectedIndex: 0,
       selectTabPage: [],
-      tabs: [
-        "Розробка сайту",
-        "Розробка Landing page",
-        "Розробка Iнтернет магазину",
-        "Розробка портала",
-        "Контекстна реклама",
-        "SEO просування",
-        "Розробка логотипу",
-        "Розробка фiрмового стилю",
-      ],
-      tabsCheckBox: [
-        [
-          { title: "Рукописна CMS", value: 15000, time: 10, isActive: false },
-          { title: "Форма збору даних", value: 500, time: 1, isActive: false },
-          { title: "Калькулятор цін", value: 1000, time: 1, isActive: false },
-        ],
-        [
-          { title: "Рукописна CMS", value: 15000, time: 10, isActive: false },
-          { title: "Форма збору даних", value: 500, time: 1, isActive: false },
-          { title: "Калькулятор цін", value: 1000, time: 1, isActive: false },
-        ],
-        [
-          { title: "Форма збору даних", value: 500, time: 1, isActive: false },
-          { title: "Рукописна CMS", value: 15000, time: 10, isActive: false },
-          { title: "Особистий кабінет", value: 1500, time: 6, isActive: false },
-          {
-            title: "Імпорт/експорт через Ексель",
-            value: 5000,
-            time: 4,
-            isActive: false,
-          },
-          { title: "Онлайн оплата", value: 3000, time: 3, isActive: false },
-          { title: "Фільтр товарів", value: 1500, time: 3, isActive: false },
-          {
-            title: "Ярлики товарів(Акції,новинки...)",
-            value: 3000,
-            time: 3,
-            isActive: false,
-          },
-          {
-            title: "Порівняння,рейтинг товарів",
-            value: 3000,
-            time: 3,
-            isActive: false,
-          },
-        ],
-        [
-          { title: "Форма збору даних", value: 500, time: 1, isActive: false },
-          { title: "Рукописна CMS", value: 15000, time: 10, isActive: false },
-          { title: "Особистий кабінет", value: 1500, time: 6, isActive: false },
-        ],
-        [
-          {
-            title: "Бренд на аксесуарах",
-            value: 500,
-            time: 2,
-            isActive: false,
-          },
-          { title: "Бренд на бланках", value: 500, time: 2, isActive: false },
-          { title: "Бренд на одягу", value: 500, time: 1, isActive: false },
-        ],
-      ],
+      tabs: CALC_TABS_ITEM,
+      tabsCheckBox: CALC_CHECKBOX,
       tabValue: [
         {
           tab: "Розробка сайту",
@@ -808,6 +750,9 @@ export default {
   padding: 0px;
   width: 100%;
   height: 100%;
+  .calc_body::before {
+    display: none;
+  }
 }
 .calc_modalOrder {
   padding: 0px;
