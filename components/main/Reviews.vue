@@ -235,6 +235,20 @@ export default {
   height: 100%;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+.reviews::before {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: -300px;
+  height: 492px;
+  width: 842px;
+  transform: rotate(135deg);
+  opacity: 30%;
+  background: linear-gradient(87.08deg, #203F6A 0%, #EA5A25 100%);
+  box-shadow: inset 0px 0px 130px 50px black;
+  z-index: 1;
 }
 .reviews__footer_toolbar {
   height: 50px;
@@ -366,6 +380,9 @@ export default {
 @media (max-width: 1200px) {
   .reviews__body {
     justify-content: center;
+  }
+  .reviews::before{
+	display: none;
   }
 }
 @media (max-width: 767px) {

@@ -93,41 +93,19 @@
 <script>
 import ClassicButton from "../button/ClassicButton.vue";
 import FooterItem from "./FooterItem.vue";
+import {
+  FOOTER_LIST_SERVICES,
+  FOOTER_LIST_INFO,
+  FOOTER_LIST_SOCIAL,
+} from "../../data/staticData";
 export default {
   components: { ClassicButton, FooterItem },
   name: "Footer",
   data() {
     return {
-      itemListServices: [
-        { title: "Landing page", path: "calc" },
-        { title: "Корпоративні сайти", path: "calc" },
-        { title: "Інтернет магазин", path: "calc" },
-        { title: "Бізнес сайт", path: "calc" },
-        { title: "Сайт візитка", path: "calc" },
-        { title: "Дизайн сайту", path: "calc" },
-        { title: "Розробка сайту", path: "calc" },
-        { title: "Редизайн сайту", path: "calc" },
-        { title: "Ecommerce проекти", path: "calc" },
-      ],
-      itemListInfo: [
-        { title: "Про нас", path: "" },
-        { title: "Послуги", path: "service" },
-        { title: "Портфоліо", path: "portfolio" },
-        { title: "Блог", path: "" },
-        { title: "Створення сайту на WordPress", path: "calc" },
-        { title: "Створення сайту на Opencart", path: "calc" },
-        { title: "Створення сайтів у Львові", path: "" },
-        { title: "Створення сайтів у Харкові", path: "" },
-        { title: "Створення сайту у Дніпрі", path: "" },
-      ],
-      itemListSocial: [
-        { title: "Facebook", path: "" },
-        { title: "Instagram", path: "" },
-        { title: "Linkedin", path: "" },
-        { title: "Behance", path: "" },
-        { title: "Vimeo", path: "" },
-        { title: "Pinterest", path: "" },
-      ],
+      itemListServices: FOOTER_LIST_SERVICES,
+      itemListInfo: FOOTER_LIST_INFO,
+      itemListSocial: FOOTER_LIST_SOCIAL,
     };
   },
 };

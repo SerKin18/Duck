@@ -67,6 +67,9 @@ export default {
   background: rgba(18, 18, 18, 0.8);
   z-index: 99;
   padding: 15px;
+  .contacts::before,.calc_footer::before {
+    display: none;
+  }
 }
 .modal-window {
   overflow-y: hidden;

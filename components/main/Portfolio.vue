@@ -16,49 +16,13 @@
 </template>
 <script>
 import PortfolioItem from "./PortfolioItem.vue";
+import { PORTFOLIO_ITEMS } from "../../data/staticData";
 export default {
   components: { PortfolioItem },
   name: "portfolio",
   data() {
     return {
-      portfolios: [
-        {
-          company: "Fielman",
-          category: "Інтернет магазин",
-          id: "1",
-          img: "image/Service-portfolio-card1.jpg",
-        },
-        {
-          company: "Fielman",
-          category: "Інтернет магазин",
-          id: "2",
-          img: "image/Service-portfolio-card1.jpg",
-        },
-        {
-          company: "Fielman",
-          category: "Інтернет магазин",
-          id: "3",
-          img: "image/Service-portfolio-card1.jpg",
-        },
-        {
-          company: "Fielman",
-          category: "Інтернет магазин",
-          id: "4",
-          img: "image/Service-portfolio-card1.jpg",
-        },
-        {
-          company: "Fielman",
-          category: "Інтернет магазин",
-          id: "5",
-          img: "image/Service-portfolio-card1.jpg",
-        },
-        {
-          company: "Fielman",
-          category: "Інтернет магазин",
-          id: "6",
-          img: "image/Service-portfolio-card1.jpg",
-        },
-      ],
+      portfolios: PORTFOLIO_ITEMS,
     };
   },
 };

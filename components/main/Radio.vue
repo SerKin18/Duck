@@ -3,8 +3,10 @@
     <div class="container">
       <div class="radio_title">
         <h2 id="radio">Крядио</h2>
-        <div class="radio__btn_header">
-          <button><span></span></button>
+        <div
+          :class="playerBtn ? 'radio__btn_header' : 'radio__btn_header_play'"
+        >
+          <button @click.prevent="stopPlay"><span></span></button>
         </div>
       </div>
       <div class="radio_footer__music_mobile">
@@ -77,82 +79,21 @@
 <script>
 import CalcCheckboxLineItem from "./CalcCheckboxLineItem.vue";
 import RadioItem from "./RadioItem.vue";
+import { RADIO_VOLUME_ITEMS, RADIO_VOLUME_FOTTER } from "../../data/staticData";
 export default {
   components: { CalcCheckboxLineItem, RadioItem },
   name: "radio",
   data() {
     return {
-      valueFooter: [
-        {
-          title: " ",
-          widthName: "left:-150%",
-          widthLine: "display:none",
-          value: 0,
-          isActive: false,
-        },
-        {
-          title: " ",
-          widthName: "left:-260%",
-          widthItem: "width:33.3%",
-          value: 1,
-          isActive: false,
-        },
-        {
-          title: " ",
-          widthName: "left:-150%",
-          widthItem: "width:66.6%",
-          value: 2,
-          isActive: false,
-        },
-        {
-          title: " ",
-          widthName: "left:-150%",
-          value: 3,
-          isActive: false,
-        },
-      ],
-      valueItemsBody: [
-        { id: 1, height: "58.13px", isActive: false, valueid: 1 },
-        { id: 2, height: "85.57px", isActive: false, valueid: 1 },
-        { id: 3, height: "105.28px", isActive: false, valueid: 1 },
-        { id: 4, height: "180.97px", isActive: false, valueid: 1 },
-        { id: 5, height: "150.42px", isActive: false, valueid: 1 },
-        { id: 6, height: "78.95px", isActive: false, valueid: 1 },
-        { id: 7, height: "120.53px", isActive: false, valueid: 1 },
-        { id: 8, height: "150.42px", isActive: false, valueid: 1 },
-        { id: 9, height: "58.13px", isActive: false, valueid: 1 },
-        { id: 10, height: "85.57px", isActive: false, valueid: 1 },
-        { id: 11, height: "105.28px", isActive: false, valueid: 1 },
-        { id: 12, height: "180.97px", isActive: false, valueid: 1 },
-        { id: 13, height: "150.42px", isActive: false, valueid: 2 },
-        { id: 14, height: "78.95px", isActive: false, valueid: 2 },
-        { id: 15, height: "120.53px", isActive: false, valueid: 2 },
-        { id: 16, height: "150.42px", isActive: false, valueid: 2 },
-        { id: 17, height: "120.53px", isActive: false, valueid: 2 },
-        { id: 18, height: "150.42px", isActive: false, valueid: 2 },
-        { id: 19, height: "150.42px", isActive: false, valueid: 2 },
-        { id: 20, height: "150.42px", isActive: false, valueid: 2 },
-        { id: 21, height: "120.53px", isActive: false, valueid: 2 },
-        { id: 22, height: "150.42px", isActive: false, valueid: 2 },
-        { id: 23, height: "120.53px", isActive: false, valueid: 2 },
-        { id: 24, height: "78.95px", isActive: false, valueid: 2 },
-        { id: 25, height: "150.42px", isActive: false, valueid: 2 },
-        { id: 26, height: "180.97px", isActive: false, valueid: 2 },
-        { id: 27, height: "105.28px", isActive: false, valueid: 2 },
-        { id: 28, height: "85.57px", isActive: false, valueid: 3 },
-        { id: 29, height: "58.13px", isActive: false, valueid: 3 },
-        { id: 30, height: "150.42px", isActive: false, valueid: 3 },
-        { id: 31, height: "120.53px", isActive: false, valueid: 3 },
-        { id: 32, height: "78.95px", isActive: false, valueid: 3 },
-        { id: 33, height: "150.42px", isActive: false, valueid: 3 },
-        { id: 34, height: "180.97px", isActive: false, valueid: 3 },
-        { id: 35, height: "105.28px", isActive: false, valueid: 3 },
-        { id: 36, height: "85.57px", isActive: false, valueid: 3 },
-        { id: 37, height: "58.13px", isActive: false, valueid: 3 },
-      ],
+      playerBtn: true,
+      valueFooter: RADIO_VOLUME_FOTTER,
+      valueItemsBody: RADIO_VOLUME_ITEMS,
     };
   },
   methods: {
+    stopPlay() {
+      this.playerBtn = !this.playerBtn;
+    },
     activeValue(i) {
       this.valueFooter.forEach((element) => (element.isActive = false));
       this.valueFooter[i].isActive = true;
@@ -182,24 +123,40 @@ export default {
   font-size: 80px;
   line-height: 75.56px;
   margin-bottom: 70px;
+  align-items: center;
 }
-.radio__btn_header {
+.play {
+  .radio__btn_header span::before {
+  }
+  .radio__btn_header span::after {
+  }
 }
-.radio__btn_header {
+.radio__btn_header,
+.radio__btn_header_play {
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+}
+.radio__btn_header button,
+.radio__btn_header_play button {
   position: relative;
   width: 60px;
   height: 60px;
   background: rgba(234, 90, 37, 1);
-  margin: 10px 10px 0px 30px;
 }
-.radio__btn_header:hover {
+.radio__btn_header button:hover {
   span::before,
   span::after {
     background: rgb(252, 252, 252);
   }
 }
-.radio__btn_header span::before,
-.radio__btn_header span::after {
+.radio__btn_header_play button:hover {
+  span::before {
+    border-color: transparent transparent transparent #fff;
+  }
+}
+.radio__btn_header button span::before,
+.radio__btn_header button span::after {
   content: "";
   position: absolute;
   top: 17px;
@@ -210,10 +167,25 @@ export default {
   transform: translateX(10px) rotate(90deg);
   transform-origin: left bottom;
 }
-.radio__btn_header span::before {
+.radio__btn_header_play button span::before {
+  content: "";
+  position: absolute;
+  top: 17px;
+  left: 13px;
+  width: 0;
+  height: 0;
+  background: none;
+  border-style: solid;
+  border-width: 10px 0 10px 17px;
+  border-color: transparent transparent transparent #000;
+  transform: translateX(10px) translateY(4px) rotate(0deg);
+  transform-origin: left bottom;
+}
+
+.radio__btn_header button span::before {
   left: 23px;
 }
-.radio__btn_header span::after {
+.radio__btn_header button span::after {
   left: 12px;
 }
 .radio_body {
@@ -465,7 +437,8 @@ export default {
     display: inline-block;
     text-align: center;
   }
-  .radio__btn_header {
+  .radio__btn_header,
+  .radio__btn_header_play {
     scale: 0.8;
   }
 

@@ -33,11 +33,13 @@ export default {
   margin: 0 auto;
 }
 .fqs {
+  position: relative;
   padding: 100px 14.5px;
   width: 100%;
   background: url(../../static/image/why-us-image.jpg) center;
   display: flex;
   flex-direction: column;
+  z-index: 2;
 }
 
 .fqs__title {
@@ -99,7 +101,6 @@ export default {
   }
 }
 @media (max-width: 767px) {
-	
   .fqs__title {
     font-size: 22px;
     line-height: 21px;

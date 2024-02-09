@@ -225,6 +225,7 @@ export default {
   height: 30px;
   text-align: right;
 }
+
 .contacts__modal__btn span::before,
 .contacts__modal__btn span::after {
   content: "";
@@ -524,6 +525,9 @@ export default {
 }
 
 @media (max-width: 767px) {
+  .contacts__modal__btn {
+    display: none;
+  }
   .contacts__body_form_btn-wrapper {
     display: none;
   }

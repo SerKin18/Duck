@@ -12,7 +12,7 @@
       </div>
       <main-button
         class="btn-block-1"
-        :fontSize="'font-size:18px;padding:8px;max-width:270px'"
+        :fontSize="'font-size:18px;padding:8px;max-width:270px;'"
         >поговоримо?</main-button
       >
     </div>
@@ -54,6 +54,8 @@ export default {
 .btn-block-1 {
   width: 240px;
   margin: 0px 0px 0px 50px;
+  position: relative;
+  z-index: 2;
 }
 .block-1__body {
   position: relative;
@@ -115,7 +117,7 @@ export default {
   position: absolute;
   bottom: -50px;
   right: 130px;
-  height: 400px;
+  height: 390px;
   width: 862px;
   transform: rotate(-47.3deg);
   opacity: 30%;

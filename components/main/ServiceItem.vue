@@ -80,7 +80,6 @@ export default {
     },
     openModalOrder(id) {
       console.log(id);
-
       this.showServiceCard = false;
       this.$emit("openModalOrder", id);
     },
@@ -89,9 +88,7 @@ export default {
 </script>
 <style scoped>
 .active {
-  z-index: 6;
   max-height: 100%;
-
   background-color: rgba(234, 90, 37, 1);
 
   .service-item-header__title span::before,
@@ -101,7 +98,7 @@ export default {
     background-color: rgb(7, 7, 7);
   }
   .service-item {
-    height: 100%;
+    height: 80%;
   }
   .service-item-header__title span::before {
     top: 10px;
@@ -200,6 +197,7 @@ span::after {
   flex-direction: column;
   align-items: center;
 }
+
 .service-item-image {
   margin: 19px 0px 21px 0px;
 }
@@ -209,7 +207,7 @@ span::after {
 .service-item-text {
   font-style: 16px;
   line-height: 25px;
-  margin-bottom: 140px;
+  margin-bottom: 50px;
 }
 .service-item-body_footer {
   display: flex;

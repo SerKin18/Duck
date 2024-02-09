@@ -821,6 +821,7 @@ export default {
 }
 
 .calc_title {
+  position: relative;
   font-family: var(--title);
   letter-spacing: -2px;
   line-height: 76px;
@@ -828,6 +829,7 @@ export default {
   font-size: 80px;
   margin-bottom: 90px;
   text-align: flex-start;
+  z-index: 2;
 }
 
 @supports (-webkit-text-stroke: 1px white) {
@@ -915,11 +917,13 @@ export default {
   z-index: 1;
 }
 .calc_footer {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   padding-top: 40px;
+  z-index: 2;
 }
 .calc_footer_modalOrder {
   margin-top: 35px;
@@ -931,6 +935,25 @@ export default {
 
 .calc_footer > * {
   width: 170px;
+}
+.calc_footer::before {
+  content: "";
+  position: absolute;
+  bottom: -300px;
+  right: -400px;
+  height: 492px;
+  width: 842px;
+  transform: rotate(135deg);
+  opacity: 30%;
+  background: linear-gradient(331deg, #203f6a 0%, #ea5a25 100%);
+  box-shadow: inset 0px 0px 130px 50px black;
+  z-index: 1;
+}
+
+@media (max-width: 1200px) {
+  .calc_footer::before {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {

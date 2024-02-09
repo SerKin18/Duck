@@ -111,7 +111,7 @@
                 </ul>
               </nav>
               <div class="header__button">
-                <main-button @openModal="openModalWindow" class="btn-menu">
+                <main-button @openModal="openModalWindow" :noneShadow="true" class="btn-menu">
                   залишити заявку
                 </main-button>
               </div>

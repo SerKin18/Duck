@@ -3,9 +3,6 @@
 </template>
 
 <script>
-import Header from "../components/header/Header.vue";
-import Calc from "../components/main/Calc.vue";
-
 export default {
   name: "IndexPage",
 };

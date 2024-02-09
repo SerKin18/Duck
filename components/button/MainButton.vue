@@ -1,5 +1,5 @@
 <template>
-  <div class="main__button">
+  <div :class="noneShadow ? 'main__button noneShadow' : 'main__button'">
     <button
       type="submit"
       class="button"
@@ -18,11 +18,17 @@ export default {
       type: String,
       required: false,
     },
+    noneShadow: {
+      type: Boolean,
+    },
   },
 };
 </script>
 <style scoped>
 .main__button {
+}
+.noneShadow .button {
+  box-shadow: none;
 }
 .button {
   font-family: var(--title);
@@ -36,6 +42,7 @@ export default {
   background: #ff723e;
   box-shadow: 0px 2px 120px 5px #ff723e;
 }
+
 .button::before {
   content: "";
   position: absolute;
