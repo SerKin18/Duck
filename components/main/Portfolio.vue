@@ -10,6 +10,7 @@
         v-for="item in portfolios"
         :item="item"
         :key="item.id"
+		  :id="item.id"
       ></PortfolioItem>
     </div>
   </div>

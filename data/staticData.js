@@ -1543,37 +1543,37 @@ export const PORTFOLIO_ITEMS = [
   {
     company: "Fielman",
     category: "Інтернет магазин",
-    id: "1",
+    id: 1,
     img: "image/Service-portfolio-card1.jpg",
   },
   {
     company: "Fielman",
     category: "Інтернет магазин",
-    id: "2",
+    id: 2,
     img: "image/Service-portfolio-card1.jpg",
   },
   {
     company: "Fielman",
     category: "Інтернет магазин",
-    id: "3",
+    id: 3,
     img: "image/Service-portfolio-card1.jpg",
   },
   {
     company: "Fielman",
     category: "Інтернет магазин",
-    id: "4",
+    id:4,
     img: "image/Service-portfolio-card1.jpg",
   },
   {
     company: "Fielman",
     category: "Інтернет магазин",
-    id: "5",
+    id: 5,
     img: "image/Service-portfolio-card1.jpg",
   },
   {
     company: "Fielman",
     category: "Інтернет магазин",
-    id: "6",
+    id: 6,
     img: "image/Service-portfolio-card1.jpg",
   },
 ];

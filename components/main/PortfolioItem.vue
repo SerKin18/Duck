@@ -1,52 +1,100 @@
 <template>
-  <div class="portfolio-item">
-    <img
-      class="portfolio-item__img"
-      v-bind:src="item.img"
-      alt="portfolio-card"
-    />
-    <i></i>
-    <div class="portfolio-item__hide-logo" v-bind:style="colored">
-      <img src="image/portfolio-card-wrapper.jpg" alt="portfolio-logo" />
-    </div>
-    <div class="portfolio-item__footer">
-      <div class="portfolio-item__text">
-        <div class="portfolio-item__subtitle">{{ item.category }}</div>
-        <div class="portfolio-item__title">{{ item.company }}</div>
+  <MatchMedia v-slot="{ mobile }">
+    <div v-if="mobile" class="portfolio-item">
+      <img
+        class="portfolio-item__img"
+        v-bind:src="item.img"
+        alt="portfolio-card"
+      />
+      <i></i>
+      <div class="portfolio-item__hide-logo" v-bind:style="colored">
+        <img src="image/portfolio-card-wrapper.jpg" alt="portfolio-logo" />
       </div>
-      <div class="portfolio-item__link">
-        <a @click.prevent href="#">Дивитися кейс</a><span></span>
+      <div class="portfolio-item__footer">
+        <div class="portfolio-item__text">
+          <div class="portfolio-item__subtitle">{{ item.category }}</div>
+          <div class="portfolio-item__title">{{ item.company }}</div>
+        </div>
+        <div class="portfolio-item__link">
+          <a @click.prevent href="#">Дивитися кейс</a><span></span>
+        </div>
       </div>
     </div>
-  </div>
+    <div v-else class="portfolio-item">
+      <img
+        class="portfolio-item__img"
+        v-bind:src="item.img"
+        alt="portfolio-card"
+      />
+      <i></i>
+      <div class="portfolio-item__hide-logo" v-bind:style="colored">
+        <img
+          src="image/portfolio-card-wrapper.jpg"
+          v-show="id !== 6"
+          alt="portfolio-logo"
+        />
+      </div>
+      <div v-show="id !== 6" class="portfolio-item__footer">
+        <div class="portfolio-item__text">
+          <div class="portfolio-item__subtitle">{{ item.category }}</div>
+          <div class="portfolio-item__title">{{ item.company }}</div>
+        </div>
+        <div class="portfolio-item__link">
+          <a @click.prevent href="#">Дивитися кейс</a><span></span>
+        </div>
+      </div>
+      <div v-show="id === 6" class="portfolio-item__hide-logo">
+        <div class="portfolio-item__hide-logo_circle">
+          <div class="portfolio-item__link">
+            <a @click.prevent href="#">Дивитися кейс</a><span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </MatchMedia>
 </template>
 <script>
+import { MatchMedia } from "vue-component-media-queries";
 export default {
+  components: { MatchMedia },
+
   name: "portfolio-item",
   props: {
     item: {
       type: Object,
       required: true,
     },
+    id: {
+      type: Number,
+    },
   },
+  inject: ["mediaQueries"],
   computed: {
     colored() {
-      return this.item.id % 2 == 0
+      return this.id % 2 === 0
         ? "background: rgba(18, 18, 18, 0.9)"
         : "background: rgba(32, 63, 106, 0.9)";
-    },
-    fontImage() {
-      return this.item.img;
     },
   },
 };
 </script>
 <style scoped>
+.portfolio-item__hide-logo_circle {
+  height: 300px;
+  width: 300px;
+  background-color: rgba(234, 90, 37, 1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-item__hide-logo_circle .portfolio-item__link {
+  padding-top: 0;
+}
 .portfolio-item {
   width: 30vw;
   min-width: 370px;
   height: 50vh;
-  min-height: 290px;
   position: relative;
   flex: 1 0 33.333%;
   z-index: 3;
@@ -211,6 +259,7 @@ export default {
   }
 
   .portfolio-item:hover {
+    scale: 1;
     .portfolio-item__text > * {
       color: rgba(234, 90, 37, 1);
     }
